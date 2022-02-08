@@ -19,7 +19,7 @@ export default function Home() {
           </h1>
 
           <p className={styles.description}>
-            This site isn't ready, but eventually it will be. Hang in there!{" "}
+            This site isn&apos;t ready, but eventually it will be. Hang in there!{" "}
             {/* <code className={styles.code}>pages/index.js</code> */}
           </p>
 
