@@ -15,7 +15,7 @@ export default function Home() {
 
         <main className={styles.main}>
           <h1 className={styles.title}>
-            It's a' me, <a href="">bananabrann!</a>
+            It&apos;s a&apos; me, <a href="">bananabrann!</a>
           </h1>
 
           <p className={styles.description}>
