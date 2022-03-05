@@ -1,14 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
 @import "./globals.colors.scss";
 
+/*
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background-color: $foreground;
-  color: $background;
+  background-color: $background;
+  color: $foreground;
 }
 
 h1,
@@ -28,3 +32,4 @@ a {
 * {
   box-sizing: border-box;
 }
+*/

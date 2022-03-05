@@ -1,9 +1,20 @@
 import Head from "next/head";
+import { useState } from "react";
 import styles from "./layout.module.scss";
 
-export const siteTitle = "bananabrann";
+export const defaultSiteTitle = "bananabrann - web development and software engineering";
 
-export default function Layout({ children, home }) {
+export default function Layout({
+  children,
+  title,
+  home,
+}: {
+  children: React.ReactNode;
+  title?: string;
+  home?: boolean;
+}) {
+  const [siteTitle, setSiteTitle] = useState<string>(title ?? defaultSiteTitle);
+
   return (
     <div className={styles.container}>
       <Head>
