@@ -1,6 +1,4 @@
-import Head from "next/head";
-import Layout from "../components/layout";
-import styles from "../styles/Home.module.scss";
+import Layout from "../components/Layout/Layout";
 
 /*
   NOTE 
@@ -13,9 +11,7 @@ import styles from "../styles/Home.module.scss";
 export default function Home() {
   return (
     <Layout home={true}>
-      <div className={styles.container}>
-
-      </div>
+      <h1>Hello!</h1>
     </Layout>
   );
 }
