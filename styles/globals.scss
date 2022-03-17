@@ -1,22 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
+
 @import "./globals.colors.scss";
 
 body {
-  // background-color: white;
-}
-
-/*
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background-color: $background;
-  color: $foreground;
+  background-color: $gainsborowhite;
 }
 
 h1,
@@ -25,15 +14,11 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Patrick Hand";
+  font-family: hoss-round, sans-serif;
+  font-style: normal;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+p {
+  font-family: quasimoda, sans-serif;
+  font-style: normal;
 }
-
-* {
-  box-sizing: border-box;
-}
-*/

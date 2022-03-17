@@ -21,6 +21,7 @@ export default function Layout({
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <title>{siteTitle}</title>
+        <link rel="stylesheet" href="https://use.typekit.net/zzs2pgb.css" />
         <meta name="description" content="Website of bananabrann." />
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
