@@ -1,5 +1,4 @@
-import BananamanStanding from "../components/bananaman/bananaman-standing";
-import Layout from "../components/layout";
+import Layout from "../components/Layout/Layout";
 
 /*
   NOTE 
@@ -13,7 +12,6 @@ export default function Home() {
   return (
     <Layout home={true}>
       <h1>Hello!</h1>
-      <BananamanStanding />
     </Layout>
   );
 }

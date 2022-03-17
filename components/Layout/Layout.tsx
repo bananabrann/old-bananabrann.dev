@@ -1,6 +1,6 @@
 import Head from "next/head";
 import React, { useState } from "react";
-import styles from "./layout.module.scss";
+import styles from "./Layout.module.scss";
 
 export const defaultSiteTitle =
   "bananabrann - web development and software engineering";
