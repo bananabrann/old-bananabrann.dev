@@ -1,9 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
+
 @import "./globals.colors.scss";
 
 body {
-  // background-color: white;
+  background-color: $gainsborowhite;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: hoss-round, sans-serif;
+  font-style: normal;
+}
+
+p {
+  font-family: quasimoda, sans-serif;
+  font-style: normal;
 }
