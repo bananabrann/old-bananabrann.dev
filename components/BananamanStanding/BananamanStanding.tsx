@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import Image from "next/image";
-import BananamanStandingPng from "../../res/png/bananaman/bananaman-standing.png";
+import BananamanStandingPng from "../../res/png/bananaman-standing.png";
 
 export default function BananamanStanding({
   priority = false,
