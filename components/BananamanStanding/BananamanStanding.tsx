@@ -11,6 +11,7 @@ export default function BananamanStanding({
     <Fragment>
       <Image
         src={BananamanStandingPng}
+        alt=""
         layout="intrinsic"
         quality={10}
         priority={priority}

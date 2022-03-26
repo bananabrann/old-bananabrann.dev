@@ -1,5 +1,6 @@
 import Layout from "../components/Layout/Layout";
 import BananamanStanding from "../components/BananamanStanding/BananamanStanding";
+import BobWhatWouldYouSay from "../components/BobWhatWouldYouSay/BobWhatWouldYouSay";
 
 /*
   NOTE 
@@ -12,12 +13,12 @@ import BananamanStanding from "../components/BananamanStanding/BananamanStanding
 export default function Home() {
   return (
     <Layout home={true}>
-      <div className="hero flex-col h-20">
-        <div className="lg:flex justify items-center">
+      <div className="hero flex-col">
+        <div className="md:flex justify items-center">
           <BananamanStanding priority={true} />
 
           <div className="flex-col px-10">
-            <h1 className="text-7xl font-bold">Succeed with your software</h1>
+            <h1 className="text-7xl font-bold ">Succeed with your software</h1>
             <br />
             <p className="text-3xl">
               Whether it's a new IT system from scratch, or a touch-up on your
@@ -29,6 +30,8 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      <BobWhatWouldYouSay />
     </Layout>
   );
 }
