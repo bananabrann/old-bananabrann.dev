@@ -1,0 +1,19 @@
+$height: 560px;
+
+.BobWhatWouldYouSay {
+  display: flex;
+  justify-content: center;
+
+  .foreground {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    width: 100%;
+  }
+
+  .bobimagewrapper {
+    z-index: 1;
+    position: absolute;
+  }
+}
