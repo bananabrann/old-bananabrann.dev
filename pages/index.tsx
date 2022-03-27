@@ -80,6 +80,37 @@ export default function Home() {
           </p>
         </div>
       </ContentBlockOutline>
+
+      <br />
+
+      <ContentBlockOutline title="Consultations">
+        <div>
+          <h3>Email consultation (free!)</h3>
+          <p>
+            Ask me anything via email. I'm happy to read and respond to
+            questions you might have about any of my services or your own
+            problems. And like your uncle at Thanksgiving, I'm happy to give you
+            my advice.
+          </p>
+        </div>
+
+        <div>
+          <h3>Detailed consultation</h3>
+          <p>
+            I'll take time to learn your specific problem and offer situational
+            advice and technical recommendations to guide you and your team to
+            success for as long or little as you want.
+          </p>
+        </div>
+
+        <div>
+          <h3>Debugging assistance</h3>
+          <p>
+            Are you a fellow developer (or student!) needing some help? I might
+            be able to help with that too, but reach out to me prior.
+          </p>
+        </div>
+      </ContentBlockOutline>
     </Layout>
   );
 }
