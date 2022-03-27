@@ -15,11 +15,16 @@
   > * {
     flex: 1 0 48%;
     padding: 8px;
-    max-width: 48%; // Stops last div from expanding all the way across.
+
+    &:last-child {
+      max-width: 48%; // Stops last div from expanding all the way across.
+    }
 
     @media screen and (max-width: 640px) {
       flex: 1 0 90%;
+      &:last-child {
+        max-width: initial; // Go back to being full-width.
+      }
     }
-
   }
 }
