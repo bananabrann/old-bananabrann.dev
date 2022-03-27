@@ -1,3 +1,9 @@
+/*
+  NOTE -- Breakpoint size comes from Tailwind. See default breakpoints for more
+  information.
+  https://tailwindcss.com/docs/responsive-design
+*/
+$breakpoint-md: 768px;
 $height: 500px;
 
 .BobWhatWouldYouSay {
@@ -16,5 +22,15 @@ $height: 500px;
   .bobimagewrapper {
     z-index: 1;
     position: absolute;
+  }
+
+  .foregroundtext {
+    font-family: hoss-round, sans-serif;
+    font-style: normal;
+    font-size: 2.75rem;
+
+    @media screen and (max-width: $breakpoint-md) {
+      font-size: 5.5vw;
+    }
   }
 }

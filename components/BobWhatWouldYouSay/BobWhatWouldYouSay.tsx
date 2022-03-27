@@ -11,8 +11,8 @@ export default function BobWhatWouldYouSay() {
         */}
         {/* prettier-ignore */}
         <div className={`absolute z-50 text-4xl font-semibold -mt-20 ml-[36vw] md:text-5xl md:ml-[36vw] lg:ml-[26vw] `}>
-          <h3>{`"What would you say ...`}</h3>
-          <h3 className="ml-[25%]">{`you do here?"`}</h3>
+          <div className={`${styles.foregroundtext}`}>{`"What would you say ...`}</div>
+          <div className={`${styles.foregroundtext} ml-[25%]`}>{`you do here?"`}</div>
         </div>
 
         <div className={styles.bobimagewrapper}>
