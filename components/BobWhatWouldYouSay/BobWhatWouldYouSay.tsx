@@ -4,7 +4,7 @@ import styles from "./BobWhatWouldYouSay.module.scss";
 
 export default function BobWhatWouldYouSay() {
   return (
-    <div className={`${styles.BobWhatWouldYouSay} mt-52`}>
+    <div className={`${styles.BobWhatWouldYouSay}`}>
       <div className={styles.foreground}>
         {/*
           TODO -- Could use some touch-up for mobile devices.

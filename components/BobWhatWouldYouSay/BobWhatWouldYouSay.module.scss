@@ -1,8 +1,9 @@
-$height: 560px;
+$height: 500px;
 
 .BobWhatWouldYouSay {
   display: flex;
   justify-content: center;
+  height: $height;
 
   .foreground {
     display: flex;
