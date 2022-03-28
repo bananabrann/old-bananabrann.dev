@@ -3,6 +3,7 @@ import BananamanSuit from "../components/BananamanSuit/BananamanSuit";
 import BananamanStanding from "../components/BananamanStanding/BananamanStanding";
 import BobWhatWouldYouSay from "../components/BobWhatWouldYouSay/BobWhatWouldYouSay";
 import ContentBlockOutline from "../components/ContentBlockOutline/ContentBlockOutline";
+import Footer from "../components/Footer/Footer";
 
 /*
   NOTE 
@@ -113,7 +114,7 @@ export default function Home() {
         </div>
       </ContentBlockOutline>
 
-      <div className="mt-6 flex px-10 flex-col-reverse md:flex-row max-w-5xl mx-auto">
+      <div className="mt-6 flex px-10 flex-col-reverse md:flex-row max-w-5xl mx-auto mb-10">
         <div>
           <h2>Looking for more?</h2>
           <p>
@@ -127,6 +128,8 @@ export default function Home() {
           className="mt-0 w-4/6 md:-mt-52 mx-auto"
         />
       </div>
+
+      <Footer />
     </Layout>
   );
 }
