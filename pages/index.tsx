@@ -1,4 +1,5 @@
 import Layout from "../components/Layout/Layout";
+import BananamanSuit from "../components/BananamanSuit/BananamanSuit";
 import BananamanStanding from "../components/BananamanStanding/BananamanStanding";
 import BobWhatWouldYouSay from "../components/BobWhatWouldYouSay/BobWhatWouldYouSay";
 import ContentBlockOutline from "../components/ContentBlockOutline/ContentBlockOutline";
@@ -111,6 +112,21 @@ export default function Home() {
           </p>
         </div>
       </ContentBlockOutline>
+
+      <div className="mt-6 flex px-10 flex-col-reverse md:flex-row max-w-5xl mx-auto">
+        <div>
+          <h2>Looking for more?</h2>
+          <p>
+            {`For technical information on my skills and experience, especially
+            for enterprise (including 1099-E contracting), visit my skills page.`}
+          </p>
+        </div>
+
+        <BananamanSuit
+          priority={false}
+          className="mt-0 w-4/6 md:-mt-52 mx-auto"
+        />
+      </div>
     </Layout>
   );
 }
