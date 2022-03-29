@@ -6,17 +6,13 @@ export default function Footer() {
       <div className=" justify-around w-full max-w-screen-lg flex gap-6 flex-col-reverse sm:flex-row">
         <ul>
           {/* prettier-ignore */}
-          <li><Link href="/">{`Home`}</Link></li>
+          <li><Link href="/">{`Homepage`}</Link></li>
           {/* prettier-ignore */}
-          <li><Link href="#">{`Blog`}</Link></li>
+          <li><Link href="/#web-services">{`Freelance service offerings`}</Link></li>
           {/* prettier-ignore */}
-          <li><Link href="#">{`Skills`}</Link></li>
+          <li><Link href="#">{`Skills & expertise`}</Link></li>
           {/* prettier-ignore */}
-          <li><Link href="#">{`Works & Projects`}</Link></li>
-          {/* prettier-ignore */}
-          <li><Link href="#">{`Cookies policy`}</Link></li>
-          {/* prettier-ignore */}
-          <li><Link href="#">{`Copyright and citations`}</Link></li>
+          <li><Link href="#">{`Works & projects`}</Link></li>
         </ul>
 
         <div className="text-xl text-center">
@@ -25,8 +21,9 @@ export default function Footer() {
           <p>Fairfax, Virginia, United States of America</p>
         </div>
       </div>
-      <div>
-        <p className="text-sm mx-auto mt-5">"Banana Man" assets CC 2.0. Website MIT license.</p>
+      <div className="text-sm mx-auto mt-5 text-center">
+        <p>"Banana Man" art assets CC 2.0, 2022</p>
+        <p>Website MIT license.</p>
       </div>
     </div>
   );

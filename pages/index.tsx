@@ -4,6 +4,7 @@ import BananamanStanding from "../components/BananamanStanding/BananamanStanding
 import BobWhatWouldYouSay from "../components/BobWhatWouldYouSay/BobWhatWouldYouSay";
 import ContentBlockOutline from "../components/ContentBlockOutline/ContentBlockOutline";
 import Footer from "../components/Footer/Footer";
+import Link from "next/link";
 
 /*
   NOTE 
@@ -36,7 +37,7 @@ export default function Home() {
 
       <BobWhatWouldYouSay />
 
-      <ContentBlockOutline title="Web Services">
+      <ContentBlockOutline id="web-services" title="Web Services">
         <div>
           <h3>{`Create a new website`}</h3>
           <p>

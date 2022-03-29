@@ -4,12 +4,14 @@ import styles from "./ContentBlockOutline.module.scss";
 export default function ContentBlockOutline({
   title,
   children,
+  id,
 }: {
   title: string;
   children: React.ReactNode;
+  id?: string;
 }) {
   return(
-    <div className="ContentBlockOutline flex flex-col items-center">
+    <div id={id} className="ContentBlockOutline flex flex-col items-center">
       <h2 className="w-full text-center -mb-6" >{title}</h2>
       <div className={`${styles.childrencontainer}`}>
         {children}
