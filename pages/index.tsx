@@ -120,7 +120,10 @@ export default function Home() {
           <h2>Looking for more?</h2>
           <p>
             {`For technical information on my skills and experience, especially
-            for enterprise (including 1099-E contracting), visit my skills page.`}
+            for enterprise (including 1099-E contracting),`}{" "}
+            <span className="text-pink-500">
+              <Link href="/skills">visit my skills page.</Link>
+            </span>
           </p>
         </div>
 

@@ -6,13 +6,13 @@ export default function Footer() {
       <div className=" justify-around w-full max-w-screen-lg flex gap-6 flex-col-reverse sm:flex-row">
         <ul>
           {/* prettier-ignore */}
-          <li><Link href="/">{`Homepage`}</Link></li>
+          <li className="hover:text-pink-500 transition"><Link href="/">{`Homepage`}</Link></li>
           {/* prettier-ignore */}
-          <li><Link href="/#web-services">{`Freelance service offerings`}</Link></li>
+          <li className="hover:text-pink-500 transition"><Link href="/#web-services">{`Freelance service offerings`}</Link></li>
           {/* prettier-ignore */}
-          <li><Link href="#">{`Skills & expertise`}</Link></li>
+          <li className="hover:text-pink-500 transition"><Link href="#">{`Skills & expertise`}</Link></li>
           {/* prettier-ignore */}
-          <li><Link href="#">{`Works & projects`}</Link></li>
+          <li className="hover:text-pink-500 transition"><Link href="#">{`Works & projects`}</Link></li>
         </ul>
 
         <div className="text-xl text-center">
