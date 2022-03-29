@@ -5,6 +5,7 @@ import BobWhatWouldYouSay from "../components/BobWhatWouldYouSay/BobWhatWouldYou
 import ContentBlockOutline from "../components/ContentBlockOutline/ContentBlockOutline";
 import Footer from "../components/Footer/Footer";
 import Link from "next/link";
+import Navbar from "../components/Navbar/Navbar";
 
 /*
   NOTE 
@@ -17,6 +18,8 @@ import Link from "next/link";
 export default function Home() {
   return (
     <Layout home={true}>
+      <Navbar />
+
       <div className="hero flex-col">
         <div className="md:flex justify items-center">
           <BananamanStanding priority={true} />
