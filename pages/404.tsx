@@ -10,7 +10,7 @@ export default function Custom404() {
     <Layout title="bananabrann - 404">
       <div className="p-7 text-left sm:text-center">
         <h3 className="font-normal">
-          Uh-oh... Something doesn't <span className="font-bold">peel</span>{" "}
+          {`Uh-oh... Something doesn't `}<span className="font-bold">peel</span>{" "}
           right.
         </h3>
         <p className="">

@@ -22,8 +22,8 @@ export default function Footer() {
         </div>
       </div>
       <div className="text-sm mx-auto mt-5 text-center">
-        <p>"Banana Man" art assets CC 2.0, 2022</p>
-        <p>Website MIT license.</p>
+        <p>{`"Banana Man" art assets CC 2.0, 2022`}</p>
+        <p>{`Website MIT license.`}</p>
       </div>
     </div>
   );
