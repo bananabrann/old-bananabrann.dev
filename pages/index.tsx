@@ -26,7 +26,7 @@ export default function Home() {
           <BananamanStanding priority={true} />
 
           <div className="flex-col px-10">
-            <h1 className="text-7xl font-bold ">Succeed with your software</h1>
+            <h1>Succeed with your software</h1>
             <br />
             <p className="text-3xl">
               {`Whether it's a new IT system from scratch, or a touch-up on your
