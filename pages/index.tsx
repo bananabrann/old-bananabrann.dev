@@ -6,6 +6,7 @@ import ContentBlockOutline from "../components/ContentBlockOutline/ContentBlockO
 import Footer from "../components/Footer/Footer";
 import Link from "next/link";
 import Navbar from "../components/Navbar/Navbar";
+import NotReadyYetBanner from "../components/NotReadyYetBanner/NotReadyYetBanner";
 
 /*
   NOTE 
@@ -135,6 +136,8 @@ export default function Home() {
           className="mt-0 w-4/6 md:-mt-52 mx-auto"
         />
       </div>
+
+      <NotReadyYetBanner />
 
       <Footer />
     </Layout>
