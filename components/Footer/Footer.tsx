@@ -12,7 +12,7 @@ export default function Footer() {
           {/* prettier-ignore */}
           <li className="hover:text-pink-500 transition"><Link href="/skills">{`Skills & expertise`}</Link></li>
           {/* prettier-ignore */}
-          <li className="hover:text-pink-500 transition"><Link href="#">{`Works & projects`}</Link></li>
+          <li className="hover:text-pink-500 transition"><Link href="/works">{`Works & projects`}</Link></li>
         </ul>
 
         <div className="text-xl text-center">

@@ -31,7 +31,7 @@ export default function Navbar({}: {}) {
         <span className={`${router.pathname === "/works" ? `text-stone-400` : ""}
                         hover:text-pink-500 transition`}
         >
-          <Link href="/">{`Works & Projects`}</Link>
+          <Link href="/works">{`Works & Projects`}</Link>
         </span>
       </div>
     </div>
