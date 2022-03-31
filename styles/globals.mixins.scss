@@ -8,8 +8,8 @@ $trans-speed: 350ms;
   transition: all $trans-speed;
 
   &:hover {
-    -webkit-box-shadow: 5px 5px 10px 2px $canaryyellow;
-    box-shadow: 5px 5px 10px 2px $canaryyellow;
+    -webkit-box-shadow: 5px 5px 10px 2px $coolblack;
+    box-shadow: 5px 5px 10px 2px $coolblack;
     transition: all $trans-speed;
   }
 }
