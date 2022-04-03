@@ -1,5 +1,0 @@
-JavaScript
-TypeScript
-Node
-Power Apps
-Apple

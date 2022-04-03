@@ -1,0 +1,48 @@
+# List of technologies to be displayed on the 'skills' page.
+# Items are sorted alphabetically on the server's initial load.
+
+---
+experienced:
+- Express.js
+- Discord.js
+- DNS
+- Power Apps
+- Power Automate
+- Azure App Services
+- Virtual Machines
+- Linux
+- Ubuntu
+- Mac
+- TypeScript
+- Node
+- GitHub Actions
+- DevOps
+- DevSecOps
+- Bash
+- ZSH
+- Vercel
+- Azure Pipelines
+- Azure Repos
+- GitHub
+- Tailwind
+- Next.js
+proficient:
+- QlikSense for Desktop
+- Django
+- Arduino
+- Microprocessors (like Ikos)
+- Docker
+- Bicep
+- Bootstrap
+exposure:
+- Java
+- Electron
+- Lua
+- C++ (for Arduino)
+- C#
+- Unity
+- Godot
+- Go
+- SMTP servers
+- Ruby
+- Ruby on Rails
