@@ -7,7 +7,7 @@ import ContentBox, {
 import Footer from "../components/Footer/Footer";
 import Layout from "../components/Layout/Layout";
 import Navbar from "../components/Navbar/Navbar";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 type TechList = {
   experienced: Array<string>;
@@ -75,31 +75,77 @@ export async function getStaticProps() {
 }
 
 export default function Skills({ techList }: { techList: TechList }) {
-  const [isSkillsListExpanded, setIsSkillsListExpanded] =
-    useState<boolean>(false);
+  // const [isSkillsListExpanded, setIsSkillsListExpanded] =
+  //   useState<boolean>(false);
+  const [skills, setSkills] = useState<TechList>(techList);
 
-  // prettier-ignore
-  let skillsListContent = (
-    <div className="px-8 -indent-4 flex justify-evenly mx-auto flex-col gap-8 sm:flex-row ">
-      <div className="w-72" >
-        <h4 className="mb-2 text-center">Experienced</h4>
-        <ul>
-          {techList.experienced.map((item: string) => <li className="">• {item}</li>)}
-        </ul>
+  function handleSkillsListItemBullets({
+    isChecked,
+    forceCheck, // Not implemented
+  }: {
+    isChecked: boolean;
+    forceCheck?: boolean;
+  }) {
+    if (!isChecked) {
+      setSkills({
+        experienced: techList.experienced.map((x) => "• " + x),
+        proficient: techList.proficient.map((x) => "• " + x),
+        exposure: techList.exposure.map((x) => "• " + x),
+      });
+    } else {
+      setSkills({
+        ...techList,
+      });
+    }
+  }
+
+  useEffect(() => {
+    handleSkillsListItemBullets({ isChecked: false });
+  }, []);
+
+  let skillsListHtmlContent = (
+    <div className="px-8">
+      <div className="mb-8">
+        <input
+          type="checkbox"
+          id="skills-list-hide-item-bullets"
+          onChange={(e: React.FormEvent<HTMLInputElement>) => {
+            const isChecked = e.currentTarget.checked;
+            handleSkillsListItemBullets({ isChecked });
+          }}
+        />
+        <label htmlFor="skills-list-hide-item-bullets" className="pl-2">
+          Don't show bullets
+        </label>
       </div>
 
-      <div>
-        <h4 className="mb-2 text-center">Proficient</h4>
-        <ul>
-          {techList.proficient.map((item: string) => <li>• {item}</li>)}
-        </ul>
-      </div>
+      <div className="-indent-4 flex justify-between mx-auto flex-col gap-8 sm:flex-row ">
+        <div>
+          <h4 className="mb-2 text-center">Experienced</h4>
+          <ul>
+            {skills.experienced.map((item: string) => {
+              return <li className="">{item}</li>;
+            })}
+          </ul>
+        </div>
 
-      <div>
-        <h4 className="mb-2 text-center">Exposure</h4>
-        <ul>
-          {techList.exposure.map(item => <li>• {item}</li>)}
-        </ul>
+        <div>
+          <h4 className="mb-2 text-center">Proficient</h4>
+          <ul>
+            {skills.proficient.map((item: string) => {
+              return <li>{item}</li>;
+            })}
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="mb-2 text-center">Exposure</h4>
+          <ul>
+            {skills.exposure.map((item: string) => {
+              return <li>{item}</li>;
+            })}
+          </ul>
+        </div>
       </div>
     </div>
   );
@@ -127,7 +173,7 @@ export default function Skills({ techList }: { techList: TechList }) {
         </div>
       </div>
 
-      {skillsListContent}
+      {skillsListHtmlContent}
 
       <Footer />
     </Layout>
