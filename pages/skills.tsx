@@ -75,9 +75,13 @@ export async function getStaticProps() {
 }
 
 export default function Skills({ techList }: { techList: TechList }) {
-  // const [isSkillsListExpanded, setIsSkillsListExpanded] =
-  //   useState<boolean>(false);
+  // prettier-ignore
+  const [isSkillsListExpanded, setIsSkillsListExpanded] = useState<boolean>(false);
   const [skills, setSkills] = useState<TechList>(techList);
+
+  function handleToggleSkillsListExpanded() {
+    setIsSkillsListExpanded(!isSkillsListExpanded);
+  }
 
   function handleSkillsListItemBullets({
     isChecked,
@@ -104,8 +108,8 @@ export default function Skills({ techList }: { techList: TechList }) {
   }, []);
 
   let skillsListHtmlContent = (
-    <div className="px-8">
-      <div className="mb-8">
+    <div className="px-8 m-5">
+      <div className="mb-7">
         <input
           type="checkbox"
           id="skills-list-hide-item-bullets"
@@ -114,8 +118,11 @@ export default function Skills({ techList }: { techList: TechList }) {
             handleSkillsListItemBullets({ isChecked });
           }}
         />
-        <label htmlFor="skills-list-hide-item-bullets" className="pl-2">
-          Don't show bullets
+        <label
+          htmlFor="skills-list-hide-item-bullets"
+          className="pl-2 cursor-pointer"
+        >
+          Hide bullets
         </label>
       </div>
 
@@ -124,7 +131,7 @@ export default function Skills({ techList }: { techList: TechList }) {
           <h4 className="mb-2 text-center">Experienced</h4>
           <ul>
             {skills.experienced.map((item: string) => {
-              return <li className="">{item}</li>;
+              return <li key={`full-skills-list-item-${item}`}>{item}</li>;
             })}
           </ul>
         </div>
@@ -133,7 +140,7 @@ export default function Skills({ techList }: { techList: TechList }) {
           <h4 className="mb-2 text-center">Proficient</h4>
           <ul>
             {skills.proficient.map((item: string) => {
-              return <li>{item}</li>;
+              return <li key={`full-skills-list-${item}`}>{item}</li>;
             })}
           </ul>
         </div>
@@ -142,11 +149,17 @@ export default function Skills({ techList }: { techList: TechList }) {
           <h4 className="mb-2 text-center">Exposure</h4>
           <ul>
             {skills.exposure.map((item: string) => {
-              return <li>{item}</li>;
+              return <li key={`full-skills-list-${item}`}>{item}</li>;
             })}
           </ul>
         </div>
       </div>
+      <p
+        onClick={() => handleToggleSkillsListExpanded()}
+        className="text-pink-500 font-bold cursor-pointer text-center"
+      >
+        Collapse skills list.
+      </p>
     </div>
   );
 
@@ -158,8 +171,8 @@ export default function Skills({ techList }: { techList: TechList }) {
         <div>
           <h1 className="">Skills</h1>
           <p>
-            I've done a lot of things in my career. I was a U.S. Marine,
-            professional tuba player, and now most recently a software developer
+            {`I've done a lot of things in my career. I was a U.S. Marine,
+            professional tuba player, and now most recently a software developer`}
           </p>
         </div>
 
@@ -173,7 +186,19 @@ export default function Skills({ techList }: { techList: TechList }) {
         </div>
       </div>
 
-      {skillsListHtmlContent}
+      <div>
+        <p className=" text-center">
+          For an exhaustive list of languages, tools, and buzzwords,{" "}
+          <span
+            onClick={() => handleToggleSkillsListExpanded()}
+            className="text-pink-500 font-bold cursor-pointer"
+          >
+            click here.
+          </span>
+        </p>
+
+        {isSkillsListExpanded ? skillsListHtmlContent : ""}
+      </div>
 
       <Footer />
     </Layout>
