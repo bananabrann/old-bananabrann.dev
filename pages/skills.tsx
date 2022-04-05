@@ -15,14 +15,20 @@ type TechList = {
 
 export async function getStaticProps() {
   /**
-   * Construct what the path looks like.
+   * NOTE -- The "skills (or 'tech') list" is an exhaustive list of skills and
+   * technologies that I am familiar with. It is used on the 'skills' page of
+   * bananabrann.dev.
+   * To ease the burden of updating my skills displayed on my website, I have
+   * my website read the and alphabetize the list from a yaml file.
+   *
+   * Construct the path to the skills list.
    */
   const techListFileName = "tech.yaml";
   const techListFileFullPath = path.resolve("./public", techListFileName);
 
   try {
     /**
-     * Synchronously retrieve and tech list.
+     * Synchronously retrieve the skills list.
      */
     let techListRaw: TechList = yaml.load(
       fs.readFileSync(path.resolve("./public", techListFileFullPath), "utf-8")
@@ -38,7 +44,7 @@ export async function getStaticProps() {
     };
 
     /**
-     * Return the results as props.
+     * Send the results to the component.
      */
     return {
       props: {
@@ -47,17 +53,14 @@ export async function getStaticProps() {
     };
   } catch (error: any) {
     /**
-     * Handle errors that may occur from reading the tech list.
+     * Handle errors that may occur from reading the skills list file.
+     *
+     * NOTE -- For a list of common system errors and their codes, see
+     * https://nodejs.org/api/errors.html#common-system-errors
      *
      * TODO -- Implement YAMLException from js-yaml.
      */
-
     console.error(error?.message ?? error);
-
-    /**
-     * NOTE -- For a list of common system errors and their codes, see
-     * https://nodejs.org/api/errors.html#common-system-errors
-     */
     const errorMessage = `[ ${error?.code} ] Uh-oh, this doesn't peel right.`;
 
     return {
@@ -77,17 +80,24 @@ export default function Skills({ techList }: { techList: TechList }) {
   const [isSkillsListExpanded, setIsSkillsListExpanded] = useState<boolean>(false);
   const [skills, setSkills] = useState<TechList>(techList);
 
-  function handleToggleSkillsListExpanded() {
+  /**
+   * Handles the toggling of the exhaustive skills/tech list.
+   */
+  function handleToggleSkillsListExpanded(): void {
     setIsSkillsListExpanded(!isSkillsListExpanded);
   }
 
+  /**
+   * Adds and removes bullet points on items (a string) in the skills list,
+   * based on the boolean that it is given.
+   */
   function handleSkillsListItemBullets({
     isChecked,
     forceCheck, // Not implemented
   }: {
     isChecked: boolean;
     forceCheck?: boolean;
-  }) {
+  }): void {
     if (!isChecked) {
       setSkills({
         experienced: techList.experienced.map((x) => "• " + x),

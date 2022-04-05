@@ -38,7 +38,9 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     }
 
     /**
-     * Unknown error occured.
+     * Unknown error occurred.
+     * 
+     * TODO -- Account for more errors.
      */
     console.error(error);
     res.status(500).send("Internal server error.");

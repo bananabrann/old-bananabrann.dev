@@ -5,7 +5,10 @@ import { useState } from "react";
 export default function NotReadyYetBanner() {
   const [isDisplayed, setIsDisplayed] = useState<boolean>(true);
 
-  function handleDismissBanner() {
+  /**
+   * Handle the dismissal of the banner.
+   */
+  function handleDismissBanner(): void {
     setIsDisplayed(false);
   }
 
@@ -27,7 +30,7 @@ export default function NotReadyYetBanner() {
               </span>
               <p className="ml-3 font-medium text-white truncate">
                 <span className="md:hidden">
-                  This site is brand new, and not done yet.
+                  This site is new!
                 </span>
                 <span className="hidden md:inline">
                   This site is still being built. So, some things might not be
