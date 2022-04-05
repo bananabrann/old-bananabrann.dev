@@ -1,9 +1,7 @@
 import fs from "fs";
 import path from "path";
 import yaml from "js-yaml";
-import ContentBox, {
-  ContentBoxSymbol,
-} from "../components/ContentBox/ContentBox";
+import InfoBox, { InfoBoxSymbol } from "../components/InfoBox/InfoBox";
 import Footer from "../components/Footer/Footer";
 import Layout from "../components/Layout/Layout";
 import Navbar from "../components/Navbar/Navbar";
@@ -171,18 +169,17 @@ export default function Skills({ techList }: { techList: TechList }) {
         <div>
           <h1 className="">Skills</h1>
           <p>
-            {`I've done a lot of things in my career. I was a U.S. Marine,
-            professional tuba player, and now most recently a software developer`}
+            {`I've worked with a wide variety of tech for both personal and professional projects, but my history has a clear emphasis in web development, especially with React and TypeScript.`}
           </p>
         </div>
 
         <div>
-          <ContentBox
+          <InfoBox
             title={`"OMG! Where's your resume?!"`}
-            symbol={ContentBoxSymbol.InformationSign}
+            symbol={InfoBoxSymbol.InformationSign}
           >
             <p>{`I don't display a resume to the public due to privacy concerns. If you want one, reach out to me at hi@bananabrann.dev.`}</p>
-          </ContentBox>
+          </InfoBox>
         </div>
       </div>
 
