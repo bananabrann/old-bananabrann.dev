@@ -93,10 +93,8 @@ export default function Skills({ techList }: { techList: TechList }) {
    */
   function handleSkillsListItemBullets({
     isChecked,
-    forceCheck, // Not implemented
   }: {
     isChecked: boolean;
-    forceCheck?: boolean;
   }): void {
     if (!isChecked) {
       setSkills({
