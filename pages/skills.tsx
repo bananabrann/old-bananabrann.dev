@@ -1,11 +1,12 @@
 import fs from "fs";
 import path from "path";
 import yaml from "js-yaml";
-import InfoBox, { InfoBoxSymbol } from "../components/InfoBox/InfoBox";
 import Footer from "../components/Footer/Footer";
 import Layout from "../components/Layout/Layout";
+import Link from "next/link";
 import Navbar from "../components/Navbar/Navbar";
 import React, { useEffect, useState } from "react";
+import InfoBadge, { InfoBadgeSymbol } from "../components/InfoBadge/InfoBadge";
 
 type TechList = {
   experienced: Array<string>;
@@ -173,23 +174,49 @@ export default function Skills({ techList }: { techList: TechList }) {
     <Layout title="bananabrann - skills">
       <Navbar />
 
-      <div className="flex gap-3 m-9">
-        <div>
-          <h1 className="">Skills</h1>
-          <p>
-            {`I've worked with a wide variety of tech for both personal and professional projects, but my history has a clear emphasis in web development, especially with React and TypeScript.`}
-          </p>
+      <section className="flex flex-col sm:flex-row justify-around sm:mx-auto">
+        <div className="px-4">
+          <h2 className="text-4xl text-center sm:text-left">{`Content`}</h2>
+
+          {/* TODO -- Work in progress. */}
+          <ul>
+            <li className="hover:text-pink-500 transition">
+              <Link href="#">{`I. Quick Look`}</Link>
+            </li>
+            <li className="hover:text-pink-500 transition">
+              <Link href="#">{`II. Design`}</Link>
+            </li>
+            <li className="hover:text-pink-500 transition">
+              <Link href="#">{`III. Develop`}</Link>
+            </li>
+            <li className="hover:text-pink-500 transition">
+              <Link href="#">{`IV. Deploy`}</Link>
+            </li>
+            <li className="hover:text-pink-500 transition">
+              <Link href="#">{`V. Exhaustive list of skills`}</Link>
+            </li>
+          </ul>
         </div>
 
-        <div>
-          <InfoBox
-            title={`"OMG! Where's your resume?!"`}
-            symbol={InfoBoxSymbol.InformationSign}
-          >
-            <p>{`I don't display a resume to the public due to privacy concerns. If you want one, reach out to me at hi@bananabrann.dev.`}</p>
-          </InfoBox>
+        <div className="px-4">
+          <h2 className="text-4xl text-center sm:text-left">{`Quick Look`}</h2>
+
+          <InfoBadge title="Most-used tech" symbol={InfoBadgeSymbol.BarChart}>
+            <p>{`TypeScript, React, Next`}</p>
+          </InfoBadge>
+          <InfoBadge title="Gov stuff" symbol={InfoBadgeSymbol.IdBadge}>
+            <p>{`Ask me how trustworthy I am`}</p>
+          </InfoBadge>
+          {/* prettier-ignore */}
+          <InfoBadge title="Certification" symbol={InfoBadgeSymbol.ClipboardWithCheck}>
+            <p>{`Microsoft AZ-204 Azure Developer Associate`}</p>
+          </InfoBadge>
+          {/* prettier-ignore */}
+          <InfoBadge title="Certification" symbol={InfoBadgeSymbol.ClipboardWithCheck}> 
+            <p>{`ITIL 4 Foundation in IT Service Management`}</p>
+          </InfoBadge>
         </div>
-      </div>
+      </section>
 
       <div>
         <p className=" text-center">
