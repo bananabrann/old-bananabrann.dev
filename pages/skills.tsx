@@ -189,6 +189,9 @@ export default function Skills({ techList }: { techList: TechList }) {
             <li className="hover:text-pink-500 transition">
               <Link href="#design">{`II. Design`}</Link>
             </li>
+            <li className="hover:text-pink-500 transition pl-8">
+              <Link href="#design-philosophy">{`a. My design philosophy`}</Link>
+            </li>
             <li className="hover:text-pink-500 transition">
               <Link href="#">{`III. Develop`}</Link>
             </li>
@@ -224,36 +227,77 @@ export default function Skills({ techList }: { techList: TechList }) {
       <br />
 
       {/* SECTION -- Design */}
-      <section id="design" className="flex mb-36 flex-col-reverse md:flex-row">
-        <div className="p-4 md:w-5/6">
-          <h2 className="mt-12 md:m-0">Design</h2>
-          <p className="py-2 ">{`When I fulfill a design role, my goal is to provide a clear, familiar, and consistent design that gives the most to the users.`}</p>
-          <p className="py-2 ">{`I make use of Adobe PhotoShop for creating and editing web assets, and Adobe XD (and sometimes Figma) for creating wireframes and design drafts.`}</p>
-          <p className="py-2 ">{`Already have a designer? No problem. I don't always have to be the designer. In fact, for most of my career I have not held a design role, instead building the designer's visions.`}</p>
+      <section id="design">
+        <div className="flex mb-4 flex-col-reverse md:flex-row md:mb-20">
+          <div className="p-4 md:w-5/6">
+            <h2 className="mt-12 md:m-0">Design</h2>
+            <p className="py-2 ">{`When I fulfill a design role, my goal is to provide a clear, familiar, and consistent design that gives the most to the users.`}</p>
+            <p className="py-2 ">{`I make use of Adobe PhotoShop for creating and editing web assets, and Adobe XD (and sometimes Figma) for creating wireframes and design drafts.`}</p>
+            <p className="py-2 ">{`Already have a designer? No problem. I don't always have to be the designer. In fact, for most of my career I have not held a design role, instead building the designer's visions.`}</p>
+          </div>
+
+          <div className="w-full relative">
+            <div className="relative z-50 bottom-0 md:-bottom-7 md:-left-16">
+              <Image
+                src={BananaManPaintingPng}
+                alt=""
+                title=""
+                quality={0}
+                priority={true}
+                width="100%"
+                height="100%"
+                layout="responsive"
+                objectFit="contain"
+              />
+            </div>
+            <div className="absolute top-0">
+              <Image
+                src={SnippetXdPng}
+                alt=""
+                title=""
+                quality={0}
+                priority={true}
+              />
+            </div>
+          </div>
         </div>
 
-        <div className="w-full relative">
-          <div className="relative z-50 bottom-0 md:-bottom-7 md:-left-16">
-            <Image
-              src={BananaManPaintingPng}
-              alt=""
-              title=""
-              quality={0}
-              priority={true}
-              width="100%"
-              height="100%"
-              layout="responsive"
-              objectFit="contain"
-            />
-          </div>
-          <div className="absolute top-0">
-            <Image
-              src={SnippetXdPng}
-              alt=""
-              title=""
-              quality={0}
-              priority={true}
-            />
+        <div id="design-philosophy" className="flex flex-col items-center ">
+          <h3>My Design Philosophy</h3>
+
+          <div className="w-full max-w-2xl p-6">
+            {/* 
+              NOTE -- The easiest way to edit this SVG is to open it in Adobe XD.
+              Make your adjustments, then right-click, "Save as SVG", and paste
+              here.
+
+              NOTE -- Edit <svg> `width` prop to adjust size.
+            */}
+            {/* prettier-ignore */}
+            <svg xmlns="http://www.w3.org/2000/svg" width="" height="" viewBox="0 0 1265.025 680.008">
+              {/* prettier-ignore */}
+              <path id="Path_14" data-name="Path 14" d="M36.1,78.243h.05M16.032,93.292h40.13A10.032,10.032,0,0,0,66.194,83.259V13.032A10.032,10.032,0,0,0,56.162,3H16.032A10.032,10.032,0,0,0,6,13.032V83.259A10.032,10.032,0,0,0,16.032,93.292Z" transform="translate(42.593 378.083)" fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="6"/>
+              {/* prettier-ignore */}
+              <path id="Path_15" data-name="Path 15" d="M83.089,90.495h27.03V79.683A16.218,16.218,0,0,0,81.164,69.644m1.924,20.851H29.03m54.059,0V79.683a26.935,26.935,0,0,0-1.925-10.039M29.03,90.495H2V79.683A16.218,16.218,0,0,1,30.954,69.644M29.03,90.495V79.683a26.935,26.935,0,0,1,1.925-10.039m0,0a27.04,27.04,0,0,1,50.21,0M72.277,20.218A16.218,16.218,0,1,1,56.059,4,16.218,16.218,0,0,1,72.277,20.218Zm32.436,16.218A10.812,10.812,0,1,1,93.9,25.624,10.812,10.812,0,0,1,104.713,36.436Zm-75.683,0A10.812,10.812,0,1,1,18.218,25.624,10.812,10.812,0,0,1,29.03,36.436Z" transform="translate(15.907 543.128)" fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="6"/>
+              {/* prettier-ignore */}
+              <path id="Path_17" data-name="Path 17" d="M31.261,100.112H68.026a10.65,10.65,0,0,0,10.5-10.79V37.6a5.47,5.47,0,0,0-1.538-3.814L48.556,4.581A5.183,5.183,0,0,0,44.843,3H15.5A10.65,10.65,0,0,0,5,13.79V73.137m0,26.976L30.625,73.789m0,0a15.462,15.462,0,0,0,22.283,0,16.5,16.5,0,0,0,0-22.89,15.463,15.463,0,0,0-22.283,0,16.5,16.5,0,0,0,0,22.89Z" transform="translate(30.2 187.297)" fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="6"/>
+              {/* prettier-ignore */}
+              <path id="Path_19" data-name="Path 19" d="M6.45,8.452a15.2,15.2,0,0,1,21.488,0L32.391,12.9l4.453-4.449a15.2,15.2,0,1,1,21.49,21.49L32.391,55.885,6.45,29.941a15.2,15.2,0,0,1,0-21.488Z" transform="translate(15.906 396.287)" fillRule="evenodd"/>
+              {/* prettier-ignore */}
+              <path id="Path_20" data-name="Path 20" d="M118.8,31.7,61.4,3,4,31.7m114.8,0L61.4,60.4m57.4-28.7v71.751l-57.4,28.7m0-71.751L4,31.7M61.4,60.4v71.751M4,31.7v71.751l57.4,28.7" transform="translate(0.025)" fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="6"/>
+              {/* prettier-ignore */}
+              <path id="Path_22" data-name="Path 22" d="M11.722,2A9.722,9.722,0,0,0,2,11.722V65.194a14.583,14.583,0,0,0,29.167,0V11.722A9.722,9.722,0,0,0,21.444,2Zm4.861,68.055a4.861,4.861,0,1,0-4.861-4.861A4.861,4.861,0,0,0,16.583,70.055Zm24.305-8.541L64.708,37.695a9.722,9.722,0,0,0,0-13.747L57.83,17.069a9.722,9.722,0,0,0-13.747,0l-3.194,3.194ZM70.055,79.777H36.373L65.539,50.611h4.516a9.722,9.722,0,0,1,9.722,9.722v9.722A9.722,9.722,0,0,1,70.055,79.777Z" transform="translate(90.025 55.374)" fillRule="evenodd"/>
+              {/* prettier-ignore */}
+              <text id="The_user_must_know_how_to_do_the_thing_they_came_for_within_5_seconds." data-name="The user must know how to do the thing they came for within 5 seconds." transform="translate(296.025 197.008)" fill="#333" fontSize="40" fontFamily="Quasimoda-Regular, Quasimoda"><tspan x="0" y="38">The user must know how to do the thing they </tspan><tspan x="0" y="86">came for within 5 seconds.</tspan></text>
+              {/* prettier-ignore */}
+              <text id="This_is_the_21st_century._New_websites_must_be_mobile_and_desktop_friendly._" data-name="This is the 21st century. New websites must be mobile and desktop friendly.
+            " transform="translate(287.025 381.008)" fill="#333" fontSize="40" fontFamily="Quasimoda-Regular, Quasimoda"><tspan x="0" y="38">This is the 21st century. New websites must be mobile </tspan><tspan x="0" y="86" fontFamily="Quasimoda-Italic, Quasimoda" fontStyle="italic">and </tspan><tspan y="86">desktop friendly.</tspan><tspan x="0" y="134"></tspan></text>
+              {/* prettier-ignore */}
+              <text id="To_make_good_design_decisions_a_clear_understanding_of_who_your_audience_is_and_why_they_use_your_website_is_required." data-name="To make good design decisions, a clear understanding of who your audience is and why they use your website is required." transform="translate(287.025 536.008)" fill="#333" fontSize="40" fontFamily="Quasimoda-Regular, Quasimoda"><tspan x="0" y="38">To make good design decisions, a clear understanding </tspan><tspan x="0" y="86">of who your audience is and why they use your website </tspan><tspan x="0" y="134">is required.</tspan></text>
+              {/* prettier-ignore */}
+              <text id="If_you_have_to_explain_the_design_it_s_bad_design._" data-name="If you have to explain the design, it&apos;s bad design.
+            " transform="translate(287.025 62.008)" fill="#333" fontSize="40" fontFamily="Quasimoda-Regular, Quasimoda"><tspan x="0" y="38">If you have to explain the design, it&apos;s bad design.</tspan><tspan x="0" y="86"></tspan></text>
+            </svg>
           </div>
         </div>
       </section>
