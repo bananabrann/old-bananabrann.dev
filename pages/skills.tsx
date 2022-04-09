@@ -3,10 +3,13 @@ import path from "path";
 import yaml from "js-yaml";
 import Footer from "../components/Footer/Footer";
 import Layout from "../components/Layout/Layout";
-import Link from "next/link";
 import Navbar from "../components/Navbar/Navbar";
+import Link from "next/link";
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import InfoBadge, { InfoBadgeSymbol } from "../components/InfoBadge/InfoBadge";
+import BananaManPaintingPng from "../res/png/bananaman-painting.png";
+import SnippetXdPng from "../res/png/snippet-xd.png";
 
 type TechList = {
   experienced: Array<string>;
@@ -184,7 +187,7 @@ export default function Skills({ techList }: { techList: TechList }) {
               <Link href="#">{`I. Quick Look`}</Link>
             </li>
             <li className="hover:text-pink-500 transition">
-              <Link href="#">{`II. Design`}</Link>
+              <Link href="#design">{`II. Design`}</Link>
             </li>
             <li className="hover:text-pink-500 transition">
               <Link href="#">{`III. Develop`}</Link>
@@ -218,9 +221,46 @@ export default function Skills({ techList }: { techList: TechList }) {
         </div>
       </section>
 
+      <br />
+
+      {/* SECTION -- Design */}
+      <section id="design" className="flex mb-36 flex-col-reverse md:flex-row">
+        <div className="p-4 md:w-5/6">
+          <h2 className="mt-12 md:m-0">Design</h2>
+          <p className="py-2 ">{`When I fulfill a design role, my goal is to provide a clear, familiar, and consistent design that gives the most to the users.`}</p>
+          <p className="py-2 ">{`I make use of Adobe PhotoShop for creating and editing web assets, and Adobe XD (and sometimes Figma) for creating wireframes and design drafts.`}</p>
+          <p className="py-2 ">{`Already have a designer? No problem. I don't always have to be the designer. In fact, for most of my career I have not held a design role, instead building the designer's visions.`}</p>
+        </div>
+
+        <div className="w-full relative">
+          <div className="relative z-50 bottom-0 md:-bottom-7 md:-left-16">
+            <Image
+              src={BananaManPaintingPng}
+              alt=""
+              title=""
+              quality={0}
+              priority={true}
+              width="100%"
+              height="100%"
+              layout="responsive"
+              objectFit="contain"
+            />
+          </div>
+          <div className="absolute top-0">
+            <Image
+              src={SnippetXdPng}
+              alt=""
+              title=""
+              quality={0}
+              priority={true}
+            />
+          </div>
+        </div>
+      </section>
+
       <div>
         <p className=" text-center">
-          For an exhaustive list of languages, tools, and buzzwords,{" "}
+          {`For an exhaustive list of languages, tools, and buzzwords, `}
           <span
             onClick={() => handleToggleSkillsListExpanded()}
             className="text-pink-500 font-bold cursor-pointer"
