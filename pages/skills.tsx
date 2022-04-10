@@ -12,6 +12,7 @@ import BananaManPaintingPng from "../res/png/bananaman-painting.png";
 import BananaManEngineerPng from "../res/png/bananaman-engineer.png";
 import SnippetXdPng from "../res/png/snippet-xd.png";
 import SnippetCodePng from "../res/png/snippet-code.png";
+import ExperienceVisualizedCharts from "../components/ExperienceVisualizedCharts/ExperienceVisualizedCharts";
 
 type TechList = {
   experienced: Array<string>;
@@ -184,6 +185,7 @@ export default function Skills({ techList }: { techList: TechList }) {
           <div className="px-4">
             <h2 className="text-4xl text-center sm:text-left">{`Content`}</h2>
 
+            {/* SECTION -- Table of contents */}
             {/* TODO -- Work in progress. */}
             <ul>
               <li className="hover:text-pink-500 transition">
@@ -196,7 +198,10 @@ export default function Skills({ techList }: { techList: TechList }) {
                 <Link href="#design-philosophy">{`a. My design philosophy`}</Link>
               </li>
               <li className="hover:text-pink-500 transition">
-                <Link href="#">{`III. Develop`}</Link>
+                <Link href="#develop">{`III. Develop`}</Link>
+              </li>
+              <li className="hover:text-pink-500 transition">
+                <Link href="#experienced-visualized">{`III. Develop`}</Link>
               </li>
               <li className="hover:text-pink-500 transition">
                 <Link href="#">{`IV. Deploy`}</Link>
@@ -308,8 +313,8 @@ export default function Skills({ techList }: { techList: TechList }) {
         </section>
 
         <section id="develop">
-          <div className="flex">
-            <div className="relative w-full">
+          <div className="flex flex-col md:flex-row">
+            <div className="relative w-full mb-28">
               <div className="relative z-50 -bottom-28">
                 <Image
                   src={BananaManEngineerPng}
@@ -363,8 +368,18 @@ export default function Skills({ techList }: { techList: TechList }) {
               </p>
             </div>
           </div>
-          hi
+
+          <div id="experienced-visualized">
+            <h3>Experience, visualized</h3>
+
+            <div className="max-w-3xl mx-auto">
+              <ExperienceVisualizedCharts />
+            </div>
+          </div>
         </section>
+
+
+
 
         <div>
           <p className=" text-center">
