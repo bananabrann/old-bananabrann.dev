@@ -179,106 +179,107 @@ export default function Skills({ techList }: { techList: TechList }) {
     <Layout title="bananabrann - skills">
       <Navbar />
 
-      <section className="flex flex-col sm:flex-row justify-around sm:mx-auto">
-        <div className="px-4">
-          <h2 className="text-4xl text-center sm:text-left">{`Content`}</h2>
+      <div className="max-w-5xl mx-auto">
+        <section className="flex flex-col sm:flex-row justify-around sm:mx-auto">
+          <div className="px-4">
+            <h2 className="text-4xl text-center sm:text-left">{`Content`}</h2>
 
-          {/* TODO -- Work in progress. */}
-          <ul>
-            <li className="hover:text-pink-500 transition">
-              <Link href="#">{`I. Quick Look`}</Link>
-            </li>
-            <li className="hover:text-pink-500 transition">
-              <Link href="#design">{`II. Design`}</Link>
-            </li>
-            <li className="hover:text-pink-500 transition pl-8">
-              <Link href="#design-philosophy">{`a. My design philosophy`}</Link>
-            </li>
-            <li className="hover:text-pink-500 transition">
-              <Link href="#">{`III. Develop`}</Link>
-            </li>
-            <li className="hover:text-pink-500 transition">
-              <Link href="#">{`IV. Deploy`}</Link>
-            </li>
-            <li className="hover:text-pink-500 transition">
-              <Link href="#">{`V. Exhaustive list of skills`}</Link>
-            </li>
-          </ul>
-        </div>
+            {/* TODO -- Work in progress. */}
+            <ul>
+              <li className="hover:text-pink-500 transition">
+                <Link href="#">{`I. Quick Look`}</Link>
+              </li>
+              <li className="hover:text-pink-500 transition">
+                <Link href="#design">{`II. Design`}</Link>
+              </li>
+              <li className="hover:text-pink-500 transition pl-8">
+                <Link href="#design-philosophy">{`a. My design philosophy`}</Link>
+              </li>
+              <li className="hover:text-pink-500 transition">
+                <Link href="#">{`III. Develop`}</Link>
+              </li>
+              <li className="hover:text-pink-500 transition">
+                <Link href="#">{`IV. Deploy`}</Link>
+              </li>
+              <li className="hover:text-pink-500 transition">
+                <Link href="#">{`V. Exhaustive list of skills`}</Link>
+              </li>
+            </ul>
+          </div>
 
-        <div className="px-4">
-          <h2 className="text-4xl text-center sm:text-left">{`Quick Look`}</h2>
+          <div className="px-4">
+            <h2 className="text-4xl text-center sm:text-left">{`Quick Look`}</h2>
 
-          <InfoBadge title="Most-used tech" symbol={InfoBadgeSymbol.BarChart}>
-            <p>{`TypeScript, React, Next`}</p>
-          </InfoBadge>
-          <InfoBadge title="Gov stuff" symbol={InfoBadgeSymbol.IdBadge}>
-            <p>{`Ask me how trustworthy I am`}</p>
-          </InfoBadge>
-          {/* prettier-ignore */}
-          <InfoBadge title="Certification" symbol={InfoBadgeSymbol.ClipboardWithCheck}>
+            <InfoBadge title="Most-used tech" symbol={InfoBadgeSymbol.BarChart}>
+              <p>{`TypeScript, React, Next`}</p>
+            </InfoBadge>
+            <InfoBadge title="Gov stuff" symbol={InfoBadgeSymbol.IdBadge}>
+              <p>{`Ask me how trustworthy I am`}</p>
+            </InfoBadge>
+            {/* prettier-ignore */}
+            <InfoBadge title="Certification" symbol={InfoBadgeSymbol.ClipboardWithCheck}>
             <p>{`Microsoft AZ-204 Azure Developer Associate`}</p>
           </InfoBadge>
-          {/* prettier-ignore */}
-          <InfoBadge title="Certification" symbol={InfoBadgeSymbol.ClipboardWithCheck}> 
+            {/* prettier-ignore */}
+            <InfoBadge title="Certification" symbol={InfoBadgeSymbol.ClipboardWithCheck}> 
             <p>{`ITIL 4 Foundation in IT Service Management`}</p>
           </InfoBadge>
-        </div>
-      </section>
+          </div>
+        </section>
 
-      <br />
+        <br />
 
-      {/* SECTION -- Design */}
-      <section id="design">
-        <div className="flex mb-4 flex-col-reverse md:flex-row md:mb-20">
-          <div className="p-4 md:w-5/6">
-            <h2 className="mt-12 md:m-0">Design</h2>
-            <p className="py-2 ">{`When I fulfill a design role, my goal is to provide a clear, familiar, and consistent design that gives the most to the users.`}</p>
-            <p className="py-2 ">{`I make use of Adobe PhotoShop for creating and editing web assets, and Adobe XD (and sometimes Figma) for creating wireframes and design drafts.`}</p>
-            <p className="py-2 ">{`Already have a designer? No problem. I don't always have to be the designer. In fact, for most of my career I have not held a design role, instead building the designer's visions.`}</p>
+        {/* SECTION -- Design */}
+        <section id="design">
+          <div className="flex mb-4 flex-col-reverse md:flex-row md:mb-20">
+            <div className="p-4 md:w-5/6">
+              <h2 className="mt-12 md:m-0">Design</h2>
+              <p className="py-2 ">{`When I fulfill a design role, my goal is to provide a clear, familiar, and consistent design that gives the most to the users.`}</p>
+              <p className="py-2 ">{`I make use of Adobe PhotoShop for creating and editing web assets, and Adobe XD (and sometimes Figma) for creating wireframes and design drafts.`}</p>
+              <p className="py-2 ">{`Already have a designer? No problem. I don't always have to be the designer. In fact, for most of my career I have not held a design role, instead building the designer's visions.`}</p>
+            </div>
+
+            <div className="w-full relative">
+              <div className="relative z-50 bottom-0 md:-bottom-7 md:-left-16">
+                <Image
+                  src={BananaManPaintingPng}
+                  alt=""
+                  title=""
+                  quality={0}
+                  priority={true}
+                  width="100%"
+                  height="100%"
+                  layout="responsive"
+                  objectFit="contain"
+                />
+              </div>
+              <div className="absolute top-0">
+                <Image
+                  src={SnippetXdPng}
+                  alt=""
+                  title=""
+                  quality={0}
+                  priority={true}
+                />
+              </div>
+            </div>
           </div>
 
-          <div className="w-full relative">
-            <div className="relative z-50 bottom-0 md:-bottom-7 md:-left-16">
-              <Image
-                src={BananaManPaintingPng}
-                alt=""
-                title=""
-                quality={0}
-                priority={true}
-                width="100%"
-                height="100%"
-                layout="responsive"
-                objectFit="contain"
-              />
-            </div>
-            <div className="absolute top-0">
-              <Image
-                src={SnippetXdPng}
-                alt=""
-                title=""
-                quality={0}
-                priority={true}
-              />
-            </div>
-          </div>
-        </div>
+          <div id="design-philosophy" className="flex flex-col items-center ">
+            <h3>My Design Philosophy</h3>
 
-        <div id="design-philosophy" className="flex flex-col items-center ">
-          <h3>My Design Philosophy</h3>
-
-          <div className="w-full max-w-2xl p-6">
-            {/* 
+            <div className="w-full max-w-2xl p-6">
+              {/* 
               NOTE -- The easiest way to edit this SVG is to open it in Adobe XD.
               Make your adjustments, then right-click, "Save as SVG", and paste
               here.
 
               NOTE -- Edit <svg> `width` prop to adjust size.
             */}
-            {/* TODO -- This is ugly, it should probably be its own component. */}
+              {/* TODO -- This is ugly, it should probably be its own component. */}
 
-            {/* prettier-ignore */}
-            <svg xmlns="http://www.w3.org/2000/svg" width="" height="" viewBox="0 0 1265.025 680.008">
+              {/* prettier-ignore */}
+              <svg xmlns="http://www.w3.org/2000/svg" width="" height="" viewBox="0 0 1265.025 680.008">
               {/* prettier-ignore */}
               <path id="Path_14" data-name="Path 14" d="M36.1,78.243h.05M16.032,93.292h40.13A10.032,10.032,0,0,0,66.194,83.259V13.032A10.032,10.032,0,0,0,56.162,3H16.032A10.032,10.032,0,0,0,6,13.032V83.259A10.032,10.032,0,0,0,16.032,93.292Z" transform="translate(42.593 378.083)" fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="6"/>
               {/* prettier-ignore */}
@@ -302,79 +303,82 @@ export default function Skills({ techList }: { techList: TechList }) {
               <text id="If_you_have_to_explain_the_design_it_s_bad_design._" data-name="If you have to explain the design, it&apos;s bad design.
             " transform="translate(287.025 62.008)" fill="#333" fontSize="40" fontFamily="Quasimoda-Regular, Quasimoda"><tspan x="0" y="38">If you have to explain the design, it&apos;s bad design.</tspan><tspan x="0" y="86"></tspan></text>
             </svg>
-          </div>
-        </div>
-      </section>
-
-      <section id="develop">
-        <div className="flex">
-          <div className="relative w-full">
-            <div className="relative z-50 -bottom-28">
-              <Image
-                src={BananaManEngineerPng}
-                alt=""
-                title=""
-                quality={0}
-                priority={true}
-                width="100%"
-                height="100%"
-                layout="responsive"
-                objectFit="contain"
-              />
-
-            </div>
-            <div className="absolute top-0">
-              <Image
-                src={SnippetCodePng}
-                alt=""
-                title=""
-                quality={0}
-                priority={true}
-              />
             </div>
           </div>
+        </section>
 
-          <div className="w-5/6">
-            <h2>Develop</h2>
-            <p>
-              {`The bread and butter of my career: coding. I've used lots of languages and tools during my career, everything from classic Java desktop apps to API gateway plugins in Lua. However, most of my work nowadays is `}
-              <b>modern web development.</b>
-            </p>
+        <section id="develop">
+          <div className="flex">
+            <div className="relative w-full">
+              <div className="relative z-50 -bottom-28">
+                <Image
+                  src={BananaManEngineerPng}
+                  alt=""
+                  title=""
+                  quality={0}
+                  priority={true}
+                  width="100%"
+                  height="100%"
+                  layout="responsive"
+                  objectFit="contain"
+                />
+              </div>
+              <div className="absolute top-0">
+                <Image
+                  src={SnippetCodePng}
+                  alt=""
+                  title=""
+                  quality={0}
+                  priority={true}
+                />
+              </div>
+            </div>
 
-            <br />
-
-            <div className="text-center text-2xl font-bold flex flex-col gap-6">
-              <p className="">
-                Developer on large, multi-million dollar enterprise web apps
-                that server 10,000+ monthly users
+            <div className="w-5/6">
+              <h2>Develop</h2>
+              <p>
+                {`The bread and butter of my career: coding. I've used lots of languages and tools during my career, everything from classic Java desktop apps to API gateway plugins in Lua. However, most of my work nowadays is `}
+                <b>modern web development.</b>
               </p>
-              <p>Lead developer for smaller web apps with 100+ users a month</p>
-              <p>Built a robot that detects and displays decibels</p>
-              <p>{`A video game that maybe one day I'll finish... 😬`}</p>
+
+              <br />
+
+              <div className="text-center text-2xl font-bold flex flex-col gap-6">
+                <p className="">
+                  Developer on large, multi-million dollar enterprise web apps
+                  that server 10,000+ monthly users
+                </p>
+                <p>
+                  Lead developer for smaller web apps with 100+ users a month
+                </p>
+                <p>Built a robot that detects and displays decibels</p>
+                <p>{`A video game that maybe one day I'll finish... 😬`}</p>
+              </div>
+
+              <p className="mt-8 text-center">
+                {`To see some projects, `}
+                <span className="font-bold text-pink-500">
+                  <Link href="/works">visit my works page.</Link>
+                </span>
+              </p>
             </div>
-
-            <p className="mt-8 text-center">
-              {`To see some projects, `}
-              <span className="font-bold text-pink-500">
-                <Link href="/works">visit my works page.</Link>
-              </span>
-            </p>
           </div>
+          hi
+        </section>
+
+        <div>
+          <p className=" text-center">
+            {`For an exhaustive list of languages, tools, and buzzwords, `}
+            <span
+              onClick={() => handleToggleSkillsListExpanded()}
+              className="text-pink-500 font-bold cursor-pointer"
+            >
+              click here.
+            </span>
+          </p>
+
+          {isSkillsListExpanded ? skillsListHtmlContent : ""}
         </div>
-      </section>
-
-      <div>
-        <p className=" text-center">
-          {`For an exhaustive list of languages, tools, and buzzwords, `}
-          <span
-            onClick={() => handleToggleSkillsListExpanded()}
-            className="text-pink-500 font-bold cursor-pointer"
-          >
-            click here.
-          </span>
-        </p>
-
-        {isSkillsListExpanded ? skillsListHtmlContent : ""}
       </div>
 
       <Footer />
