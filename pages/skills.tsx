@@ -9,7 +9,9 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import InfoBadge, { InfoBadgeSymbol } from "../components/InfoBadge/InfoBadge";
 import BananaManPaintingPng from "../res/png/bananaman-painting.png";
+import BananaManEngineerPng from "../res/png/bananaman-engineer.png";
 import SnippetXdPng from "../res/png/snippet-xd.png";
+import SnippetCodePng from "../res/png/snippet-code.png";
 
 type TechList = {
   experienced: Array<string>;
@@ -273,6 +275,8 @@ export default function Skills({ techList }: { techList: TechList }) {
 
               NOTE -- Edit <svg> `width` prop to adjust size.
             */}
+            {/* TODO -- This is ugly, it should probably be its own component. */}
+
             {/* prettier-ignore */}
             <svg xmlns="http://www.w3.org/2000/svg" width="" height="" viewBox="0 0 1265.025 680.008">
               {/* prettier-ignore */}
@@ -298,6 +302,63 @@ export default function Skills({ techList }: { techList: TechList }) {
               <text id="If_you_have_to_explain_the_design_it_s_bad_design._" data-name="If you have to explain the design, it&apos;s bad design.
             " transform="translate(287.025 62.008)" fill="#333" fontSize="40" fontFamily="Quasimoda-Regular, Quasimoda"><tspan x="0" y="38">If you have to explain the design, it&apos;s bad design.</tspan><tspan x="0" y="86"></tspan></text>
             </svg>
+          </div>
+        </div>
+      </section>
+
+      <section id="develop">
+        <div className="flex">
+          <div className="relative w-full">
+            <div className="relative z-50 -bottom-28">
+              <Image
+                src={BananaManEngineerPng}
+                alt=""
+                title=""
+                quality={0}
+                priority={true}
+                width="100%"
+                height="100%"
+                layout="responsive"
+                objectFit="contain"
+              />
+
+            </div>
+            <div className="absolute top-0">
+              <Image
+                src={SnippetCodePng}
+                alt=""
+                title=""
+                quality={0}
+                priority={true}
+              />
+            </div>
+          </div>
+
+          <div className="w-5/6">
+            <h2>Develop</h2>
+            <p>
+              {`The bread and butter of my career: coding. I've used lots of languages and tools during my career, everything from classic Java desktop apps to API gateway plugins in Lua. However, most of my work nowadays is `}
+              <b>modern web development.</b>
+            </p>
+
+            <br />
+
+            <div className="text-center text-2xl font-bold flex flex-col gap-6">
+              <p className="">
+                Developer on large, multi-million dollar enterprise web apps
+                that server 10,000+ monthly users
+              </p>
+              <p>Lead developer for smaller web apps with 100+ users a month</p>
+              <p>Built a robot that detects and displays decibels</p>
+              <p>{`A video game that maybe one day I'll finish... 😬`}</p>
+            </div>
+
+            <p className="mt-8 text-center">
+              {`To see some projects, `}
+              <span className="font-bold text-pink-500">
+                <Link href="/works">visit my works page.</Link>
+              </span>
+            </p>
           </div>
         </div>
       </section>
