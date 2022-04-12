@@ -86,16 +86,7 @@ export async function getStaticProps() {
 }
 
 export default function Skills({ techList }: { techList: TechList }) {
-  // prettier-ignore
-  const [isSkillsListExpanded, setIsSkillsListExpanded] = useState<boolean>(false);
   const [skills, setSkills] = useState<TechList>(techList);
-
-  /**
-   * Handles the toggling of the exhaustive skills/tech list.
-   */
-  function handleToggleSkillsListExpanded(): void {
-    setIsSkillsListExpanded(!isSkillsListExpanded);
-  }
 
   /**
    * Adds and removes bullet points on items (a string) in the skills list,
@@ -170,12 +161,6 @@ export default function Skills({ techList }: { techList: TechList }) {
           </ul>
         </div>
       </div>
-      <p
-        onClick={() => handleToggleSkillsListExpanded()}
-        className="text-pink-500 font-bold cursor-pointer text-center"
-      >
-        Collapse skills list.
-      </p>
     </div>
   );
 
@@ -210,7 +195,7 @@ export default function Skills({ techList }: { techList: TechList }) {
                 <Link href="#deploy">{`IV. Deploy`}</Link>
               </li>
               <li className="hover:text-pink-500 transition">
-                <Link href="#">{`V. Exhaustive list of skills`}</Link>
+                <Link href="#list">{`V. Exhaustive list of skills`}</Link>
               </li>
             </ul>
           </div>
@@ -381,35 +366,37 @@ export default function Skills({ techList }: { techList: TechList }) {
           </div>
         </section>
 
-        <section id="deploy">
+        <section id="deploy" className="mb-12">
           <div className="flex flex-col sm:flex-row">
             <div className="p-6 flex flex-col gap-4">
               <h2>Deploy</h2>
               <p>{`Deployment makes the world go round and developers to lose their hair. Whether it's copy-and-pasting your index.html onto a shared server, or a complex container orchestration that deploys globally, deployment processes are critical to the success of your product.`}</p>
               <p>{`I've deployed all sizes of web applications, building both build and release pipelines that deploy code and provision infrastructure.`}</p>
             </div>
-              <Image src={BananaManRocket} />
+            <Image src={BananaManRocket} alt="" />
           </div>
 
           <div className="flex flex-col md:flex-row justify-around items-center gap-8">
             <ChartsHostingProviders />
             <ChartsCiCdProviders />
           </div>
+
+          <p className="text-center text-xs">
+            {`Pie charts by `}
+            <a
+              className="hover:text-pink-500 transition"
+              href="https://www.meta-chart.com/"
+            >
+              meta-chart.com
+            </a>
+          </p>
         </section>
 
-        <div>
-          <p className=" text-center">
-            {`For an exhaustive list of languages, tools, and buzzwords, `}
-            <span
-              onClick={() => handleToggleSkillsListExpanded()}
-              className="text-pink-500 font-bold cursor-pointer"
-            >
-              click here.
-            </span>
-          </p>
-
-          {isSkillsListExpanded ? skillsListHtmlContent : ""}
-        </div>
+        <section id="list" className="p-6">
+          <h2>{`Exhaustive list of skills`}</h2>
+          <p>{`Languages, tools, frameworks, buzzwords, and everything in between. Grouped by experience. Sorted alphabetically.`}</p>
+          {skillsListHtmlContent}
+        </section>
       </div>
 
       <Footer />
