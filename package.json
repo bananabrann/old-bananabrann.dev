@@ -1,5 +1,9 @@
 {
-  "private": true,
+  "name": "bananabrann.dev",
+  "description": "Personal website of me, bananabrann!",
+  "version": "0.2.0",
+  "author": "bananabrann",
+  "private": false,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
