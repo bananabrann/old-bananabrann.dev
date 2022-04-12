@@ -10,9 +10,12 @@ import React, { useEffect, useState } from "react";
 import InfoBadge, { InfoBadgeSymbol } from "../components/InfoBadge/InfoBadge";
 import BananaManPaintingPng from "../res/png/bananaman-painting.png";
 import BananaManEngineerPng from "../res/png/bananaman-engineer.png";
+import BananaManRocket from "../res/png/bananaman-rocket.png";
 import SnippetXdPng from "../res/png/snippet-xd.png";
 import SnippetCodePng from "../res/png/snippet-code.png";
 import ExperienceVisualizedCharts from "../components/ExperienceVisualizedCharts/ExperienceVisualizedCharts";
+import ChartsHostingProviders from "../components/ChartsHostingProviders/ChartsHostingProviders";
+import ChartsCiCdProviders from "../components/ChartsCiCdProviders/ChartsCiCdProviders";
 
 type TechList = {
   experienced: Array<string>;
@@ -204,7 +207,7 @@ export default function Skills({ techList }: { techList: TechList }) {
                 <Link href="#experienced-visualized">{`III. Develop`}</Link>
               </li>
               <li className="hover:text-pink-500 transition">
-                <Link href="#">{`IV. Deploy`}</Link>
+                <Link href="#deploy">{`IV. Deploy`}</Link>
               </li>
               <li className="hover:text-pink-500 transition">
                 <Link href="#">{`V. Exhaustive list of skills`}</Link>
@@ -321,7 +324,7 @@ export default function Skills({ techList }: { techList: TechList }) {
                   alt=""
                   title=""
                   quality={0}
-                  priority={true}
+                  priority={false}
                   width="100%"
                   height="100%"
                   layout="responsive"
@@ -334,7 +337,7 @@ export default function Skills({ techList }: { techList: TechList }) {
                   alt=""
                   title=""
                   quality={0}
-                  priority={true}
+                  priority={false}
                 />
               </div>
             </div>
@@ -378,8 +381,21 @@ export default function Skills({ techList }: { techList: TechList }) {
           </div>
         </section>
 
+        <section id="deploy">
+          <div className="flex flex-col sm:flex-row">
+            <div className="p-6 flex flex-col gap-4">
+              <h2>Deploy</h2>
+              <p>{`Deployment makes the world go round and developers to lose their hair. Whether it's copy-and-pasting your index.html onto a shared server, or a complex container orchestration that deploys globally, deployment processes are critical to the success of your product.`}</p>
+              <p>{`I've deployed all sizes of web applications, building both build and release pipelines that deploy code and provision infrastructure.`}</p>
+            </div>
+              <Image src={BananaManRocket} />
+          </div>
 
-
+          <div className="flex flex-col md:flex-row justify-around items-center gap-8">
+            <ChartsHostingProviders />
+            <ChartsCiCdProviders />
+          </div>
+        </section>
 
         <div>
           <p className=" text-center">
