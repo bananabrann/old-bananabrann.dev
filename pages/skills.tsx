@@ -223,7 +223,7 @@ export default function Skills({ techList }: { techList: TechList }) {
         <br />
 
         {/* SECTION -- Design */}
-        <section id="design">
+        <section id="design" className="mb-36">
           <div className="flex mb-4 flex-col-reverse md:flex-row md:mb-20">
             <div className="p-4 md:w-5/6">
               <h2 className="mt-12 md:m-0">Design</h2>
@@ -300,9 +300,10 @@ export default function Skills({ techList }: { techList: TechList }) {
           </div>
         </section>
 
-        <section id="develop">
+        {/* SECTION -- Develop */}
+        <section id="develop" className="mb-36">
           <div className="flex flex-col md:flex-row">
-            <div className="relative w-full mb-28">
+            <div className="relative w-full mb-36">
               <div className="relative z-50 -bottom-28">
                 <Image
                   src={BananaManEngineerPng}
@@ -327,7 +328,7 @@ export default function Skills({ techList }: { techList: TechList }) {
               </div>
             </div>
 
-            <div className="w-5/6">
+            <div className="w-full md:w-5/6 p-8 md:p-3">
               <h2>Develop</h2>
               <p>
                 {`The bread and butter of my career: coding. I've used lots of languages and tools during my career, everything from classic Java desktop apps to API gateway plugins in Lua. However, most of my work nowadays is `}
@@ -357,8 +358,8 @@ export default function Skills({ techList }: { techList: TechList }) {
             </div>
           </div>
 
-          <div id="experienced-visualized">
-            <h3>Experience, visualized</h3>
+          <div id="experienced-visualized" className="p-8">
+            <h3 className="text-center">Experience, visualized</h3>
 
             <div className="max-w-3xl mx-auto">
               <ExperienceVisualizedCharts />
@@ -366,6 +367,7 @@ export default function Skills({ techList }: { techList: TechList }) {
           </div>
         </section>
 
+        {/* SECTION -- Deploy */}
         <section id="deploy" className="mb-12">
           <div className="flex flex-col sm:flex-row">
             <div className="p-6 flex flex-col gap-4">
@@ -392,6 +394,7 @@ export default function Skills({ techList }: { techList: TechList }) {
           </p>
         </section>
 
+        {/* SECTION -- Exhaustive skills list */}
         <section id="list" className="p-6">
           <h2>{`Exhaustive list of skills`}</h2>
           <p>{`Languages, tools, frameworks, buzzwords, and everything in between. Grouped by experience. Sorted alphabetically.`}</p>
