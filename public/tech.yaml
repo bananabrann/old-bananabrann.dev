@@ -1,0 +1,63 @@
+# List of technologies to be displayed on the 'skills' page.
+# Items are sorted alphabetically on the server's initial load.
+
+---
+experienced:
+  - Express.js
+  - Power Apps
+  - Power Automate
+  - Azure DevOps
+  - Azure App Services
+  - Azure Virtual Machines
+  - Linux
+  - Ubuntu distros
+  - TypeScript
+  - Node
+  - Bash
+  - Azure DevOps Pipelines
+  - Azure DevOps Repos
+  - GitHub
+  - Tailwind
+  - Next.js
+  - CSS
+  - SASS/SCSS
+  - JavaScript
+  - SQL
+  - PostgreSQL
+proficient:
+  - GitHub Actions
+  - Vercel
+  - Mac
+  - QlikSense for Desktop
+  - ARM templates
+  - DNS configuration
+  - Arduino programming
+  - Microprocessors (like Ikos)
+  - Docker
+  - Bicep
+  - Bootstrap
+  - Python
+  - C++ for Arduino systems
+  - SQLite
+  - Shell scripts
+  - Microsoft SQL Server (for Azure serverless)
+exposure:
+  - Django
+  - Java
+  - Electron
+  - Lua
+  - Kong API Gateway
+  - C#
+  - Unity
+  - Godot (the game engine)
+  - Go lang
+  - SMTP servers
+  - Ruby
+  - Ruby on Rails
+  - Networking engineering
+  - C++
+  - Jest
+  - MySQL
+  - NoSQL
+  - ZSH
+  - Microsoft SQL Server (traditional)

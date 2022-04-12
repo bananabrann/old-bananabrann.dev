@@ -1,0 +1,19 @@
+@import "../../styles/globals.colors.scss";
+@import "../../styles/globals.mixins.scss";
+
+/* 
+  NOTE -- Online outline should be handled by module. For other styling,
+  use inline Tailwind.
+*/
+.info_box_container {
+  h3 {
+    font-family: hoss-round, sans-serif;
+  }
+}
+
+.info_box_children_container {
+  @include shadow();
+  border: 3.25px solid $coolblack;
+  border-radius: 18px;
+  padding: 15px;
+}

@@ -26,12 +26,9 @@ export default function Home() {
           <BananamanStanding priority={true} />
 
           <div className="flex-col px-10">
-            <h1 className="text-7xl font-bold ">Succeed with your software</h1>
+            <h1>Succeed with your software</h1>
             <br />
-            <p className="text-3xl">
-              {`Whether it's a new IT system from scratch, or a touch-up on your
-              website, I'm here to help you succeed online.`}
-            </p>
+            <p className="text-3xl">{`Whether it's a new IT system from scratch, or a touch-up on your website, I'm here to help you succeed online.`}</p>
             <br />
             <p className="text-3xl">{`When you're ready, email me at `}</p>
             <h3 className="text-4xl font-bold">hi@bananabrann.dev</h3>
@@ -44,47 +41,27 @@ export default function Home() {
       <ContentBlockOutline id="web-services" title="Web Services">
         <div>
           <h3>{`Create a new website`}</h3>
-          <p>
-            {`Get you setup with a new, modern website or web app ready to handle
-            whatever you need it to. I'll architect, design, build, and deploy
-            something that fits your needs.`}
-          </p>
+          <p>{`Get you setup with a new, modern website or web app ready to handle whatever you need it to. I'll architect, design, build, and deploy something that fits your needs.`}</p>
         </div>
 
         <div>
           <h3>{`Work on existing site`}</h3>
-          <p>
-            {`Site running slow? Something broken? Want something added? Let's
-            work on your existing site or app to make it better. Please note
-            that the effectiveness of the changes greatly depends on your
-            existing site.`}
-          </p>
+          <p>{`Site running slow? Something broken? Want something added? Let's work on your existing site or app to make it better. Please note that the effectiveness of the changes greatly depends on your existing site.`}</p>
         </div>
 
         <div>
           <h3>{`Setup a custom email`}</h3>
-          <p>
-            {`Elevate your online presence with a custom email, like
-            Sarah@MyCompany.com for you or your business.`}
-          </p>
+          <p>{`Elevate your online presence with a custom email, like Sarah@MyCompany.com for you or your business.`}</p>
         </div>
 
         <div>
           <h3>{`Implement your software`}</h3>
-          <p>
-            {`Setting up existing software can be tough. I'll take the stress out
-            of setting up your cloud infrastructure so you can get back to the
-            most important part: running your business.`}
-          </p>
+          <p>{`Setting up existing software can be tough. I'll take the stress out of setting up your cloud infrastructure so you can get back to the most important part: running your business.`}</p>
         </div>
 
         <div>
           <h3>{`Improve your Google searches`}</h3>
-          <p>
-            {`Optimizing your website to be discovered by customers on Google is a
-            big deal in the 21st century. Let's take a look at your existing
-            website, and see what can be done to improve your searches.`}
-          </p>
+          <p>{`Optimizing your website to be discovered by customers on Google is a big deal in the 21st century. Let's take a look at your existing website, and see what can be done to improve your searches.`}</p>
         </div>
       </ContentBlockOutline>
 
@@ -93,29 +70,17 @@ export default function Home() {
       <ContentBlockOutline title="Consultations">
         <div>
           <h3>{`Email consultation (free!)`}</h3>
-          <p>
-            {`Ask me anything via email. I'm happy to read and respond to
-            questions you might have about any of my services or your own
-            problems. And like your uncle at Thanksgiving, I'm happy to give you
-            my advice.`}
-          </p>
+          <p>{`Ask me anything via email or Discord. I'm happy to read and respond to questions you might have about any of my services or your own problems. And like your uncle at Thanksgiving, I'm happy to give you my advice.`}</p>
         </div>
 
         <div>
           <h3>{`Detailed consultation`}</h3>
-          <p>
-            {`I'll take time to learn your specific problem and offer situational
-            advice and technical recommendations to guide you and your team to
-            success for as long or little as you want.`}
-          </p>
+          <p>{`I'll take time to learn your specific problem and offer situational advice and technical recommendations to guide you and your team to success for as long or little as you want.`}</p>
         </div>
 
         <div>
           <h3>{`Debugging assistance`}</h3>
-          <p>
-            {`Are you a fellow developer (or student!) needing some help? I might
-            be able to help with that too, but reach out to me prior.`}
-          </p>
+          <p>{`Are you a fellow developer needing some help? I might be able to help with that too. At a discounted rate and with no contract, I'll be your second pair of eyes. If your question(s) is quick and easy, I probably won't even charge you.`}</p>
         </div>
       </ContentBlockOutline>
 
@@ -123,8 +88,7 @@ export default function Home() {
         <div>
           <h2>Looking for more?</h2>
           <p>
-            {`For technical information on my skills and experience, especially
-            for enterprise (including 1099-E contracting),`}{" "}
+            {`For technical information on my skills and experience, especially for enterprise (including 1099-E contracting), `}
             <span className="text-pink-500">
               <Link href="/skills">visit my skills page.</Link>
             </span>

@@ -1,3 +1,5 @@
 package-lock.json
 tsconfig.json
 globals.colors.scss
+ExperienceVisualizedCharts.tsx
+Chart*.tsx
