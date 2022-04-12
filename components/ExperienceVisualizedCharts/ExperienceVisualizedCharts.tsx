@@ -17,6 +17,7 @@ export default function ExperienceVisualizedCharts() {
   return(
     <Fragment>
       <div className="py-6">
+        <h4>Work Type</h4>
         <svg xmlns="http://www.w3.org/2000/svg" width="" height="" viewBox="0 0 1336 53">
           <circle id="Ellipse_1" data-name="Ellipse 1" cx="12.5" cy="12.5" r="12.5" transform="translate(0 17)" fill="#dbb227"/>
           <text id="Coding_for_web_development" data-name="Coding for
@@ -33,6 +34,7 @@ export default function ExperienceVisualizedCharts() {
         <Image src={TechBarTimePng} alt="" layout="responsive" quality={100} />
       </div>
 
+      <h4>Languages</h4>
       <div className="py-6">
         <svg xmlns="http://www.w3.org/2000/svg" width="" height="" viewBox="0 0 1337 31">
           <circle id="Ellipse_6" data-name="Ellipse 6" cx="12.5" cy="12.5" r="12.5" transform="translate(0 4)" fill="#2b7489"/>
@@ -51,6 +53,7 @@ export default function ExperienceVisualizedCharts() {
         <Image src={TechBarLangsPng} alt="" layout="responsive" quality={100} />
       </div>
 
+      <h4>Web Frameworks</h4>
       <div className="py-6">
         <svg xmlns="http://www.w3.org/2000/svg" width="" height="" viewBox="0 0 1300 29">
           <circle id="Ellipse_12" data-name="Ellipse 12" cx="12.5" cy="12.5" r="12.5" transform="translate(0 4)" fill="#5ed3f3"/>
