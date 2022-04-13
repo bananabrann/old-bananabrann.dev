@@ -12,7 +12,7 @@ export default function ContentBlockOutline({
 }) {
   return(
     <div id={id} className="ContentBlockOutline flex flex-col items-center">
-      <h2 className="w-full text-center -mb-6" >{title}</h2>
+      <h2 className="w-full text-center -mb-2" >{title}</h2>
       <div className={`${styles.childrencontainer}`}>
         {children}
       </div>

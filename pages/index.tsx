@@ -38,6 +38,9 @@ export default function Home() {
 
       <BobWhatWouldYouSay />
 
+      <br />
+      <br />
+
       <ContentBlockOutline id="web-services" title="Web Services">
         <div>
           <h3>{`Create a new website`}</h3>
