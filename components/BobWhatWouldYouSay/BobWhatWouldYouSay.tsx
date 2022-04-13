@@ -25,7 +25,7 @@ export default function BobWhatWouldYouSay() {
         </style>
         <path id="Polygon_1" data-name="Polygon 1" d="M894.492,33.237l450.159,174.841L101.382,353.559Z" transform="translate(0 36.9)" fill="#b7afa3"/>
         <text id="_What_would_you_say_..._you_do_here_" data-name="&quot;What would you say 
-          ... you do here?&quot;" transform="translate(553.663 107)" fill="#333" fontSize="72" fontFamily="HossRound-Bold, Hoss Round, sans-serif" fontWeight="700"><tspan x="0" y="67">&quot;What would you say </tspan><tspan x="0" y="153" xmlSpace="preserve">     ... you do here?&quot;</tspan></text>
+          ... you do here?&quot;" transform="translate(553.663 107)" fill="#111" fontSize="72" fontFamily="HossRound-Bold, Hoss Round, sans-serif" fontWeight="700"><tspan x="0" y="67">&quot;What would you say </tspan><tspan x="0" y="153" xmlSpace="preserve">     ... you do here?&quot;</tspan></text>
         <image id="guy_from_the_clip1" data-name="guy from the clip1" width="462" height="524" transform="translate(144.663)" xlinkHref={BobPng.src} />
       </svg>
     </div>
