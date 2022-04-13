@@ -9,7 +9,8 @@
 </p>
 
 <p align="center">
-  <img alt="GitHub deployments" src="https://img.shields.io/github/deployments/bananabrann/bananabrann.dev/production?label=vercel%20deployment&logo=vercel&logoColor=white">  
+  <img alt="GitHub deployments" src="https://img.shields.io/github/deployments/bananabrann/bananabrann.dev/production?label=vercel%20deployment&logo=vercel&logoColor=white">
+  <img alt="GitHub package.json version" src="https://img.shields.io/github/package-json/v/bananabrann/bananabrann.dev?color=informational">
 </p>
 
 ## Technologies used
