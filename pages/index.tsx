@@ -21,22 +21,25 @@ export default function Home() {
     <Layout home={true}>
       <Navbar />
 
-      <div className="hero flex-col">
+      <div className="hero flex-col mb-4">
         <div className="md:flex justify items-center">
           <BananamanStanding priority={true} />
 
           <div className="flex-col px-10">
             <h1>Succeed with your software</h1>
             <br />
-            <p className="text-3xl">{`Whether it's a new IT system from scratch, or a touch-up on your website, I'm here to help you succeed online.`}</p>
+            <p className="text-2xl">{`Whether it's a new IT system from scratch, or a touch-up on your website, I'm here to help you succeed online.`}</p>
             <br />
-            <p className="text-3xl">{`When you're ready, email me at `}</p>
+            <p className="text-2xl">{`When you're ready, email me at `}</p>
             <h3 className="text-4xl font-bold">hi@bananabrann.dev</h3>
           </div>
         </div>
       </div>
 
       <BobWhatWouldYouSay />
+
+      <br />
+      <br />
 
       <ContentBlockOutline id="web-services" title="Web Services">
         <div>
