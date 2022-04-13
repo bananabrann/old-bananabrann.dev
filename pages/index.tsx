@@ -21,7 +21,7 @@ export default function Home() {
     <Layout home={true}>
       <Navbar />
 
-      <div className="hero flex-col">
+      <div className="hero flex-col mb-4">
         <div className="md:flex justify items-center">
           <BananamanStanding priority={true} />
 
