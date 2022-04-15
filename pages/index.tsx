@@ -30,8 +30,8 @@ export default function Home() {
             <br />
             <p className="text-2xl">{`Whether it's a new IT system from scratch, or a touch-up on your website, I'm here to help you succeed online.`}</p>
             <br />
-            <p className="text-2xl">{`When you're ready, email me at `}</p>
-            <h3 className="text-4xl font-bold">hi@bananabrann.dev</h3>
+            <p className="text-2xl">{`Email me at `}</p>
+            <h3 className="text-3xl font-bold">hi@bananabrann.dev</h3>
           </div>
         </div>
       </div>
