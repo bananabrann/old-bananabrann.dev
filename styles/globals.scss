@@ -8,6 +8,11 @@ body {
   background-color: $gainsborowhite;
 }
 
+/*
+  NOTE -- Breakpoints match Tailwind. For more information, see
+  https://tailwindcss.com/docs/responsive-design
+*/
+
 h1,
 h2,
 h3,
@@ -22,22 +27,34 @@ h6 {
 h1 {
   font-size: 4.5rem;
   font-weight: 700;
+  @media (max-width: 640px) {
+    font-size: 3.25rem;
+  }
 }
 
 h2 {
   font-size: 3.5rem;
   font-weight: 700;
+  @media (max-width: 640px) {
+    font-size: 2.25rem;
+  }
 }
 
 h3 {
   font-family: quasimoda, sans-serif;
   font-size: 1.85rem;
   font-weight: 560;
+  @media (max-width: 640px) {
+    font-size: 1.45rem;
+  }
 }
 
 h4 {
   font-size: 1.333rem;
   padding-bottom: 0.666rem;
+  @media (max-width: 640px) {
+    font-size: 1.15rem;
+  }
 }
 
 p,
