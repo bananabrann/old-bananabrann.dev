@@ -45,26 +45,34 @@ export default function Home() {
         <div>
           <h3>{`Create a new website`}</h3>
           <p>{`Get you setup with a new, modern website or web app ready to handle whatever you need it to. I'll architect, design, build, and deploy something that fits your needs.`}</p>
+          <p className="my-1">{`$53/hr`}</p>
+          <p className="text-sm">{`† Total hours required varies wildly, ask me for a quote.`}</p>
+          <p className="text-sm">{`† Discounts available for non-profit, U.S. veterans, and education organizations.`}</p>
         </div>
 
         <div>
           <h3>{`Work on existing site`}</h3>
           <p>{`Site running slow? Something broken? Want something added? Let's work on your existing site or app to make it better. Please note that the effectiveness of the changes greatly depends on your existing site.`}</p>
+          <p className="my-1">{`$60/hr`}</p>
         </div>
 
         <div>
           <h3>{`Setup a custom email`}</h3>
           <p>{`Elevate your online presence with a custom email, like Sarah@MyCompany.com for you or your business.`}</p>
+          <p className="my-1">{`$125 once`}</p>
+          <p className="text-sm">{`† Price does not include any one-time or reoccurring costs from the service provider you choose. e.g., Google, Yahoo, etc.`}</p>
         </div>
 
         <div>
           <h3>{`Implement your software`}</h3>
-          <p>{`Setting up existing software can be tough. I'll take the stress out of setting up your cloud infrastructure so you can get back to the most important part: running your business.`}</p>
+          <p>{`Already have a solution, and just need to deploy it? Setting up existing software can be tough. I'll take the stress out of setting up your cloud infrastructure so you can get back to the most important part: running your business.`}</p>
+          <p className="my-1">{`$53/hr`}</p>
         </div>
 
         <div>
           <h3>{`Improve your Google searches`}</h3>
           <p>{`Optimizing your website to be discovered by customers on Google is a big deal in the 21st century. Let's take a look at your existing website, and see what can be done to improve your searches.`}</p>
+          <p className="my-1">{`$40/hr`}</p>
         </div>
       </ContentBlockOutline>
 
@@ -72,18 +80,20 @@ export default function Home() {
 
       <ContentBlockOutline title="Consultations">
         <div>
-          <h3>{`Email consultation (free!)`}</h3>
+          <h3>{`Text consultation`}</h3>
           <p>{`Ask me anything via email or Discord. I'm happy to read and respond to questions you might have about any of my services or your own problems. And like your uncle at Thanksgiving, I'm happy to give you my advice.`}</p>
+          <p className="my-1">{`Free!`}</p>
         </div>
 
         <div>
-          <h3>{`Detailed consultation`}</h3>
+          <h3>{`Consultation`}</h3>
           <p>{`I'll take time to learn your specific problem and offer situational advice and technical recommendations to guide you and your team to success for as long or little as you want.`}</p>
+          <p className="my-1">{`$51/hr`}</p>
         </div>
 
         <div>
-          <h3>{`Debugging assistance`}</h3>
-          <p>{`Are you a fellow developer needing some help? I might be able to help with that too. At a discounted rate and with no contract, I'll be your second pair of eyes. If your question(s) is quick and easy, I probably won't even charge you.`}</p>
+          <h3>{`IT/tech support`}</h3>
+          <p>{`I do not offer an IT support service right now. Support for websites I created is included, and other support-like work will be considered a consultation.`}</p>
         </div>
       </ContentBlockOutline>
 
