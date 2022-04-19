@@ -25,7 +25,6 @@ export default function ChartsHostingProviders() {
         </g>
       </svg>
 
-
       <svg className="" xmlns="http://www.w3.org/2000/svg" width="100%" height="80px" viewBox="0 0 432 75">
         <path id="Path_43" data-name="Path 43" d="M12.5,0A12.5,12.5,0,1,1,0,12.5,12.5,12.5,0,0,1,12.5,0Z" transform="translate(45 3)" fill="#3788bf"/>
         <text id="Azure_Goverment" data-name="Azure Goverment" transform="translate(80 24)" fill="#333" fontSize="22" fontFamily="Quasimoda-Regular, Quasimoda"><tspan x="0" y="0">Azure Goverment</tspan></text>
