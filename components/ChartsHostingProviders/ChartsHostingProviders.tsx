@@ -13,7 +13,7 @@ export default function ChartsHostingProviders() {
     <div className="flex flex-col items-center text-center max-w-xs p-6">
       <h4>{`Estimated Usage of hosting providers`}</h4>
 
-      <svg xmlns="http://www.w3.org/2000/svg" width="" height="" viewBox="0 0 403.962 403.841">
+      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 403.962 403.841">
         <g id="Group_15" data-name="Group 15" transform="translate(0.561 0.5)">
           <g id="Group_14" data-name="Group 14" transform="translate(0 0)">
             <path id="Path_35" data-name="Path 35" d="M289.968,10c111.242-.056,201.466,90.078,201.521,201.32s-90.078,201.466-201.32,201.521l-.16-201.421Z" transform="translate(-88.588 -10)" fill="#3788bf" stroke="#fff" strokeLinejoin="round" strokeWidth="1"/>
@@ -25,8 +25,7 @@ export default function ChartsHostingProviders() {
         </g>
       </svg>
 
-
-      <svg className="" xmlns="http://www.w3.org/2000/svg" width="" height="80px" viewBox="0 0 432 75">
+      <svg className="" xmlns="http://www.w3.org/2000/svg" width="100%" height="80px" viewBox="0 0 432 75">
         <path id="Path_43" data-name="Path 43" d="M12.5,0A12.5,12.5,0,1,1,0,12.5,12.5,12.5,0,0,1,12.5,0Z" transform="translate(45 3)" fill="#3788bf"/>
         <text id="Azure_Goverment" data-name="Azure Goverment" transform="translate(80 24)" fill="#333" fontSize="22" fontFamily="Quasimoda-Regular, Quasimoda"><tspan x="0" y="0">Azure Goverment</tspan></text>
         <circle id="Ellipse_18" data-name="Ellipse 18" cx="12.5" cy="12.5" r="12.5" transform="translate(296 3)" fill="#439ed0"/>
