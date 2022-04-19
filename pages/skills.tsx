@@ -17,6 +17,9 @@ import ExperienceVisualizedCharts from "../components/ExperienceVisualizedCharts
 import ChartsHostingProviders from "../components/ChartsHostingProviders/ChartsHostingProviders";
 import ChartsCiCdProviders from "../components/ChartsCiCdProviders/ChartsCiCdProviders";
 
+// prettier-ignore
+const chartExperienceDisclaimerTextContent = "Note: Charts and graphs only provide a way to gauge my experience. These are rough estimates, and are not backed by data.";
+
 type TechList = {
   experienced: Array<string>;
   proficient: Array<string>;
@@ -359,9 +362,14 @@ export default function Skills({ techList }: { techList: TechList }) {
           </div>
 
           <div id="experienced-visualized" className="p-8">
-            <h3 className="text-center">Experience, visualized</h3>
+            <h3 className="text-center mb-2">Experience, visualized</h3>
 
             <div className="max-w-3xl mx-auto">
+              <p>
+                {`The ratio of my time across my career in various categories. `}
+                <i>{chartExperienceDisclaimerTextContent}</i>
+              </p>
+
               <ExperienceVisualizedCharts />
             </div>
           </div>
@@ -374,6 +382,9 @@ export default function Skills({ techList }: { techList: TechList }) {
               <h2>Deploy</h2>
               <p>{`Deployment makes the world go round and developers to lose their hair. Whether it's copy-and-pasting your index.html onto a shared server, or a complex container orchestration that deploys globally, deployment processes are critical to the success of your product.`}</p>
               <p>{`I've deployed all sizes of web applications, building both build and release pipelines that deploy code and provision infrastructure.`}</p>
+              <p>
+                <i>{chartExperienceDisclaimerTextContent}</i>
+              </p>
             </div>
             <Image src={BananaManRocket} alt="" />
           </div>
