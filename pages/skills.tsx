@@ -223,7 +223,7 @@ export default function Skills({ techList }: { techList: TechList }) {
         <br />
 
         {/* SECTION -- Design */}
-        <section id="design" className="mb-36">
+        <section id="design" className="mb-10">
           <div className="flex mb-4 flex-col-reverse md:flex-row md:mb-20">
             <div className="p-4 md:w-5/6">
               <h2 className="mt-12 md:m-0">Design</h2>
