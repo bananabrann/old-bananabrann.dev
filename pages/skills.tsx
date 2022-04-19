@@ -188,8 +188,8 @@ export default function Skills({ techList }: { techList: TechList }) {
               <li className="hover:text-pink-500 transition">
                 <Link href="#develop">{`III. Develop`}</Link>
               </li>
-              <li className="hover:text-pink-500 transition">
-                <Link href="#experienced-visualized">{`III. Develop`}</Link>
+              <li className="hover:text-pink-500 transition pl-8">
+                <Link href="#experienced-visualized">{`a. Experience visualized`}</Link>
               </li>
               <li className="hover:text-pink-500 transition">
                 <Link href="#deploy">{`IV. Deploy`}</Link>
@@ -201,7 +201,7 @@ export default function Skills({ techList }: { techList: TechList }) {
           </div>
 
           <div className="px-4">
-            <h2 className="text-4xl text-center sm:text-left">{`Quick Look`}</h2>
+            <h2 className="text-4xl text-center sm:text-left mt-8 sm:mt-0">{`Quick Look`}</h2>
 
             <InfoBadge title="Most-used tech" symbol={InfoBadgeSymbol.BarChart}>
               <p>{`TypeScript, React, Next`}</p>
@@ -301,7 +301,7 @@ export default function Skills({ techList }: { techList: TechList }) {
         </section>
 
         {/* SECTION -- Develop */}
-        <section id="develop" className="mb-36">
+        <section id="develop" className="mb-0">
           <div className="flex flex-col md:flex-row">
             <div className="relative w-full mb-36">
               <div className="relative z-50 -bottom-28">

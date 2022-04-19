@@ -69,7 +69,7 @@ export default function InfoBadge({
       <SvgIcon iconToUse={symbol} />
 
       <div className="ml-2">
-        <h4 className="text-xl font-bold -mb-1">{title}</h4>
+        <h4 className="text-xl font-bold -mb-4">{title}</h4>
         {children}
       </div>
     </div>
