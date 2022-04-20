@@ -2,17 +2,17 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <div className="Footer bg-stone-800 text-stone-200 flex flex-col items-center p-8 ">
+    <div data-cy="footer" className="Footer bg-stone-800 text-stone-200 flex flex-col items-center p-8 ">
       <div className=" justify-around w-full max-w-screen-lg flex gap-6 flex-col-reverse sm:flex-row">
         <ul>
           {/* prettier-ignore */}
-          <li className="hover:text-pink-500 transition"><Link href="/">{`Homepage`}</Link></li>
+          <li data-cy="footer-link-home" className="hover:text-pink-500 transition"><Link href="/">{`Homepage`}</Link></li>
           {/* prettier-ignore */}
-          <li className="hover:text-pink-500 transition"><Link href="/#web-services">{`Freelance service offerings`}</Link></li>
+          <li data-cy="footer-link-web-services" className="hover:text-pink-500 transition"><Link href="/#web-services">{`Freelance service offerings`}</Link></li>
           {/* prettier-ignore */}
-          <li className="hover:text-pink-500 transition"><Link href="/skills">{`Skills & expertise`}</Link></li>
+          <li data-cy="footer-link-skills" className="hover:text-pink-500 transition"><Link href="/skills">{`Skills & expertise`}</Link></li>
           {/* prettier-ignore */}
-          <li className="hover:text-pink-500 transition"><Link href="/works">{`Works & projects`}</Link></li>
+          <li data-cy="footer-link-works" className="hover:text-pink-500 transition"><Link href="/works">{`Works & projects`}</Link></li>
         </ul>
 
         <div className="text-xl text-center">
