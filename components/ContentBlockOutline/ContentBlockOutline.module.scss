@@ -6,7 +6,7 @@
   flex-wrap: wrap;
   padding: 12px;
   margin: 12px;
-  max-width: 980px;
+  max-width: 896px; // Tailwind w-4xl size
   border: 5px solid $coolblack;
   border-radius: 24px;
 
@@ -17,7 +17,7 @@
     padding: 8px;
 
     &:last-child {
-      max-width: 48%; // Stops last div from expanding all the way across.
+      max-width: 50%; // Stops last div from expanding all the way across.
     }
 
     @media screen and (max-width: 640px) {
