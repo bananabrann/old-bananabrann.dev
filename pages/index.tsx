@@ -7,6 +7,7 @@ import Footer from "../components/Footer/Footer";
 import Link from "next/link";
 import Navbar from "../components/Navbar/Navbar";
 import NotReadyYetBanner from "../components/NotReadyYetBanner/NotReadyYetBanner";
+import ContentBlock from "../components/ContentBlock/ContentBlock";
 
 /*
   NOTE 
@@ -44,37 +45,47 @@ export default function Home() {
       <ContentBlockOutline id="web-services" title="Web Services">
         <div>
           <h3>{`Create a new website`}</h3>
-          <p>{`Get you setup with a new, modern website or web app ready to handle whatever you need it to. I'll architect, design, build, and deploy something that fits your needs.`}</p>
-          <p className="my-1">{`$53/hr`}</p>
-          <p className="text-sm">{`† Total hours required varies wildly, ask me for a quote.`}</p>
-          <p className="text-sm">{`† Discounts available for non-profit, U.S. veterans, and education organizations.`}</p>
+          <p>{`A new, modern custom website or web app ready to handle whatever you need it to. I'll architect, design, build, and deploy something that fits your needs.`}</p>
+          <p className="my-1">{`$36/hr †`}</p>
         </div>
 
         <div>
           <h3>{`Work on existing site`}</h3>
           <p>{`Site running slow? Something broken? Want something added? Let's work on your existing site or app to make it better. Please note that the effectiveness of the changes greatly depends on your existing site.`}</p>
-          <p className="my-1">{`$60/hr`}</p>
+          <p className="my-1">{`$43/hr †`}</p>
         </div>
 
         <div>
           <h3>{`Setup a custom email`}</h3>
           <p>{`Elevate your online presence with a custom email, like Sarah@MyCompany.com for you or your business.`}</p>
           <p className="my-1">{`$125 once`}</p>
-          <p className="text-sm">{`† Price does not include any one-time or reoccurring costs from the service provider you choose. e.g., Google, Yahoo, etc.`}</p>
+          <p className="text-sm">{`Price does not include any one-time or reoccurring costs from the service provider you choose. e.g., Google, Yahoo, etc.`}</p>
         </div>
 
         <div>
           <h3>{`Implement your software`}</h3>
-          <p>{`Already have a solution, and just need to deploy it? Setting up existing software can be tough. I'll take the stress out of setting up your cloud infrastructure so you can get back to the most important part: running your business.`}</p>
-          <p className="my-1">{`$53/hr`}</p>
+          <p>{`Already have a solution, and just need to deploy it? Setting up existing software can be tough. I'll take the stress out of setting up your cloud infrastructure so you can get back to the most important part: using it.`}</p>
+          <p className="my-1">{`$36/hr`}</p>
         </div>
 
         <div>
           <h3>{`Improve your Google searches`}</h3>
           <p>{`Optimizing your website to be discovered by customers on Google is a big deal in the 21st century. Let's take a look at your existing website, and see what can be done to improve your searches.`}</p>
-          <p className="my-1">{`$40/hr`}</p>
+          <p className="my-1">{`$31/hr`}</p>
+        </div>
+
+        <div>
+          <h3>{`Chat bots and other`}</h3>
+          <p>{`Though web is my specialty, I also have experience with chat bots (like for Slack and Discord) and workflow automation scripting. Really, just ask me!`}</p>
+          <p className="my-1">{`$31-$41/hr`}</p>
         </div>
       </ContentBlockOutline>
+
+      <ContentBlock>
+        <p className="text-sm">{`† Total hours can vary wildly project-to-project. Reach out to me for a free quote.`}</p>
+        <p className="text-sm">{`• Unless a deposit is paid upfront or a service agreement/contact signed, prices are subject to change.`}</p>
+        <p className="text-sm">{`• Discounts available for registered non-profits, entities dealing with the education sector, and organizations assisting U.S. military veterans.`}</p>
+      </ContentBlock>
 
       <br />
 
@@ -87,8 +98,8 @@ export default function Home() {
 
         <div>
           <h3>{`Consultation`}</h3>
-          <p>{`I'll take time to learn your specific problem and offer situational advice and technical recommendations to guide you and your team to success for as long or little as you want.`}</p>
-          <p className="my-1">{`$51/hr`}</p>
+          <p>{`I'll take time to learn your specific problem and offer situational advice and technical recommendations to guide you and your team to success for as long or little as you want. I can also do developer-related administrative stuff, like vetting potential new hires or guiding your software dev interns. I mean, really, this is super broad.`}</p>
+          <p className="my-1">{`$18 per 30min`}</p>
         </div>
 
         <div>
@@ -106,6 +117,10 @@ export default function Home() {
               <Link href="/skills">visit my skills page.</Link>
             </span>
           </p>
+          <br />
+          <p>{`Don't hesitate to reach out if you have any questions. For realsy. When you're ready, email me at `}</p>
+          <h3 className="text-3xl font-bold">hi@bananabrann.dev</h3>
+
         </div>
 
         <BananamanSuit
