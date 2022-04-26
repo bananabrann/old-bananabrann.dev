@@ -83,8 +83,8 @@ export default function Home() {
 
       <ContentBlock>
         <p className="text-sm">{`† Total hours can vary wildly project-to-project. Reach out to me for a free quote.`}</p>
-        <p className="text-sm">{`• Unless a deposit is paid upfront or a service agreement/contact signed, prices are subject to change.`}</p>
-        <p className="text-sm">{`• Discounts available for registered non-profits, entities dealing with the education sector, and organizations assisting U.S. military veterans.`}</p>
+        <p className="text-sm">{`• Unless a deposit is paid upfront or a service agreement/contract signed, prices are subject to change.`}</p>
+        <p className="text-sm">{`• Discounts available for registered non-profits, and those furthering children's education or serving U.S. military veterans.`}</p>
       </ContentBlock>
 
       <br />
