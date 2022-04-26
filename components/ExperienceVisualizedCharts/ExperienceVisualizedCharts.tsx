@@ -45,8 +45,6 @@ export default function ExperienceVisualizedCharts() {
           <text id="SQL" transform="translate(652 25)" fill="#333" fontSize="24" fontFamily="Quasimoda-Regular, Quasimoda"><tspan x="0" y="0">SQL</tspan></text>
           <circle id="Ellipse_9" data-name="Ellipse 9" cx="12.5" cy="12.5" r="12.5" transform="translate(797 4)" fill="#89e051"/>
           <text id="Bash" transform="translate(831 25)" fill="#333" fontSize="24" fontFamily="Quasimoda-Regular, Quasimoda"><tspan x="0" y="0">Bash</tspan></text>
-          <circle id="Ellipse_10" data-name="Ellipse 10" cx="12.5" cy="12.5" r="12.5" transform="translate(954 4)" fill="#274c6d"/>
-          <text id="GDScript" transform="translate(988 25)" fill="#333" fontSize="24" fontFamily="Quasimoda-Regular, Quasimoda"><tspan x="0" y="0">GDScript</tspan></text>
           <circle id="Ellipse_11" data-name="Ellipse 11" cx="12.5" cy="12.5" r="12.5" transform="translate(1143 4)" fill="#747474"/>
           <text id="Everything_else" data-name="Everything else" transform="translate(1177 23)" fill="#333" fontSize="24" fontFamily="Quasimoda-Regular, Quasimoda"><tspan x="0" y="0">Everything else</tspan></text>
         </svg>
