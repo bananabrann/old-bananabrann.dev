@@ -12,6 +12,7 @@
     "test:open": "node_modules/.bin/cypress open"
   },
   "dependencies": {
+    "@azure/storage-blob": "^12.9.0",
     "@headlessui/react": "^1.4.3",
     "@heroicons/react": "^1.0.5",
     "@tailwindcss/aspect-ratio": "^0.4.0",
