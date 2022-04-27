@@ -37,7 +37,9 @@ export default function Home() {
         </div>
       </div>
 
-      <BobWhatWouldYouSay />
+      <div className="max-w-4xl mx-auto">
+        <BobWhatWouldYouSay />
+      </div>
 
       <br />
       <br />
