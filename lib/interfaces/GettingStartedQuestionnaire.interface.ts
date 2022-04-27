@@ -7,6 +7,7 @@ export enum WorkType {
 export default interface GettingStartedQuestionnaire {
   id: string;
   mainContact: string;
+  country: string;
   workType: WorkType;
   workDescription: string;
   workAdditionalInfo?: string;
@@ -20,4 +21,5 @@ export function isQuestionnaire(object: unknown): object is GettingStartedQuesti
       && Object.prototype.hasOwnProperty.call(object, "mainContact")
       && Object.prototype.hasOwnProperty.call(object, "workType")
       && Object.prototype.hasOwnProperty.call(object, "workDescription")
+      && Object.prototype.hasOwnProperty.call(object, "country")
 }
