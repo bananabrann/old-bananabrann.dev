@@ -209,8 +209,8 @@ export default function Skills({ techList }: { techList: TechList }) {
             <InfoBadge title="Most-used tech" symbol={InfoBadgeSymbol.BarChart}>
               <p>{`TypeScript, React, Next`}</p>
             </InfoBadge>
-            <InfoBadge title="Gov stuff" symbol={InfoBadgeSymbol.IdBadge}>
-              <p>{`Ask me how trustworthy I am`}</p>
+            <InfoBadge title="Gov work" symbol={InfoBadgeSymbol.IdBadge}>
+              <p>{`Ask me about my qualifications for government work`}</p>
             </InfoBadge>
             {/* prettier-ignore */}
             <InfoBadge title="Certification" symbol={InfoBadgeSymbol.ClipboardWithCheck}>
