@@ -26,16 +26,11 @@ const countries = [
     name: "United States",
     imageUrl: "https://bananabrann.blob.core.windows.net/countryflags/flag-sm-usa.png",
   },
-  {
-    id: 2,
-    name: "United Kingdom",
-    imageUrl: "https://bananabrann.blob.core.windows.net/countryflags/flag-sm-uk.png",
-  },
-  {
-    id: 3,
-    name: "Australia",
-    imageUrl: "https://bananabrann.blob.core.windows.net/countryflags/flag-sm-australia.png",
-  },
+// {
+  //   id: 3,
+  //   name: "Australia",
+  //   imageUrl: "https://bananabrann.blob.core.windows.net/countryflags/flag-sm-australia.png",
+  // },
   {
     id: 4,
     name: "Canada",
@@ -46,10 +41,15 @@ const countries = [
     name: "Mexico",
     imageUrl: "https://bananabrann.blob.core.windows.net/countryflags/flag-sm-mexico.png",
   },
+  // {
+  //   id: 6,
+  //   name: "Ireland",
+  //   imageUrl: "https://bananabrann.blob.core.windows.net/countryflags/flag-sm-ireland.png",
+  // },
   {
-    id: 6,
-    name: "Ireland",
-    imageUrl: "https://bananabrann.blob.core.windows.net/countryflags/flag-sm-ireland.png",
+    id: 2,
+    name: "United Kingdom",
+    imageUrl: "https://bananabrann.blob.core.windows.net/countryflags/flag-sm-uk.png",
   },
   {
     id: 7,

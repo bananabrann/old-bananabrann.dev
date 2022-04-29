@@ -11,6 +11,7 @@ export default interface GettingStartedQuestionnaire {
   workType: WorkType;
   workDescription: string;
   workAdditionalInfo?: string;
+  businessName?: string;
   name?: string;
   budget?: string;
   orgName?: string;

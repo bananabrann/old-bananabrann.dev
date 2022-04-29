@@ -63,6 +63,13 @@ export default function GetStarted() {
     });
   }
 
+  function handleBusinessName(event: React.FormEvent<HTMLInputElement>) {
+    setQuestionnaireForm({
+      ...questionnaireForm,
+      businessName: event.currentTarget.value,
+    });
+  }
+
   function handleIsAnOrgRadioClick(v: boolean) {
     setIsAnOrganization(v);
   }
@@ -189,115 +196,140 @@ export default function GetStarted() {
           */}
           {isAnOrganization && (
             <div>
-              <label className="font-bold text-gray-700">
-                Organization Affiliation
-              </label>
-              <p className="leading-5 text-gray-500">{`Do any of these describe your organization? Checkmark if 'yes'.`}</p>
+              <div>
+                <label className="font-bold text-gray-700">
+                  Organization Affiliation
+                </label>
+                <p className="leading-5 text-gray-500">{`Do any of these describe your organization? Checkmark if 'yes'.`}</p>
 
-              <fieldset className="space-y-5">
-                <legend className="sr-only">Organization affiliation</legend>
-                <div className="relative flex items-start">
-                  <div className="flex items-center h-5">
-                    <input
-                      id="org-affiliation-nonprofit"
-                      aria-describedby="org-affiliation-nonprofit"
-                      name="org-affiliation-nonprofit"
-                      type="checkbox"
-                      className="focus:ring-pink-500 h-4 w-4 text-pink-600 border-gray-300 rounded"
-                    />
-                  </div>
-                  <div className="ml-3 -mt-1">
-                    <label
-                      htmlFor="org-affiliation-nonprofit"
-                      className="font-medium text-gray-700"
-                    >
-                      Registered non-profit
-                    </label>
-                    <p id="org-affiliation-nonprofit" className="text-gray-500">
-                      {`Organization is a registered non-profit, such as 501(c)(3).`}
-                    </p>
-                  </div>
-                </div>
-                <div className="relative flex items-start">
-                  <div className="flex items-center h-5">
-                    <input
-                      id="org-affiliation-gov"
-                      aria-describedby="org-affiliation-gov"
-                      name="org-affiliation-gov"
-                      type="checkbox"
-                      className="focus:ring-pink-500 h-4 w-4 text-pink-600 border-gray-300 rounded"
-                    />
-                  </div>
-                  <div className="ml-3 -mt-1">
-                    <label
-                      htmlFor="org-affiliation-gov"
-                      className="font-medium text-gray-700"
-                    >
-                      Government
-                    </label>
-                    <p id="org-affiliation-gov" className="text-gray-500">
-                      Work is in support of state or federal government.
-                      Sub-contracting included.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="relative flex items-start">
-                  <div className="flex items-center h-5">
-                    <input
-                      id="org-affiliation-tax-docs"
-                      aria-describedby="org-affiliation-tax-docs"
-                      name="org-affiliation-tax-docs"
-                      type="checkbox"
-                      className="focus:ring-pink-500 h-4 w-4 text-pink-600 border-gray-300 rounded"
-                    />
-                  </div>
-                  <div className="ml-3 -mt-1">
-                    <label
-                      htmlFor="org-affiliation-tax-docs"
-                      className="font-medium text-gray-700"
-                    >
-                      Organization is to provide tax documentation
-                    </label>
-                    <p id="org-affiliation-tax-docs" className="text-gray-500">
-                      Includes 1099-E, 1098, or other tax documentation for
-                      prime and sub contractors. Your HR or Accounts Payable
-                      would know this info.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="relative flex items-start">
-                  <div className="flex items-center h-5">
-                    <input
-                      id="org-affiliation-508"
-                      aria-describedby="org-affiliation-508"
-                      name="org-affiliation-508"
-                      type="checkbox"
-                      className="focus:ring-pink-500 h-4 w-4 text-pink-600 border-gray-300 rounded"
-                    />
-                  </div>
-                  <div className="ml-3 -mt-1">
-                    <label
-                      htmlFor="org-affiliation-508"
-                      className="font-medium text-gray-700"
-                    >
-                      508 compliance required
-                    </label>
-                    <p id="org-affiliation-508" className="text-gray-500">
-                      Must meet requirements for{" "}
-                      <a
-                        href="https://www.section508.gov/develop/software-websites/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="underline hover:text-pink-500 transition"
+                <fieldset className="space-y-5">
+                  <legend className="sr-only">Organization affiliation</legend>
+                  <div className="relative flex items-start">
+                    <div className="flex items-center h-5">
+                      <input
+                        id="org-affiliation-nonprofit"
+                        aria-describedby="org-affiliation-nonprofit"
+                        name="org-affiliation-nonprofit"
+                        type="checkbox"
+                        className="focus:ring-pink-500 h-4 w-4 text-pink-600 border-gray-300 rounded"
+                      />
+                    </div>
+                    <div className="ml-3 -mt-1">
+                      <label
+                        htmlFor="org-affiliation-nonprofit"
+                        className="font-medium text-gray-700"
                       >
-                        section 508.
-                      </a>
-                    </p>
+                        Registered non-profit
+                      </label>
+                      <p
+                        id="org-affiliation-nonprofit"
+                        className="text-gray-500"
+                      >
+                        {`Organization is a registered non-profit, such as 501(c)(3).`}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </fieldset>
+                  <div className="relative flex items-start">
+                    <div className="flex items-center h-5">
+                      <input
+                        id="org-affiliation-gov"
+                        aria-describedby="org-affiliation-gov"
+                        name="org-affiliation-gov"
+                        type="checkbox"
+                        className="focus:ring-pink-500 h-4 w-4 text-pink-600 border-gray-300 rounded"
+                      />
+                    </div>
+                    <div className="ml-3 -mt-1">
+                      <label
+                        htmlFor="org-affiliation-gov"
+                        className="font-medium text-gray-700"
+                      >
+                        Government
+                      </label>
+                      <p id="org-affiliation-gov" className="text-gray-500">
+                        Work is in support of state or federal government.
+                        Sub-contracting included.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="relative flex items-start">
+                    <div className="flex items-center h-5">
+                      <input
+                        id="org-affiliation-tax-docs"
+                        aria-describedby="org-affiliation-tax-docs"
+                        name="org-affiliation-tax-docs"
+                        type="checkbox"
+                        className="focus:ring-pink-500 h-4 w-4 text-pink-600 border-gray-300 rounded"
+                      />
+                    </div>
+                    <div className="ml-3 -mt-1">
+                      <label
+                        htmlFor="org-affiliation-tax-docs"
+                        className="font-medium text-gray-700"
+                      >
+                        Organization is to provide tax documentation
+                      </label>
+                      <p
+                        id="org-affiliation-tax-docs"
+                        className="text-gray-500"
+                      >
+                        Includes 1099-E, 1098, or other tax documentation for
+                        prime and sub contractors. Your HR or Accounts Payable
+                        would know this info.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="relative flex items-start">
+                    <div className="flex items-center h-5">
+                      <input
+                        id="org-affiliation-508"
+                        aria-describedby="org-affiliation-508"
+                        name="org-affiliation-508"
+                        type="checkbox"
+                        className="focus:ring-pink-500 h-4 w-4 text-pink-600 border-gray-300 rounded"
+                      />
+                    </div>
+                    <div className="ml-3 -mt-1">
+                      <label
+                        htmlFor="org-affiliation-508"
+                        className="font-medium text-gray-700"
+                      >
+                        508 compliance required
+                      </label>
+                      <p id="org-affiliation-508" className="text-gray-500">
+                        Must meet requirements for{" "}
+                        <a
+                          href="https://www.section508.gov/develop/software-websites/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="underline hover:text-pink-500 transition"
+                        >
+                          section 508.
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+
+              <div className="w-full">
+                <label
+                  htmlFor="business-name"
+                  className="block font-bold text-gray-700"
+                >
+                  Business Name
+                </label>
+                <input
+                  type="text"
+                  name="business-name"
+                  id="business-name"
+                  className="my-1 shadow-sm focus:ring-pink-500 focus:border-pink-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                  placeholder="IniTech, Inc."
+                  onChange={(e: React.FormEvent<HTMLInputElement>) => handleBusinessName(e)} // prettier-ignore
+                />
+              </div>
             </div>
           )}
 
@@ -313,13 +345,46 @@ export default function GetStarted() {
             }
           />
 
+          {/* NOTE - Don't include budget. Just tell them the hours, and let them figure it out. */}
           {/* 
-            SECTION -- Budget
+            SECTION -- Budget 
           */}
           <div>
             <label htmlFor="price" className="block font-bold text-gray-700">
               Budget
             </label>
+            <p className="leading-5 mb-2 text-gray-500">{`I do not ask what your budget ceiling is. Instead, read this important information.`}</p>
+            <p className="leading-5 text-gray-500">{`Project budgets, especially for contractors, sometimes is a private matter. However, it's also sometimes important to stay within budget. If you have a monthly or total budget ceiling you would like me to be aware of so I do not cross it, please tell me in 'additional info'.`}</p>
+
+            {/* 
+            SECTION -- Contract
+          */}
+            <label htmlFor="price" className="block font-bold text-gray-700">
+              Contract
+            </label>
+            <p className="leading-5 text-gray-500">{``}</p>
+
+            {/* 
+            NOTE - Scratchpaper
+
+            Left side:
+              At Will
+              - No contract.
+              - Upfront payment required, then monthly invoices.
+              - Either party can cancel at any time for any reason.
+
+              - Recommended for smaller projects with a budget ceiling below $500
+
+            Right side:
+              Service agreement
+              - Signed, binding contract
+              - No upfront 
+
+              - Recommended for larger projects with a budget ceiling over $5,000
+          
+          */}
+
+            {/* 
             <div className="mt-1 relative rounded-md shadow-sm">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <span className="text-gray-500 sm:text-sm">$</span>
@@ -337,7 +402,7 @@ export default function GetStarted() {
                   USD
                 </span>
               </div>
-            </div>
+            </div> */}
           </div>
         </section>
       </ContentBlock>
