@@ -14,7 +14,7 @@
   }
   ```
 */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CheckIcon, SelectorIcon } from "@heroicons/react/solid";
 import { Combobox } from "@headlessui/react";
 import CountrySelectComboBoxItem from "../../lib/interfaces/CountrySelectComboBox.interface";
@@ -64,8 +64,10 @@ function classNames(...classes: any[]) {
 
 export default function CountrySelectComboBox({
   subheaderText,
+  handleCountrySelect,
 }: {
   subheaderText: string;
+  handleCountrySelect: (c: CountrySelectComboBoxItem) => void;
 }) {
   const [query, setQuery] = useState<string>("");
   // NOTE - ComboBox.Input displayValue expects a value to be initialized.
@@ -78,6 +80,10 @@ export default function CountrySelectComboBox({
       : countries.filter((country) => {
           return country.name.toLowerCase().includes(query.toLowerCase());
         });
+
+  useEffect(() => {
+    handleCountrySelect(selectedCountry);
+  },[selectedCountry])
 
   return (
     <Combobox as="div" value={selectedCountry} onChange={setSelectedCountry}>

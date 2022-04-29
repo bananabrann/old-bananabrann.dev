@@ -4,13 +4,14 @@ import Navbar from "../components/Navbar/Navbar";
 import Image from "next/image";
 import BananamanEngineerPng from "../res/png/bananaman-engineer.png";
 import ContentBlock from "../components/ContentBlock/ContentBlock";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import GettingStartedQuestionnaire, {
   WorkType,
 } from "../lib/interfaces/GettingStartedQuestionnaire.interface";
 import { getRandomSixDigitNumber } from "../lib/utils";
 import Link from "next/link";
 import CountrySelectComboBox from "../components/CountrySelectComboBox/CountrySelectComboBox";
+import CountrySelectComboBoxItem from "../lib/interfaces/CountrySelectComboBox.interface";
 
 // Dev only
 // const devForm: GettingStartedQuestionnaire = {
@@ -25,7 +26,7 @@ import CountrySelectComboBox from "../components/CountrySelectComboBox/CountrySe
 export default function GetStarted() {
   const [isAnOrganization, setIsAnOrganization] = useState<boolean>(false);
   const [questionnaireForm, setQuestionnaireForm] =
-    useState<GettingStartedQuestionnaire>();
+    useState<GettingStartedQuestionnaire>({} as GettingStartedQuestionnaire);
 
   // Not implemented, but API works.
   /*
@@ -40,7 +41,27 @@ export default function GetStarted() {
   }
   */
 
-  /** */
+  useEffect(() => {
+    console.log(questionnaireForm);
+  }, [questionnaireForm]);
+
+  function handleCountrySelect(c: CountrySelectComboBoxItem): void {
+    setQuestionnaireForm({ ...questionnaireForm, country: c.name });
+  }
+
+  function handleName(event: React.FormEvent<HTMLInputElement>) {
+    setQuestionnaireForm({
+      ...questionnaireForm,
+      name: event.currentTarget.value,
+    });
+  }
+
+  function handleMainContact(event: React.FormEvent<HTMLInputElement>) {
+    setQuestionnaireForm({
+      ...questionnaireForm,
+      mainContact: event.currentTarget.value,
+    });
+  }
 
   function handleIsAnOrgRadioClick(v: boolean) {
     setIsAnOrganization(v);
@@ -90,6 +111,7 @@ export default function GetStarted() {
                   className="shadow-sm focus:ring-pink-500 focus:border-pink-500 block w-full sm:text-sm border-gray-300 rounded-md"
                   placeholder="Peter Gibbons"
                   aria-describedby="name-optional"
+                  onChange={(e: React.FormEvent<HTMLInputElement>) => handleName(e)} // prettier-ignore
                 />
               </div>
             </div>
@@ -107,6 +129,7 @@ export default function GetStarted() {
                 id="email"
                 className="my-1 shadow-sm focus:ring-pink-500 focus:border-pink-500 block w-full sm:text-sm border-gray-300 rounded-md"
                 placeholder="bob@initech.com, bolton#1234"
+                onChange={(e: React.FormEvent<HTMLInputElement>) => handleMainContact(e)} // prettier-ignore
               />
               <p className="text-sm text-gray-400">{`Email, Discord, or any other preferred method of communication.`}</p>
             </div>
@@ -282,6 +305,7 @@ export default function GetStarted() {
             SECTION -- Country
           */}
           <CountrySelectComboBox
+            handleCountrySelect={handleCountrySelect}
             subheaderText={
               isAnOrganization
                 ? "Where is your organization headquartered?"
