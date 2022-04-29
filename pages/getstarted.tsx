@@ -10,6 +10,7 @@ import GettingStartedQuestionnaire, {
 } from "../lib/interfaces/GettingStartedQuestionnaire.interface";
 import { getRandomSixDigitNumber } from "../lib/utils";
 import Link from "next/link";
+import CountrySelectComboBox from "../components/CountrySelectComboBox/CountrySelectComboBox";
 
 // Dev only
 // const devForm: GettingStartedQuestionnaire = {
@@ -38,6 +39,8 @@ export default function GetStarted() {
     });
   }
   */
+
+  /** */
 
   function handleIsAnOrgRadioClick(v: boolean) {
     setIsAnOrganization(v);
@@ -126,7 +129,6 @@ export default function GetStarted() {
                       id={"is-organization-yes"}
                       name="business-affiliation"
                       type="radio"
-                      defaultChecked={false}
                       checked={isAnOrganization}
                       onChange={() => handleIsAnOrgRadioClick(true)}
                       className="focus:ring-pink-500 h-4 w-4 text-pink-600 border-gray-300"
@@ -143,7 +145,6 @@ export default function GetStarted() {
                       id={"is-organization-no"}
                       name="business-affiliation"
                       type="radio"
-                      defaultChecked={false}
                       checked={!isAnOrganization}
                       onChange={() => handleIsAnOrgRadioClick(false)}
                       className="focus:ring-pink-500 h-4 w-4 text-pink-600 border-gray-300"
@@ -159,12 +160,11 @@ export default function GetStarted() {
               </fieldset>
             </div>
           </div>
-          
+
           {/* 
             SECTION -- Organization Affiliation
           */}
           {isAnOrganization && (
-            
             <div>
               <label className="font-bold text-gray-700">
                 Organization Affiliation
@@ -191,8 +191,7 @@ export default function GetStarted() {
                       Registered non-profit
                     </label>
                     <p id="org-affiliation-nonprofit" className="text-gray-500">
-                      Organization is a registered non-profit, such as
-                      501(c)(3).
+                      {`Organization is a registered non-profit, such as 501(c)(3).`}
                     </p>
                   </div>
                 </div>
@@ -278,6 +277,17 @@ export default function GetStarted() {
               </fieldset>
             </div>
           )}
+
+          {/* 
+            SECTION -- Country
+          */}
+          <CountrySelectComboBox
+            subheaderText={
+              isAnOrganization
+                ? "Where is your organization headquartered?"
+                : "What country do you live in?"
+            }
+          />
 
           {/* 
             SECTION -- Budget
