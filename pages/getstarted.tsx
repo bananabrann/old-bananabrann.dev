@@ -236,7 +236,7 @@ export default function GetStarted() {
                       Government
                     </label>
                     <p id="org-affiliation-gov" className="text-gray-500">
-                      Work is in support of U.S. state or federal government.
+                      Work is in support of state or federal government.
                       Sub-contracting included.
                     </p>
                   </div>
