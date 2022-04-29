@@ -81,9 +81,10 @@ export default function GetStarted() {
       <ContentBlock>
         <div className="flex">
           <div>
-            <h2>Get Started</h2>
-            <p>{`Let's start looking at what what would be best for you. Don't fret these responses! This is just to get a rough idea of what you're you looking for.`}</p>
-            <p>{`Fun fact:  on average, this form saves one hour of phone calls.`}</p>
+            <h2>Request a Quote</h2>
+            <p>{`Let's start looking at what what would be best for you. Don't fret these responses! This is your chance to share some information about you, and what you're looking for.`}</p>
+            <p>{`If you are seeking consultation, do not fill this form out. Email me directly.`}</p>
+            <p>{`Fun fact:  on average, this saves up to two hours of phone calls!`}</p>
           </div>
 
           <div className="max-w-sm">
@@ -146,7 +147,7 @@ export default function GetStarted() {
             {/* 
               SECTION -- Business Representation
             */}
-            <div>
+            <div className="my-4">
               <label className="font-bold text-gray-700">
                 Business Representation
               </label>
@@ -196,7 +197,7 @@ export default function GetStarted() {
           */}
           {isAnOrganization && (
             <div>
-              <div>
+              <div className="my-6">
                 <label className="font-bold text-gray-700">
                   Organization Affiliation
                 </label>
@@ -314,7 +315,7 @@ export default function GetStarted() {
                 </fieldset>
               </div>
 
-              <div className="w-full">
+              <div className="w-full my-6">
                 <label
                   htmlFor="business-name"
                   className="block font-bold text-gray-700"
@@ -336,33 +337,58 @@ export default function GetStarted() {
           {/* 
             SECTION -- Country
           */}
-          <CountrySelectComboBox
-            handleCountrySelect={handleCountrySelect}
-            subheaderText={
-              isAnOrganization
-                ? "Where is your organization headquartered?"
-                : "What country do you live in?"
-            }
-          />
+          <div className="my-6">
+            <CountrySelectComboBox
+              handleCountrySelect={handleCountrySelect}
+              subheaderText={
+                isAnOrganization
+                  ? "Where is your organization headquartered?"
+                  : "What country do you live in?"
+              }
+            />
+          </div>
 
           {/* NOTE - Don't include budget. Just tell them the hours, and let them figure it out. */}
           {/* 
             SECTION -- Budget 
           */}
-          <div>
+          <div className="my-6">
             <label htmlFor="price" className="block font-bold text-gray-700">
               Budget
             </label>
-            <p className="leading-5 mb-2 text-gray-500">{`I do not ask what your budget ceiling is. Instead, read this important information.`}</p>
-            <p className="leading-5 text-gray-500">{`Project budgets, especially for contractors, sometimes is a private matter. However, it's also sometimes important to stay within budget. If you have a monthly or total budget ceiling you would like me to be aware of so I do not cross it, please tell me in 'additional info'.`}</p>
+            <p className="leading-5 mb-2 text-gray-500">{`I understand your budget may be private. Sharing that information is not a requirement.`}</p>
+            <p className="leading-5 text-gray-500">{`However, if you or your project has a ceiling, I recommend, but not require, you share that with me so that I can set accurate expectations.`}</p>
+            
+            <div className="mt-1 relative rounded-md shadow-sm">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <span className="text-gray-500 sm:text-sm">$</span>
+              </div>
+              <input
+                type="text"
+                name="price"
+                id="price"
+                className="focus:ring-pink-500 focus:border-pink-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md"
+                placeholder="0.00"
+                aria-describedby="price-currency"
+              />
+              <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                <span className="text-gray-500 sm:text-sm" id="price-currency">
+                  USD
+                </span>
+              </div>
+            </div>
+
 
             {/* 
-            SECTION -- Contract
-          */}
-            <label htmlFor="price" className="block font-bold text-gray-700">
-              Contract
-            </label>
-            <p className="leading-5 text-gray-500">{``}</p>
+              SECTION -- Contract
+            */}
+            <div className="my-6">
+              <label htmlFor="price" className="block font-bold text-gray-700">
+                Contract
+              </label>
+              <p className="leading-5 text-gray-500">{``}</p>
+
+            </div>
 
             {/* 
             NOTE - Scratchpaper
@@ -384,25 +410,7 @@ export default function GetStarted() {
           
           */}
 
-            {/* 
-            <div className="mt-1 relative rounded-md shadow-sm">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <span className="text-gray-500 sm:text-sm">$</span>
-              </div>
-              <input
-                type="text"
-                name="price"
-                id="price"
-                className="focus:ring-pink-500 focus:border-pink-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md"
-                placeholder="0.00"
-                aria-describedby="price-currency"
-              />
-              <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-                <span className="text-gray-500 sm:text-sm" id="price-currency">
-                  USD
-                </span>
-              </div>
-            </div> */}
+            
           </div>
         </section>
       </ContentBlock>
