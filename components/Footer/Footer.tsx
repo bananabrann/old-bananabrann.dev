@@ -9,6 +9,8 @@ export default function Footer() {
           <li data-cy="footer-link-home" className="hover:text-pink-500 transition"><Link href="/">{`Homepage`}</Link></li>
           {/* prettier-ignore */}
           <li data-cy="footer-link-web-services" className="hover:text-pink-500 transition"><Link href="/#web-services">{`Freelance service offerings`}</Link></li>
+           {/* prettier-ignore */}
+           <li data-cy="footer-link-works" className="hover:text-pink-500 transition"><Link href="/getstarted">{`Get a Quote`}</Link></li>
           {/* prettier-ignore */}
           <li data-cy="footer-link-skills" className="hover:text-pink-500 transition"><Link href="/skills">{`Skills & expertise`}</Link></li>
           {/* prettier-ignore */}
