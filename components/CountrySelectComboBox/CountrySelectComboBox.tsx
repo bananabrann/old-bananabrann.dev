@@ -110,7 +110,7 @@ export default function CountrySelectComboBox({
         <Combobox.Label className="block font-bold text-gray-700">
           Location
         </Combobox.Label>
-        <p>{subheaderText}</p>
+        <p className="text-gray-500">{subheaderText}</p>
         <div className="relative mt-1">
           <Combobox.Input
             className="w-full rounded-md border border-gray-300 bg-white text-gray-700 py-2 pl-3 pr-10 shadow-sm focus:border-pink-500 focus:outline-none focus:ring-1 focus:ring-pink-500 sm:text-sm"
