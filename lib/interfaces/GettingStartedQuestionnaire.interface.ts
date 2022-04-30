@@ -10,6 +10,7 @@ export default interface GettingStartedQuestionnaire {
   country: string;
   workType: WorkType;
   workDescription: string;
+  contractRequired: boolean;
   workAdditionalInfo?: string;
   businessName?: string;
   name?: string;
