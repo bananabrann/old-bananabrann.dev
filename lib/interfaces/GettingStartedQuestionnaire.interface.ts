@@ -1,7 +1,15 @@
 export enum WorkType {
-  WebDev,
+  WebNew,
+  WebExisting,
   Consultation,
   Other,
+}
+
+export interface OrgAffiliationOptions {
+  isRegisteredNonProfit: boolean;
+  isGovernment: boolean;
+  isProvidingTaxDocumentation: boolean;
+  is508Required: boolean;
 }
 
 export default interface GettingStartedQuestionnaire {
@@ -11,6 +19,8 @@ export default interface GettingStartedQuestionnaire {
   workType: WorkType;
   workDescription: string;
   contractRequired: boolean;
+  orgAffiliation: OrgAffiliationOptions;
+  isContractRequired: boolean;
   workAdditionalInfo?: string;
   businessName?: string;
   name?: string;
@@ -18,10 +28,14 @@ export default interface GettingStartedQuestionnaire {
   orgName?: string;
 }
 
-export function isQuestionnaire(object: unknown): object is GettingStartedQuestionnaire {
-  return Object.prototype.hasOwnProperty.call(object, "id")
-      && Object.prototype.hasOwnProperty.call(object, "mainContact")
-      && Object.prototype.hasOwnProperty.call(object, "workType")
-      && Object.prototype.hasOwnProperty.call(object, "workDescription")
-      && Object.prototype.hasOwnProperty.call(object, "country")
+export function isQuestionnaire(
+  object: unknown
+): object is GettingStartedQuestionnaire {
+  return (
+    Object.prototype.hasOwnProperty.call(object, "id") &&
+    Object.prototype.hasOwnProperty.call(object, "mainContact") &&
+    Object.prototype.hasOwnProperty.call(object, "workType") &&
+    Object.prototype.hasOwnProperty.call(object, "workDescription") &&
+    Object.prototype.hasOwnProperty.call(object, "country")
+  );
 }

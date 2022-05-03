@@ -17,7 +17,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { CheckIcon, SelectorIcon } from "@heroicons/react/solid";
 import { Combobox } from "@headlessui/react";
-import CountrySelectComboBoxItem from "../../lib/interfaces/CountrySelectComboBox.interface";
+import GetAQuoteCountrySelectItem from "../../lib/interfaces/GetAQuoteCountrySelectItem.interface";
 
 // prettier-ignore
 const countries = [
@@ -62,17 +62,17 @@ function classNames(...classes: any[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function CountrySelectComboBox({
+export default function GetAQuoteCountrySelect({
   subheaderText,
   handleCountrySelect,
 }: {
   subheaderText: string;
-  handleCountrySelect: (c: CountrySelectComboBoxItem) => void;
+  handleCountrySelect: (c: GetAQuoteCountrySelectItem) => void;
 }) {
   const [query, setQuery] = useState<string>("");
   // NOTE - ComboBox.Input displayValue expects a value to be initialized.
   const [selectedCountry, setSelectedCountry] =
-    useState<CountrySelectComboBoxItem>({} as CountrySelectComboBoxItem);
+    useState<GetAQuoteCountrySelectItem>({} as GetAQuoteCountrySelectItem);
   const [selectedCountryOtherValue, setSelectedCountryOtherValue] =
     useState<string>();
 
