@@ -20,10 +20,12 @@ import GetAQuoteBudget from "../components/GetAQuote/GetAQuoteBudget";
 import GetAQuoteContractRequired from "../components/GetAQuote/GetAQuoteContractRequired";
 import GetAQuoteWorkType from "../components/GetAQuote/GetAQuoteWorkType";
 import GetAQuoteExistingSiteUrl from "../components/GetAQuote/GetAQuoteExistingSiteUrl";
+import QuoteCalculatorBranding from "../components/GetAQuote/QuoteCalculatorBranding";
 
 export default function GetStarted() {
   const [isAnOrganization, setIsAnOrganization] = useState<boolean>(false);
   const [contractRequired, setContractRequired] = useState<boolean>(false);
+  const [isBrandingRequired, setIsBrandingRequired] = useState<boolean>(false);
   const [questionnaireForm, setQuestionnaireForm] =
     useState<GettingStartedQuestionnaire>({} as GettingStartedQuestionnaire);
 
@@ -100,6 +102,11 @@ export default function GetStarted() {
     });
   }
 
+  function handleBrandingRequired(b: boolean) {
+    setIsBrandingRequired(b);
+    setQuestionnaireForm({...questionnaireForm, isBrandingRequired: b })
+  }
+
   return (
     <Layout home={false}>
       <Navbar />
@@ -159,7 +166,7 @@ export default function GetStarted() {
               />
             </div>
 
-            <GetAQuoteBudget handleBudget={handleBudget} />
+            {/* <GetAQuoteBudget handleBudget={handleBudget} /> */}
           </div>
 
           <GetAQuoteContractRequired
@@ -175,6 +182,10 @@ export default function GetStarted() {
           <GetAQuoteExistingSiteUrl
             handleExistingSiteUrl={handleExistingSiteUrl}
           />
+        )}
+
+        {questionnaireForm.workType === WorkType.WebNew && (
+          <QuoteCalculatorBranding isChecked={isBrandingRequired} handleBranding={handleBrandingRequired} />
         )}
       </ContentBlock>
 

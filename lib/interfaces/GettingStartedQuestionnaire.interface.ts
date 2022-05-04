@@ -21,6 +21,7 @@ export default interface GettingStartedQuestionnaire {
   contractRequired: boolean;
   orgAffiliation: OrgAffiliationOptions;
   isContractRequired: boolean;
+  isBrandingRequired: boolean;
   existingSiteUrl?: string;
   workAdditionalInfo?: string;
   businessName?: string;
