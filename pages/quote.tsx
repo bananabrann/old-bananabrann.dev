@@ -6,6 +6,7 @@ import BananamanEngineerPng from "../res/png/bananaman-engineer.png";
 import ContentBlock from "../components/ContentBlock/ContentBlock";
 import React, { useEffect, useState } from "react";
 import GettingStartedQuestionnaire, {
+  ExistingSiteWorkOptions,
   OrgAffiliationOptions,
   WorkType,
 } from "../lib/interfaces/GettingStartedQuestionnaire.interface";
@@ -21,11 +22,12 @@ import GetAQuoteContractRequired from "../components/GetAQuote/GetAQuoteContract
 import GetAQuoteWorkType from "../components/GetAQuote/GetAQuoteWorkType";
 import GetAQuoteExistingSiteUrl from "../components/GetAQuote/GetAQuoteExistingSiteUrl";
 import QuoteCalculatorBranding from "../components/GetAQuote/QuoteCalculatorBranding";
+import QuoteCalculatorExistingSiteWorkItems from "../components/GetAQuote/QuoteCalculatorExistingSiteWorkItems";
 
 export default function GetStarted() {
   const [isAnOrganization, setIsAnOrganization] = useState<boolean>(false);
   const [contractRequired, setContractRequired] = useState<boolean>(false);
-  const [isBrandingRequired, setIsBrandingRequired] = useState<boolean>(false);
+  const [isBrandingRequired, setIsBrandingRequired] = useState<boolean>(true);
   const [questionnaireForm, setQuestionnaireForm] =
     useState<GettingStartedQuestionnaire>({} as GettingStartedQuestionnaire);
 
@@ -107,6 +109,10 @@ export default function GetStarted() {
     setQuestionnaireForm({...questionnaireForm, isBrandingRequired: b })
   }
 
+  function handleExistingSiteWork(x: ExistingSiteWorkOptions) {
+    setQuestionnaireForm({...questionnaireForm, existingSiteWork: x})
+  }
+
   return (
     <Layout home={false}>
       <Navbar />
@@ -131,10 +137,10 @@ export default function GetStarted() {
         </div>
 
         <section>
-          <div className="flex justify-between gap-6 flex-col md:flex-row">
+          {/* <div className="flex justify-between gap-6 flex-col md:flex-row">
             <GetAQuoteName handleName={handleName} />
             <GetAQuoteContact handleMainContact={handleMainContact} />
-          </div>
+          </div> */}
 
           <div className="flex">
             <GetAQuoteBusinessRepresentation
@@ -150,7 +156,7 @@ export default function GetStarted() {
                 handleOrgAffiliation={handleOrgAffiliation}
               />
 
-              <GetAQuoteBusinessName handleBusinessName={handleBusinessName} />
+              {/* <GetAQuoteBusinessName handleBusinessName={handleBusinessName} /> */}
             </div>
           )}
 
@@ -179,9 +185,11 @@ export default function GetStarted() {
       <ContentBlock>
         <GetAQuoteWorkType handleWorkType={handleWorkType} />
         {questionnaireForm.workType === WorkType.WebExisting && (
-          <GetAQuoteExistingSiteUrl
-            handleExistingSiteUrl={handleExistingSiteUrl}
-          />
+          // <GetAQuoteExistingSiteUrl
+          //   handleExistingSiteUrl={handleExistingSiteUrl}
+          // />
+
+            <QuoteCalculatorExistingSiteWorkItems handleExistingSiteWork={handleExistingSiteWork} currentExistingSiteWorkOptions={questionnaireForm?.existingSiteWork} />
         )}
 
         {questionnaireForm.workType === WorkType.WebNew && (

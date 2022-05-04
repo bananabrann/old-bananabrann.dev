@@ -12,6 +12,12 @@ export interface OrgAffiliationOptions {
   is508Required: boolean;
 }
 
+export interface ExistingSiteWorkOptions {
+  seo: boolean;
+  newFeature: boolean;
+  bugfix: boolean;
+}
+
 export default interface GettingStartedQuestionnaire {
   id: string;
   mainContact: string;
@@ -22,6 +28,7 @@ export default interface GettingStartedQuestionnaire {
   orgAffiliation: OrgAffiliationOptions;
   isContractRequired: boolean;
   isBrandingRequired: boolean;
+  existingSiteWork?: ExistingSiteWorkOptions;
   existingSiteUrl?: string;
   workAdditionalInfo?: string;
   businessName?: string;
