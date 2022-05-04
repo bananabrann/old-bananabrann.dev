@@ -8,20 +8,20 @@ const optionsList = [
   {
     id: 1,
     title: "New website",
-    description: "A new website or system from scratch.",
+    description: "A new website or app from scratch. Includes complete overhauls of existing websites.",
     workType: WorkType.WebNew,
   },
   {
     id: 2,
-    title: "Existing website",
-    description: "Modifications/edit to my existing site.",
+    title: "Work on existing website",
+    description: "Edits to my existing website, improve listing on Google searches, etc. ",
     workType: WorkType.WebExisting,
   },
   {
     id: 3,
     title: "Something else",
     description:
-      "Everything else, like Discord bots, infrastructure provisioning, etc.",
+      "Discord/Slack bots, email on custom domains, etc. Anything else!",
     workType: WorkType.Other,
   },
 ];

@@ -1,8 +1,8 @@
 export enum WorkType {
-  WebNew,
-  WebExisting,
-  Consultation,
-  Other,
+  WebNew = "WebNew",
+  WebExisting = "WebExisting",
+  Consultation = "Consultation",
+  Other = "Other",
 }
 
 export interface OrgAffiliationOptions {
@@ -21,6 +21,7 @@ export default interface GettingStartedQuestionnaire {
   contractRequired: boolean;
   orgAffiliation: OrgAffiliationOptions;
   isContractRequired: boolean;
+  existingSiteUrl?: string;
   workAdditionalInfo?: string;
   businessName?: string;
   name?: string;

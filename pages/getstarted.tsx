@@ -19,6 +19,7 @@ import GetAQuoteBusinessName from "../components/GetAQuote/GetAQuoteBusinessName
 import GetAQuoteBudget from "../components/GetAQuote/GetAQuoteBudget";
 import GetAQuoteContractRequired from "../components/GetAQuote/GetAQuoteContractRequired";
 import GetAQuoteWorkType from "../components/GetAQuote/GetAQuoteWorkType";
+import GetAQuoteExistingSiteUrl from "../components/GetAQuote/GetAQuoteExistingSiteUrl";
 
 export default function GetStarted() {
   const [isAnOrganization, setIsAnOrganization] = useState<boolean>(false);
@@ -92,6 +93,13 @@ export default function GetStarted() {
     setQuestionnaireForm({ ...questionnaireForm, workType: w });
   }
 
+  function handleExistingSiteUrl(event: React.FormEvent<HTMLInputElement>) {
+    setQuestionnaireForm({
+      ...questionnaireForm,
+      existingSiteUrl: event.currentTarget.value,
+    });
+  }
+
   return (
     <Layout home={false}>
       <Navbar />
@@ -163,6 +171,11 @@ export default function GetStarted() {
 
       <ContentBlock>
         <GetAQuoteWorkType handleWorkType={handleWorkType} />
+        {questionnaireForm.workType === WorkType.WebExisting && (
+          <GetAQuoteExistingSiteUrl
+            handleExistingSiteUrl={handleExistingSiteUrl}
+          />
+        )}
       </ContentBlock>
 
       <Footer />
