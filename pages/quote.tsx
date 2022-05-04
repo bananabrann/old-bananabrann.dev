@@ -189,7 +189,7 @@ export default function GetStarted() {
           //   handleExistingSiteUrl={handleExistingSiteUrl}
           // />
 
-            <QuoteCalculatorExistingSiteWorkItems handleExistingSiteWork={handleExistingSiteWork} currentExistingSiteWorkOptions={questionnaireForm?.existingSiteWork} />
+            <QuoteCalculatorExistingSiteWorkItems handleExistingSiteWork={handleExistingSiteWork} currentExistingSiteWorkOptions={questionnaireForm.existingSiteWork!} />
         )}
 
         {questionnaireForm.workType === WorkType.WebNew && (
