@@ -7,6 +7,7 @@ import ContentBlock from "../components/ContentBlock/ContentBlock";
 import React, { useEffect, useState } from "react";
 import GettingStartedQuestionnaire, {
   OrgAffiliationOptions,
+  WorkType,
 } from "../lib/interfaces/GettingStartedQuestionnaire.interface";
 import GetAQuoteCountrySelect from "../components/GetAQuote/GetAQuoteCountrySelect";
 import GetAQuoteCountrySelectItem from "../lib/interfaces/GetAQuoteCountrySelectItem.interface";
@@ -17,6 +18,7 @@ import GetAQuoteOrgAffiliation from "../components/GetAQuote/GetAQuoteOrgAffilia
 import GetAQuoteBusinessName from "../components/GetAQuote/GetAQuoteBusinessName";
 import GetAQuoteBudget from "../components/GetAQuote/GetAQuoteBudget";
 import GetAQuoteContractRequired from "../components/GetAQuote/GetAQuoteContractRequired";
+import GetAQuoteWorkType from "../components/GetAQuote/GetAQuoteWorkType";
 
 export default function GetStarted() {
   const [isAnOrganization, setIsAnOrganization] = useState<boolean>(false);
@@ -86,6 +88,10 @@ export default function GetStarted() {
     });
   }
 
+  function handleWorkType(w: WorkType) {
+    setQuestionnaireForm({ ...questionnaireForm, workType: w });
+  }
+
   return (
     <Layout home={false}>
       <Navbar />
@@ -153,6 +159,10 @@ export default function GetStarted() {
             isChecked={contractRequired}
           />
         </section>
+      </ContentBlock>
+
+      <ContentBlock>
+        <GetAQuoteWorkType handleWorkType={handleWorkType} />
       </ContentBlock>
 
       <Footer />
