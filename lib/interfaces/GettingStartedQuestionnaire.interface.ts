@@ -5,6 +5,15 @@ export enum WorkType {
   Other = "Other",
 }
 
+export interface QuoteEstimate {
+  smallLow: number;
+  smallHigh: number;
+  largeLow: number;
+  largeHigh: number;
+  enterpriseLow: number;
+  enterpriseHigh: number;
+}
+
 export interface OrgAffiliationOptions {
   isRegisteredNonProfit: boolean;
   isGovernment: boolean;

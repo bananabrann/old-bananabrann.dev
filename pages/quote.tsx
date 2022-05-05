@@ -8,6 +8,7 @@ import React, { useEffect, useState } from "react";
 import GettingStartedQuestionnaire, {
   ExistingSiteWorkOptions,
   OrgAffiliationOptions,
+  QuoteEstimate,
   WorkType,
 } from "../lib/interfaces/GettingStartedQuestionnaire.interface";
 import GetAQuoteCountrySelect from "../components/GetAQuote/GetAQuoteCountrySelect";
@@ -23,8 +24,16 @@ import GetAQuoteWorkType from "../components/GetAQuote/GetAQuoteWorkType";
 import GetAQuoteExistingSiteUrl from "../components/GetAQuote/GetAQuoteExistingSiteUrl";
 import QuoteCalculatorBranding from "../components/GetAQuote/QuoteCalculatorBranding";
 import QuoteCalculatorExistingSiteWorkItems from "../components/GetAQuote/QuoteCalculatorExistingSiteWorkItems";
+import ContentBlockOutline from "../components/ContentBlockOutline/ContentBlockOutline";
+
+// const defaultFormQuestionnaireForm: GettingStartedQuestionnaire = {
+//   id: "",
+//   mainContact: "",
+
+// }
 
 export default function GetStarted() {
+  const [estimate, setEstimate] = useState<QuoteEstimate>();
   const [isAnOrganization, setIsAnOrganization] = useState<boolean>(false);
   const [contractRequired, setContractRequired] = useState<boolean>(false);
   const [isBrandingRequired, setIsBrandingRequired] = useState<boolean>(true);
@@ -47,6 +56,12 @@ export default function GetStarted() {
   useEffect(() => {
     console.log(questionnaireForm);
   }, [questionnaireForm]);
+
+  useEffect(() => {
+    // On the first load, set the work type to "WebNew" so that the branding
+    // section displays.
+    setQuestionnaireForm({ ...questionnaireForm, workType: WorkType.WebNew });
+  }, []);
 
   function handleCountrySelect(c: GetAQuoteCountrySelectItem): void {
     setQuestionnaireForm({ ...questionnaireForm, country: c.name });
@@ -106,11 +121,11 @@ export default function GetStarted() {
 
   function handleBrandingRequired(b: boolean) {
     setIsBrandingRequired(b);
-    setQuestionnaireForm({...questionnaireForm, isBrandingRequired: b })
+    setQuestionnaireForm({ ...questionnaireForm, isBrandingRequired: b });
   }
 
   function handleExistingSiteWork(x: ExistingSiteWorkOptions) {
-    setQuestionnaireForm({...questionnaireForm, existingSiteWork: x})
+    setQuestionnaireForm({ ...questionnaireForm, existingSiteWork: x });
   }
 
   return (
@@ -120,7 +135,7 @@ export default function GetStarted() {
       <ContentBlock>
         <div className="flex">
           <div>
-            <h2>Request a Quote</h2>
+            <h2>Quote Calculator</h2>
             <p>{`Let's start looking at what what would be best for you. Don't fret these responses! This is your chance to share some information about you, and what you're looking for.`}</p>
             <p>{`If you are seeking consultation, do not fill this form out. Email me directly.`}</p>
             <p>{`Fun fact:  on average, this saves up to two hours of phone calls!`}</p>
@@ -136,65 +151,93 @@ export default function GetStarted() {
           </div>
         </div>
 
-        <section>
-          {/* <div className="flex justify-between gap-6 flex-col md:flex-row">
-            <GetAQuoteName handleName={handleName} />
-            <GetAQuoteContact handleMainContact={handleMainContact} />
-          </div> */}
+        <section className="flex flex-col md:flex-row">
+          <div className="w-[670px] mb-12">
+              <h3>Hours</h3>
+              <h4>Small project</h4>
+              <p className="text-sm">
+                {`1 to 6 page websites, typically detached from the business's work flow.`}
+              </p>
+              <p>
+                {estimate?.smallLow} - {estimate?.smallHigh}
+              </p>
 
-          <div className="flex">
-            <GetAQuoteBusinessRepresentation
-              handleIsAnOrgRadioClick={handleIsAnOrgRadioClick}
-              isChecked={isAnOrganization}
-            />
+              <h4>Large project</h4>
+              <p className="text-sm">
+                {`Websites that are large, or whose business has considerable operational dependency for the website.`}
+              </p>
+              <p>
+                {estimate?.largeLow} - {estimate?.largeHigh}
+              </p>
+
+              <h4>Enterprise project</h4>
+              <p className="text-sm">
+                {`Complex, highly scalable and globally available web apps.`}
+              </p>
+              <p>
+                {estimate?.enterpriseLow} - {estimate?.enterpriseHigh}
+              </p>
+
+              <p className="text-sm mt-5 text-gray-400">{`These numbers neither represent the minimum nor the maximum  your project may require. You should always consult me for an actual quote when planning your budget.`}</p>
           </div>
 
-          {isAnOrganization && (
-            <div>
-              <GetAQuoteOrgAffiliation
-                currentOrgAffiliationOptions={questionnaireForm.orgAffiliation}
-                handleOrgAffiliation={handleOrgAffiliation}
-              />
+          <div className="min-h-full w-1 bg-gray-200 mx-8" />
 
-              {/* <GetAQuoteBusinessName handleBusinessName={handleBusinessName} /> */}
-            </div>
-          )}
-
-          <div className="flex flex-col sm:flex-row sm:gap-6">
-            <div className="my-3 w-full">
-              <GetAQuoteCountrySelect
-                handleCountrySelect={handleCountrySelect}
-                subheaderText={
-                  isAnOrganization
-                    ? "Where is your organization headquartered?"
-                    : "What country do you live in?"
+          <div>
+            <GetAQuoteWorkType handleWorkType={handleWorkType} />
+            {questionnaireForm.workType === WorkType.WebExisting && (
+              <QuoteCalculatorExistingSiteWorkItems
+                handleExistingSiteWork={handleExistingSiteWork}
+                currentExistingSiteWorkOptions={
+                  questionnaireForm.existingSiteWork!
                 }
               />
+            )}
+
+            {questionnaireForm.workType === WorkType.WebNew && (
+              <QuoteCalculatorBranding
+                isChecked={isBrandingRequired}
+                handleBranding={handleBrandingRequired}
+              />
+            )}
+
+            <div className="flex">
+              <GetAQuoteBusinessRepresentation
+                handleIsAnOrgRadioClick={handleIsAnOrgRadioClick}
+                isChecked={isAnOrganization}
+              />
             </div>
 
-            {/* <GetAQuoteBudget handleBudget={handleBudget} /> */}
+            {isAnOrganization && (
+              <div>
+                <GetAQuoteOrgAffiliation
+                  currentOrgAffiliationOptions={
+                    questionnaireForm.orgAffiliation
+                  }
+                  handleOrgAffiliation={handleOrgAffiliation}
+                />
+              </div>
+            )}
+
+            <div className="flex flex-col sm:flex-row sm:gap-6">
+              <div className="my-3 w-full">
+                <GetAQuoteCountrySelect
+                  handleCountrySelect={handleCountrySelect}
+                  subheaderText={
+                    isAnOrganization
+                      ? "Where is your organization headquartered?"
+                      : "What country do you live in?"
+                  }
+                />
+              </div>
+            </div>
+
+            <GetAQuoteContractRequired
+              handleContractRequired={handleContractRequired}
+              isChecked={contractRequired}
+            />
           </div>
-
-          <GetAQuoteContractRequired
-            handleContractRequired={handleContractRequired}
-            isChecked={contractRequired}
-          />
         </section>
-      </ContentBlock>
-
-      <ContentBlock>
-        <GetAQuoteWorkType handleWorkType={handleWorkType} />
-        {questionnaireForm.workType === WorkType.WebExisting && (
-          // <GetAQuoteExistingSiteUrl
-          //   handleExistingSiteUrl={handleExistingSiteUrl}
-          // />
-
-            <QuoteCalculatorExistingSiteWorkItems handleExistingSiteWork={handleExistingSiteWork} currentExistingSiteWorkOptions={questionnaireForm.existingSiteWork!} />
-        )}
-
-        {questionnaireForm.workType === WorkType.WebNew && (
-          <QuoteCalculatorBranding isChecked={isBrandingRequired} handleBranding={handleBrandingRequired} />
-        )}
       </ContentBlock>
 
       <Footer />
