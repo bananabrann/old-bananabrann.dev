@@ -5,6 +5,16 @@ export enum WorkType {
   Other = "Other",
 }
 
+export enum EstimateNoticeType {
+  Warning = "Warning",
+  NotAble = "NotAble"
+}
+
+export interface EstimateNotice {
+  type: EstimateNoticeType;
+  text: string;
+}
+
 export interface QuoteEstimate {
   smallLow: number;
   smallHigh: number;

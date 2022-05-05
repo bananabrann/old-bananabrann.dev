@@ -6,11 +6,14 @@ import BananamanEngineerPng from "../res/png/bananaman-engineer.png";
 import ContentBlock from "../components/ContentBlock/ContentBlock";
 import React, { useEffect, useState } from "react";
 import GettingStartedQuestionnaire, {
+  EstimateNotice,
+  EstimateNoticeType,
   ExistingSiteWorkOptions,
   OrgAffiliationOptions,
   QuoteEstimate,
   WorkType,
 } from "../lib/interfaces/GettingStartedQuestionnaire.interface";
+import ContentBlockOutline from "../components/ContentBlockOutline/ContentBlockOutline";
 import GetAQuoteCountrySelect from "../components/GetAQuote/GetAQuoteCountrySelect";
 import GetAQuoteCountrySelectItem from "../lib/interfaces/GetAQuoteCountrySelectItem.interface";
 import GetAQuoteName from "../components/GetAQuote/GetAQuoteName";
@@ -24,7 +27,11 @@ import GetAQuoteWorkType from "../components/GetAQuote/GetAQuoteWorkType";
 import GetAQuoteExistingSiteUrl from "../components/GetAQuote/GetAQuoteExistingSiteUrl";
 import QuoteCalculatorBranding from "../components/GetAQuote/QuoteCalculatorBranding";
 import QuoteCalculatorExistingSiteWorkItems from "../components/GetAQuote/QuoteCalculatorExistingSiteWorkItems";
-import ContentBlockOutline from "../components/ContentBlockOutline/ContentBlockOutline";
+import {
+  ExclamationCircleIcon,
+  ShieldExclamationIcon,
+  XCircleIcon,
+} from "@heroicons/react/solid";
 
 // const defaultFormQuestionnaireForm: GettingStartedQuestionnaire = {
 //   id: "",
@@ -32,8 +39,27 @@ import ContentBlockOutline from "../components/ContentBlockOutline/ContentBlockO
 
 // }
 
+function Warning({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="text-yellow-500 my-2 text-sm font-bold flex items-center gap-2">
+      <ExclamationCircleIcon className="basis-8 flex-none" />
+      {children}
+    </div>
+  );
+}
+
+function NotAble({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="text-red-500 my-2 text-sm font-bold flex items-center gap-2">
+      <ShieldExclamationIcon className="basis-8 flex-none" />
+      {children}
+    </div>
+  );
+}
+
 export default function GetStarted() {
   const [estimate, setEstimate] = useState<QuoteEstimate>();
+  const [estimateNotices, setEstimateNotices] = useState<EstimateNotice[]>([]);
   const [isAnOrganization, setIsAnOrganization] = useState<boolean>(false);
   const [contractRequired, setContractRequired] = useState<boolean>(false);
   const [isBrandingRequired, setIsBrandingRequired] = useState<boolean>(true);
@@ -55,7 +81,52 @@ export default function GetStarted() {
 
   useEffect(() => {
     console.log(questionnaireForm);
-  }, [questionnaireForm]);
+
+    let newNotices: EstimateNotice[] = [];
+
+    // Reset array of notices.
+    setEstimateNotices([]);
+
+    if (
+      questionnaireForm.orgAffiliation?.isGovernment &&
+      isAnOrganization &&
+      questionnaireForm.country?.toLowerCase() !== "united states"
+    ) {
+      newNotices.push({
+        type: EstimateNoticeType.NotAble,
+        text: "I cannot work for non-U.S. government entities.",
+      });
+    }
+
+    if (!isBrandingRequired) {
+      newNotices.push({
+        type: EstimateNoticeType.Warning,
+        text: "Not having branding adds serious variability to actual hours.",
+      });
+    }
+
+    if (questionnaireForm.workType === WorkType.WebExisting) {
+      newNotices.push({
+        type: EstimateNoticeType.Warning,
+        text: "Actual hours will greatly depend on existing website.",
+      });
+    }
+
+    if (
+      !isAnOrganization &&
+      !(
+        questionnaireForm.country === "United States" ||
+        questionnaireForm.country === "Canada"
+      )
+    ) {
+      newNotices.push({
+        type: EstimateNoticeType.Warning,
+        text: "There may be restrictions based on your location.",
+      });
+    }
+
+    setEstimateNotices(newNotices);
+  }, [questionnaireForm, isAnOrganization, isBrandingRequired]);
 
   useEffect(() => {
     // On the first load, set the work type to "WebNew" so that the branding
@@ -152,33 +223,42 @@ export default function GetStarted() {
         </div>
 
         <section className="flex flex-col md:flex-row">
-          <div className="w-[670px] mb-12">
-              <h3>Hours</h3>
-              <h4>Small project</h4>
-              <p className="text-sm">
-                {`1 to 6 page websites, typically detached from the business's work flow.`}
-              </p>
-              <p>
-                {estimate?.smallLow} - {estimate?.smallHigh}
-              </p>
+          <div className="md:max-w-[210px] mb-12">
+            {estimateNotices.map((notice) => {
+              if (notice.type === EstimateNoticeType.NotAble) {
+                return <NotAble><p>{notice.text}</p></NotAble> // prettier-ignore
+              }
+              if (notice.type === EstimateNoticeType.Warning) {
+                return <Warning><p>{notice.text}</p></Warning> // prettier-ignore
+              }
+            })}
 
-              <h4>Large project</h4>
-              <p className="text-sm">
-                {`Websites that are large, or whose business has considerable operational dependency for the website.`}
-              </p>
-              <p>
-                {estimate?.largeLow} - {estimate?.largeHigh}
-              </p>
+            <h3>Hours</h3>
+            <h4>Small project</h4>
+            <p className="text-sm">
+              {`1 to 6 page websites, typically detached from the business's work flow.`}
+            </p>
+            <p>
+              {estimate?.smallLow} - {estimate?.smallHigh}
+            </p>
 
-              <h4>Enterprise project</h4>
-              <p className="text-sm">
-                {`Complex, highly scalable and globally available web apps.`}
-              </p>
-              <p>
-                {estimate?.enterpriseLow} - {estimate?.enterpriseHigh}
-              </p>
+            <h4>Large project</h4>
+            <p className="text-sm">
+              {`Websites that are large, or whose business has considerable operational dependency for the website.`}
+            </p>
+            <p>
+              {estimate?.largeLow} - {estimate?.largeHigh}
+            </p>
 
-              <p className="text-sm mt-5 text-gray-400">{`These numbers neither represent the minimum nor the maximum  your project may require. You should always consult me for an actual quote when planning your budget.`}</p>
+            <h4>Enterprise project</h4>
+            <p className="text-sm">
+              {`Complex, highly scalable and globally available web apps.`}
+            </p>
+            <p>
+              {estimate?.enterpriseLow} - {estimate?.enterpriseHigh}
+            </p>
+
+            <p className="text-sm mt-5 text-gray-400">{`These numbers neither represent the minimum nor the maximum  your project may require. You should always consult me for an actual quote when planning your budget.`}</p>
           </div>
 
           <div className="min-h-full w-1 bg-gray-200 mx-8" />
