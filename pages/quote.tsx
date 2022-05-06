@@ -30,14 +30,7 @@ import QuoteCalculatorExistingSiteWorkItems from "../components/GetAQuote/QuoteC
 import {
   ExclamationCircleIcon,
   ShieldExclamationIcon,
-  XCircleIcon,
 } from "@heroicons/react/solid";
-
-// const defaultFormQuestionnaireForm: GettingStartedQuestionnaire = {
-//   id: "",
-//   mainContact: "",
-
-// }
 
 function Warning({ children }: { children: React.ReactNode }) {
   return (
@@ -79,13 +72,13 @@ export default function GetStarted() {
   }
   */
 
+  /**
+   * Manage the estimate numbers provided by the quote calculator.
+   */
   useEffect(() => {
-    console.log(questionnaireForm);
-
-    let newNotices: EstimateNotice[] = [];
-
     // Reset array of notices.
     setEstimateNotices([]);
+    let newNotices: EstimateNotice[] = [];
 
     if (
       questionnaireForm.orgAffiliation?.isGovernment &&
@@ -98,6 +91,9 @@ export default function GetStarted() {
       });
     }
 
+    // If branding work is required.
+    // TODO - Check that isBrandingRequired is as expected. The values may be
+    // inverted.
     if (!isBrandingRequired) {
       newNotices.push({
         type: EstimateNoticeType.Warning,
@@ -112,16 +108,21 @@ export default function GetStarted() {
       });
     }
 
+    // If the country is not U.S. or Canada, OR is an organization and not the
+    // U.S.
     if (
-      !isAnOrganization &&
-      !(
+      // If is government and not U.S. or Canada, the NotAble badge for no gov
+      // work takes priority. 
+      !questionnaireForm.orgAffiliation?.isGovernment &&
+      (!(
         questionnaireForm.country === "United States" ||
         questionnaireForm.country === "Canada"
-      )
+      ) ||
+        (isAnOrganization && questionnaireForm.country !== "United States"))
     ) {
       newNotices.push({
         type: EstimateNoticeType.Warning,
-        text: "There may be restrictions based on your location.",
+        text: "There may be restrictions on what I can provide.",
       });
     }
 
