@@ -55,7 +55,7 @@ export default function GetStarted() {
   const [estimateNotices, setEstimateNotices] = useState<EstimateNotice[]>([]);
   const [isAnOrganization, setIsAnOrganization] = useState<boolean>(false);
   const [contractRequired, setContractRequired] = useState<boolean>(false);
-  const [isBrandingRequired, setIsBrandingRequired] = useState<boolean>(true);
+  const [isBrandingExisting, setIsBrandingExisting] = useState<boolean>(true);
   const [questionnaireForm, setQuestionnaireForm] =
     useState<GettingStartedQuestionnaire>({} as GettingStartedQuestionnaire);
 
@@ -74,8 +74,80 @@ export default function GetStarted() {
 
   /**
    * Manage the estimate numbers provided by the quote calculator.
+   *
+   * Estimates are provided by adding to the base number and then adjusting for
+   * variance depending on the input from the input.
    */
-  useEffect(() => {
+  function calculateEstimate() {
+    let variance: number = 0.1;
+    let newEstimate: QuoteEstimate;
+    let small: number = NaN;
+    let large: number = NaN;
+    let enterprise: number = NaN;
+
+    if (questionnaireForm.workType === WorkType.WebNew) {
+      small = 40;
+      large = 140;
+      enterprise = 480;
+      variance += 0.05;
+
+      if (!isBrandingExisting) variance += 1.0;
+    } else if (questionnaireForm.workType === WorkType.WebExisting) {
+      if (contractRequired) variance += 0.5;
+      small = 10;
+      large = 40;
+      enterprise = 40;
+      variance += 0.25;
+
+      if (questionnaireForm.existingSiteWork?.bugfix) {
+        variance += 2;
+        small -= 2;
+        large -= 25;
+        enterprise -= 25;
+      }
+
+      if (questionnaireForm.existingSiteWork?.seo) {
+        small += 8;
+        large += 16;
+        enterprise += 40;
+      }
+
+      if (questionnaireForm.existingSiteWork?.newFeature) {
+        variance += 0.5;
+        small += 20;
+        large += 40;
+        enterprise += 160;
+      }
+    }
+
+    if (isAnOrganization) {
+      small += 60;
+      large += 120;
+      variance += 0.25;
+
+      if (questionnaireForm.orgAffiliation.is508Required) {
+        variance += 0.1;
+      }
+    }
+
+    if (!isAnOrganization) enterprise = NaN;
+
+    newEstimate = {
+      smallLow: small,
+      smallHigh: Math.ceil(small + small * variance),
+      largeLow: large,
+      largeHigh: Math.ceil(large + large * variance),
+      enterpriseLow: Math.floor(enterprise + (enterprise * variance) / (5 / 6)),
+      enterpriseHigh: Math.ceil(enterprise + enterprise * (variance * 2)),
+    };
+
+    setEstimate(newEstimate);
+  }
+
+  /**
+   * Manages the notices provided from info in the form.
+   */
+  function calculateNotices() {
     // Reset array of notices.
     setEstimateNotices([]);
     let newNotices: EstimateNotice[] = [];
@@ -92,9 +164,9 @@ export default function GetStarted() {
     }
 
     // If branding work is required.
-    // TODO - Check that isBrandingRequired is as expected. The values may be
+    // TODO - Check that isBrandingExisting is as expected. The values may be
     // inverted.
-    if (!isBrandingRequired) {
+    if (!isBrandingExisting) {
       newNotices.push({
         type: EstimateNoticeType.Warning,
         text: "Not having branding adds serious variability to actual hours.",
@@ -112,7 +184,7 @@ export default function GetStarted() {
     // U.S.
     if (
       // If is government and not U.S. or Canada, the NotAble badge for no gov
-      // work takes priority. 
+      // work takes priority.
       !questionnaireForm.orgAffiliation?.isGovernment &&
       (!(
         questionnaireForm.country === "United States" ||
@@ -127,7 +199,12 @@ export default function GetStarted() {
     }
 
     setEstimateNotices(newNotices);
-  }, [questionnaireForm, isAnOrganization, isBrandingRequired]);
+  }
+
+  useEffect(() => {
+    calculateEstimate();
+    calculateNotices();
+  }, [questionnaireForm, isAnOrganization, isBrandingExisting]);
 
   useEffect(() => {
     // On the first load, set the work type to "WebNew" so that the branding
@@ -192,8 +269,8 @@ export default function GetStarted() {
   }
 
   function handleBrandingRequired(b: boolean) {
-    setIsBrandingRequired(b);
-    setQuestionnaireForm({ ...questionnaireForm, isBrandingRequired: b });
+    setIsBrandingExisting(b);
+    setQuestionnaireForm({ ...questionnaireForm, isBrandingExisting: b });
   }
 
   function handleExistingSiteWork(x: ExistingSiteWorkOptions) {
@@ -225,46 +302,68 @@ export default function GetStarted() {
 
         <section className="flex flex-col md:flex-row">
           <div className="md:max-w-[210px] mb-12">
-            {estimateNotices.map((notice) => {
-              if (notice.type === EstimateNoticeType.NotAble) {
-                return <NotAble><p>{notice.text}</p></NotAble> // prettier-ignore
-              }
-              if (notice.type === EstimateNoticeType.Warning) {
-                return <Warning><p>{notice.text}</p></Warning> // prettier-ignore
-              }
-            })}
+            <section className="sticky top-0">
+              {estimateNotices.map((notice) => {
+                if (notice.type === EstimateNoticeType.NotAble) {
+                  return <NotAble><p>{notice.text}</p></NotAble> // prettier-ignore
+                }
+                if (notice.type === EstimateNoticeType.Warning) {
+                  return <Warning><p>{notice.text}</p></Warning> // prettier-ignore
+                }
+              })}
+            </section>
 
-            <h3>Hours</h3>
-            <h4>Small project</h4>
-            <p className="text-sm">
-              {`1 to 6 page websites, typically detached from the business's work flow.`}
-            </p>
-            <p>
-              {estimate?.smallLow} - {estimate?.smallHigh}
-            </p>
+            <section className="flex flex-col gap-5">
+              <h3>Hours</h3>
+              <div>
+                <h4>Small project</h4>
+                <p className="text-sm">
+                  {`1 to 6 page websites, typically detached from the business's work flow.`}
+                </p>
+                <p className="text-xl my-2">
+                  {estimate?.smallLow} to {estimate?.smallHigh} hours
+                </p>
+              </div>
 
-            <h4>Large project</h4>
-            <p className="text-sm">
-              {`Websites that are large, or whose business has considerable operational dependency for the website.`}
-            </p>
-            <p>
-              {estimate?.largeLow} - {estimate?.largeHigh}
-            </p>
+              <div>
+                <h4>Large project</h4>
+                <p className="text-sm">
+                  {`Websites that are large, or whose business has considerable operational dependency for the website.`}
+                </p>
+                <p className="text-xl my-2">
+                  {estimate?.largeLow} to {estimate?.largeHigh} hours
+                </p>
+              </div>
 
-            <h4>Enterprise project</h4>
-            <p className="text-sm">
-              {`Complex, highly scalable and globally available web apps.`}
-            </p>
-            <p>
-              {estimate?.enterpriseLow} - {estimate?.enterpriseHigh}
-            </p>
-
+              <div>
+                <h4>Enterprise project</h4>
+                <p className="text-sm">
+                  {`Complex, highly scalable and globally available web apps.`}
+                </p>
+                <p className="text-2xl my-2">
+                  {estimate?.enterpriseLow} - {estimate?.enterpriseHigh}
+                </p>
+              </div>
+            </section>
             <p className="text-sm mt-5 text-gray-400">{`These numbers neither represent the minimum nor the maximum  your project may require. You should always consult me for an actual quote when planning your budget.`}</p>
           </div>
 
           <div className="min-h-full w-1 bg-gray-200 mx-8" />
 
           <div>
+            <div className="flex flex-col sm:flex-row sm:gap-6 mb-4">
+              <div className="my-3 w-full">
+                <GetAQuoteCountrySelect
+                  handleCountrySelect={handleCountrySelect}
+                  subheaderText={
+                    isAnOrganization
+                      ? "Where is your organization headquartered?"
+                      : "What country do you live in?"
+                  }
+                />
+              </div>
+            </div>
+
             <GetAQuoteWorkType handleWorkType={handleWorkType} />
             {questionnaireForm.workType === WorkType.WebExisting && (
               <QuoteCalculatorExistingSiteWorkItems
@@ -277,7 +376,7 @@ export default function GetStarted() {
 
             {questionnaireForm.workType === WorkType.WebNew && (
               <QuoteCalculatorBranding
-                isChecked={isBrandingRequired}
+                isChecked={isBrandingExisting}
                 handleBranding={handleBrandingRequired}
               />
             )}
@@ -299,19 +398,6 @@ export default function GetStarted() {
                 />
               </div>
             )}
-
-            <div className="flex flex-col sm:flex-row sm:gap-6">
-              <div className="my-3 w-full">
-                <GetAQuoteCountrySelect
-                  handleCountrySelect={handleCountrySelect}
-                  subheaderText={
-                    isAnOrganization
-                      ? "Where is your organization headquartered?"
-                      : "What country do you live in?"
-                  }
-                />
-              </div>
-            </div>
 
             <GetAQuoteContractRequired
               handleContractRequired={handleContractRequired}
