@@ -311,21 +311,21 @@ export default function GetStarted() {
       <Navbar />
 
       <ContentBlock>
-        <div className="flex">
-          <div>
-            <h2>Quote Calculator</h2>
-            <p>{`Let's start looking at what what would be best for you. Don't fret these responses! This is your chance to share some information about you, and what you're looking for.`}</p>
-            <p>{`If you are seeking consultation, do not fill this form out. Email me directly.`}</p>
-            <p>{`Fun fact:  on average, this saves up to two hours of phone calls!`}</p>
-          </div>
-
-          <div className="max-w-sm">
+        <div className="flex flex-col mb-10 sm:flex-row">
+          <div className="max-w-[200px] m-auto sm:m-4">
             <Image
               src={BananamanEngineerPng}
               alt=""
               quality={25}
               priority={true}
             />
+          </div>
+
+          <div>
+            <h2>Quote Calculator</h2>
+            <p>{`Get a rough idea of how many hours your project may take to complete.`}</p>
+            <br />
+            <p>{`Note: All information on this web page neither represent the minimum nor the maximum number of hours your project may require. You should always consult me for an actual quote when planning for your project.`}</p>
           </div>
         </div>
 
