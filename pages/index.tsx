@@ -8,6 +8,7 @@ import Link from "next/link";
 import Navbar from "../components/Navbar/Navbar";
 import NotReadyYetBanner from "../components/NotReadyYetBanner/NotReadyYetBanner";
 import ContentBlock from "../components/ContentBlock/ContentBlock";
+import DiscordBlackSvg from "../res/svg/discord-tiny-black.svg";
 
 /*
   NOTE 
@@ -33,6 +34,11 @@ export default function Home() {
             <br />
             <p className="text-2xl">{`Email me at `}</p>
             <h3 className="text-3xl font-bold">hi@bananabrann.dev</h3>
+            <div className="flex gap-1 items-center">
+              <span>{`or message `}</span>
+              <DiscordBlackSvg />
+              <span>{`bananabrann#0001`}</span>
+            </div>
           </div>
         </div>
       </div>
@@ -122,7 +128,6 @@ export default function Home() {
           <br />
           <p>{`Don't hesitate to reach out if you have any questions. For realsy. When you're ready, email me at `}</p>
           <h3 className="text-3xl font-bold">hi@bananabrann.dev</h3>
-
         </div>
 
         <BananamanSuit

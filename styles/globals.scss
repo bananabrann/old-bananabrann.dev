@@ -13,6 +13,11 @@ body {
   https://tailwindcss.com/docs/responsive-design
 */
 
+input,
+input * {
+  font-family: hoss-round, sans-serif;
+}
+
 h1,
 h2,
 h3,
