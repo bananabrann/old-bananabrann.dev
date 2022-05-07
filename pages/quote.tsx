@@ -13,20 +13,14 @@ import GettingStartedQuestionnaire, {
   QuoteEstimate,
   WorkType,
 } from "../lib/interfaces/GettingStartedQuestionnaire.interface";
-import ContentBlockOutline from "../components/ContentBlockOutline/ContentBlockOutline";
-import GetAQuoteCountrySelect from "../components/GetAQuote/GetAQuoteCountrySelect";
+import GetAQuoteCountrySelect from "../components/QuoteCalculator/GetAQuoteCountrySelect";
 import GetAQuoteCountrySelectItem from "../lib/interfaces/GetAQuoteCountrySelectItem.interface";
-import GetAQuoteName from "../components/GetAQuote/GetAQuoteName";
-import GetAQuoteContact from "../components/GetAQuote/GetAQuoteContact";
-import GetAQuoteBusinessRepresentation from "../components/GetAQuote/GetAQuoteBusinessRepresentation";
-import GetAQuoteOrgAffiliation from "../components/GetAQuote/GetAQuoteOrgAffiliation";
-import GetAQuoteBusinessName from "../components/GetAQuote/GetAQuoteBusinessName";
-import GetAQuoteBudget from "../components/GetAQuote/GetAQuoteBudget";
-import GetAQuoteContractRequired from "../components/GetAQuote/GetAQuoteContractRequired";
-import GetAQuoteWorkType from "../components/GetAQuote/GetAQuoteWorkType";
-import GetAQuoteExistingSiteUrl from "../components/GetAQuote/GetAQuoteExistingSiteUrl";
-import QuoteCalculatorBranding from "../components/GetAQuote/QuoteCalculatorBranding";
-import QuoteCalculatorExistingSiteWorkItems from "../components/GetAQuote/QuoteCalculatorExistingSiteWorkItems";
+import GetAQuoteBusinessRepresentation from "../components/QuoteCalculator/GetAQuoteBusinessRepresentation";
+import GetAQuoteOrgAffiliation from "../components/QuoteCalculator/GetAQuoteOrgAffiliation";
+import GetAQuoteContractRequired from "../components/QuoteCalculator/GetAQuoteContractRequired";
+import GetAQuoteWorkType from "../components/QuoteCalculator/GetAQuoteWorkType";
+import QuoteCalculatorBranding from "../components/QuoteCalculator/QuoteCalculatorBranding";
+import QuoteCalculatorExistingSiteWorkItems from "../components/QuoteCalculator/QuoteCalculatorExistingSiteWorkItems";
 import {
   CashIcon,
   ExclamationCircleIcon,
