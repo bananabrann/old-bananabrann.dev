@@ -28,6 +28,7 @@ import GetAQuoteExistingSiteUrl from "../components/GetAQuote/GetAQuoteExistingS
 import QuoteCalculatorBranding from "../components/GetAQuote/QuoteCalculatorBranding";
 import QuoteCalculatorExistingSiteWorkItems from "../components/GetAQuote/QuoteCalculatorExistingSiteWorkItems";
 import {
+  CashIcon,
   ExclamationCircleIcon,
   ShieldExclamationIcon,
 } from "@heroicons/react/solid";
@@ -45,6 +46,15 @@ function NotAble({ children }: { children: React.ReactNode }) {
   return (
     <div className="text-red-500 my-2 text-sm font-bold flex items-center gap-2">
       <ShieldExclamationIcon className="basis-8 flex-none" />
+      {children}
+    </div>
+  );
+}
+
+function GoodThing({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="text-green-600 my-2 text-sm font-bold flex items-center gap-2">
+      <CashIcon className="basis-8 flex-none" />
       {children}
     </div>
   );
@@ -125,7 +135,7 @@ export default function GetStarted() {
       large += 120;
       variance += 0.25;
 
-      if (questionnaireForm.orgAffiliation.is508Required) {
+      if (questionnaireForm.orgAffiliation?.is508Required) {
         variance += 0.1;
       }
     }
@@ -169,7 +179,7 @@ export default function GetStarted() {
     if (!isBrandingExisting) {
       newNotices.push({
         type: EstimateNoticeType.Warning,
-        text: "Not having branding adds serious variability to actual hours.",
+        text: "Not having branding adds considerable variability to actual hours.",
       });
     }
 
@@ -194,7 +204,15 @@ export default function GetStarted() {
     ) {
       newNotices.push({
         type: EstimateNoticeType.Warning,
-        text: "There may be restrictions on what I can provide.",
+        text: "There may be restrictions on what services I can provide.",
+      });
+    }
+
+    // Discount for non-profits.
+    if (questionnaireForm.orgAffiliation?.isRegisteredNonProfit) {
+      newNotices.push({
+        type: EstimateNoticeType.GoodThing,
+        text: "You qualify for an hourly discount.",
       });
     }
 
@@ -238,6 +256,17 @@ export default function GetStarted() {
   }
 
   function handleIsAnOrgRadioClick(v: boolean) {
+    // Reset org affiliation.
+    setQuestionnaireForm({
+      ...questionnaireForm,
+      orgAffiliation: {
+        is508Required: null,
+        isGovernment: null,
+        isProvidingTaxDocumentation: null,
+        isRegisteredNonProfit: null,
+      },
+    });
+
     setIsAnOrganization(v);
   }
 
@@ -300,21 +329,26 @@ export default function GetStarted() {
           </div>
         </div>
 
-        <section className="flex flex-col md:flex-row">
-          <div className="md:max-w-[210px] mb-12">
-            <section className="sticky top-0">
-              {estimateNotices.map((notice) => {
-                if (notice.type === EstimateNoticeType.NotAble) {
-                  return <NotAble><p>{notice.text}</p></NotAble> // prettier-ignore
-                }
-                if (notice.type === EstimateNoticeType.Warning) {
-                  return <Warning><p>{notice.text}</p></Warning> // prettier-ignore
-                }
-              })}
-            </section>
+        <section className="flex flex-col-reverse md:flex-row">
+          <section className="md:max-w-[210px] mb-12">
+            {estimateNotices.length > 0 && (
+              <section className="top-0 mb-7">
+                {estimateNotices.map((notice) => {
+                  if (notice.type === EstimateNoticeType.NotAble) {
+                    return <NotAble><p>{notice.text}</p></NotAble> // prettier-ignore
+                  }
+                  if (notice.type === EstimateNoticeType.Warning) {
+                    return <Warning><p>{notice.text}</p></Warning> // prettier-ignore
+                  }
+                  if (notice.type === EstimateNoticeType.GoodThing) {
+                    return <GoodThing><p>{notice.text}</p></GoodThing> // prettier-ignore
+                  }
+                })}
+              </section>
+            )}
 
-            <section className="flex flex-col gap-5">
-              <h3>Hours</h3>
+            <section className="flex flex-col gap-5 mt-4">
+              <h3 className="text-center">Hours</h3>
               <div>
                 <h4>Small project</h4>
                 <p className="text-sm">
@@ -340,17 +374,17 @@ export default function GetStarted() {
                 <p className="text-sm">
                   {`Complex, highly scalable and globally available web apps.`}
                 </p>
-                <p className="text-2xl my-2">
-                  {estimate?.enterpriseLow} - {estimate?.enterpriseHigh}
+                <p className="text-xl my-2">
+                  {estimate?.enterpriseLow} to {estimate?.enterpriseHigh} hours
                 </p>
               </div>
             </section>
             <p className="text-sm mt-5 text-gray-400">{`These numbers neither represent the minimum nor the maximum  your project may require. You should always consult me for an actual quote when planning your budget.`}</p>
-          </div>
+          </section>
 
           <div className="min-h-full w-1 bg-gray-200 mx-8" />
 
-          <div>
+          <section>
             <div className="flex flex-col sm:flex-row sm:gap-6 mb-4">
               <div className="my-3 w-full">
                 <GetAQuoteCountrySelect
@@ -403,7 +437,7 @@ export default function GetStarted() {
               handleContractRequired={handleContractRequired}
               isChecked={contractRequired}
             />
-          </div>
+          </section>
         </section>
       </ContentBlock>
 

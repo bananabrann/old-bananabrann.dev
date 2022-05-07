@@ -7,7 +7,8 @@ export enum WorkType {
 
 export enum EstimateNoticeType {
   Warning = "Warning",
-  NotAble = "NotAble"
+  NotAble = "NotAble",
+  GoodThing = "GoodThing"
 }
 
 export interface EstimateNotice {
@@ -25,10 +26,10 @@ export interface QuoteEstimate {
 }
 
 export interface OrgAffiliationOptions {
-  isRegisteredNonProfit: boolean;
-  isGovernment: boolean;
-  isProvidingTaxDocumentation: boolean;
-  is508Required: boolean;
+  isRegisteredNonProfit: boolean | null;
+  isGovernment: boolean | null;
+  isProvidingTaxDocumentation: boolean | null;
+  is508Required: boolean | null;
 }
 
 export interface ExistingSiteWorkOptions {
@@ -46,7 +47,7 @@ export default interface GettingStartedQuestionnaire {
   contractRequired: boolean;
   orgAffiliation: OrgAffiliationOptions;
   isContractRequired: boolean;
-  isBrandingRequired: boolean;
+  isBrandingExisting: boolean;
   existingSiteWork?: ExistingSiteWorkOptions;
   existingSiteUrl?: string;
   workAdditionalInfo?: string;
