@@ -343,7 +343,7 @@ export default function Skills({ techList }: { techList: TechList }) {
               <div className="text-center text-2xl font-bold flex flex-col gap-6">
                 <p className="">
                   Developer on large, multi-million dollar enterprise web apps
-                  that server 10,000+ monthly users
+                  that serve 10,000+ monthly users
                 </p>
                 <p>
                   Lead developer for smaller web apps with 100+ users a month
