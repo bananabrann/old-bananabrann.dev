@@ -32,7 +32,7 @@ export async function getStaticProps() {
 export default function Home({ posts }: { posts: Post[] }) {
   return (
     <Layout>
-      <section className="flex items-center max-w-2xl mx-auto">
+      <section className="flex flex-col items-center max-w-2xl mx-auto lg:flex-row">
         <div className="max-w-[250px]">
           <BananamanStanding priority={true} />
         </div>
@@ -61,7 +61,7 @@ export default function Home({ posts }: { posts: Post[] }) {
             >
               <Link href={`/posts/${slug}`}>
                 <a className="flex gap-4 items-center">
-                  <div className="w-[80px]">
+                  <div className="w-[80px] hidden md:block">
                     <Image
                       alt={frontmatter.title}
                       src={`/${frontmatter.socialImage}`}
