@@ -1,6 +1,7 @@
 import fs from "fs";
 import matter from "gray-matter";
 import md from "markdown-it";
+import Layout from "../../components/Layout/Layout";
 import { PostFrontMatter } from "../../lib/interfaces/Post.interface";
 
 export async function getStaticPaths() {
@@ -11,7 +12,7 @@ export async function getStaticPaths() {
     },
   }));
 
-  // Return the possible paths for pre-render. Throw a 404 if not found.
+  // Return the possible paths for Next.js pre-render. Throw a 404 if not found.
   return {
     paths,
     fallback: false,
@@ -41,8 +42,18 @@ export default function PostPage({
   content: string;
 }) {
   return (
-    <div className="prose mx-auto">
-      <div dangerouslySetInnerHTML={{ __html: md().render(content) }} />
-    </div>
+    <Layout>
+      <span className="flex gap-3 text-slate-600 font-mono font-bold text-sm">
+        <p className="font-mono">{`${frontmatter.date} | `}</p>
+        {frontmatter.tags?.map((tag: string) => {
+          return <span>{`#${tag}`}</span>;
+        })}
+      </span>
+      <p>{frontmatter.metaDesc}</p>
+
+      <div className="prose mx-auto">
+        <div dangerouslySetInnerHTML={{ __html: md().render(content) }} />
+      </div>
+    </Layout>
   );
 }

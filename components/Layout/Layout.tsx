@@ -91,7 +91,7 @@ export default function Layout({
           </footer>
         </div>
 
-        <main className={`ml-[290px] mr-8`}>{children}</main>
+        <main className={`ml-[275px] p-7 mr-8`}>{children}</main>
       </div>
     </React.Fragment>
   );
