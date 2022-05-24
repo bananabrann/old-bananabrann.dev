@@ -70,6 +70,22 @@ export default function Layout({
             <FlagUnitedStatesSvg />
             <div className="text-xs mx-auto mt-5 text-center">
               <p>
+                {`Website by `}
+                <span className="hover:text-cyan-500 transition">
+                  <Link href="https://github.com/bananabrann/">
+                    @bananabrann (me)
+                  </Link>
+                </span>
+                {`. `}
+                <span className="hover:text-cyan-500 transition">
+                  <Link href="https://github.com/bananabrann/bananabrann.dev/blob/main/LICENSE">
+                    MIT license
+                  </Link>
+                </span>
+                {`, 2022.`}
+              </p>
+
+              <p>
                 {`"Banana Man" art by `}
                 <span className="hover:text-cyan-500 transition">
                   <Link href="https://www.artstation.com/gabemichaelis">
@@ -77,15 +93,6 @@ export default function Layout({
                   </Link>
                 </span>
                 {`. All rights reserved, 2022.`}
-              </p>
-              <p>
-                {`Website `}
-                <span className="hover:text-cyan-500 transition">
-                  <Link href="https://github.com/bananabrann/bananabrann.dev/blob/main/LICENSE">
-                    MIT license
-                  </Link>
-                </span>
-                {`, 2022.`}
               </p>
             </div>
           </footer>
