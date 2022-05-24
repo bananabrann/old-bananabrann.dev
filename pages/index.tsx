@@ -1,6 +1,7 @@
 import BananamanStanding from "../components/BananamanStanding/BananamanStanding";
 import Layout from "../components/Layout/Layout";
 import DiscordBlackSvg from "../res/svg/discord-tiny-black.svg";
+import Image from "next/image";
 import fs from "fs";
 import matter from "gray-matter";
 import { Post } from "../lib/interfaces/Post.interface";
@@ -30,7 +31,7 @@ export async function getStaticProps() {
 export default function Home({ posts }: { posts: Post[] }) {
   return (
     <Layout>
-      <div className="flex items-center max-w-2xl mx-auto">
+      <section className="flex items-center max-w-2xl mx-auto">
         <div className="max-w-[250px]">
           <BananamanStanding priority={true} />
         </div>
@@ -46,20 +47,42 @@ export default function Home({ posts }: { posts: Post[] }) {
             <span>{`bananabrann#0001`}</span>
           </div>
         </div>
-      </div>
+      </section>
 
-      {posts.map(({ slug, frontmatter }) => {
-        return (
-          <div key={slug}>
-            <Link href={`/posts/${slug}`}>
-              <div className="cursor-pointer">
-                <h2>{frontmatter.metaTitle}</h2>
-                <p>{frontmatter.metaDesc}</p>
-              </div>
-            </Link>
-          </div>
-        );
-      })}
+      <section className="flex flex-col">
+        {posts.map(({ slug, frontmatter }) => {
+          return (
+            <div key={slug} className="hover:bg-slate-200 transition hover:text-slate-700 rounded-lg p-4">
+              <Link href={`/posts/${slug}`}>
+                <a className="flex gap-4 items-center">
+                  <div className="w-[80px]">
+                    <Image
+                      alt={frontmatter.title}
+                      src={`/${frontmatter.socialImage}`}
+                      layout="fixed"
+                      height="80"
+                      width="80"
+                      quality={0}
+                    />
+                  </div>
+
+                  <div className="cursor-pointer text-slate-800">
+                    <span className="flex gap-3 my-2 font-mono font-bold">
+                      <p className="font-mono">{`${frontmatter.date} | `}</p>
+                      {frontmatter.tags?.map((tag: string) => {
+                        return <span>{`#${tag}`}</span>
+                      })}
+                    </span>
+                    <h3>{frontmatter.metaTitle}</h3>
+                    <p>{frontmatter.metaDesc}</p>
+                  </div>
+                </a>
+              </Link>
+            </div>
+          );
+        })}
+
+      </section>
     </Layout>
   );
 }
