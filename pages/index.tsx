@@ -49,10 +49,15 @@ export default function Home({ posts }: { posts: Post[] }) {
         </div>
       </section>
 
+      <div className="w-full h-px bg-gray-200 rounded my-4"></div>
+
       <section className="flex flex-col">
         {posts.map(({ slug, frontmatter }) => {
           return (
-            <div key={slug} className="hover:bg-slate-200 transition hover:text-slate-700 rounded-lg p-4">
+            <div
+              key={slug}
+              className="hover:bg-gray-200 transition hover:text-slate-700 rounded-lg p-4"
+            >
               <Link href={`/posts/${slug}`}>
                 <a className="flex gap-4 items-center">
                   <div className="w-[80px]">
@@ -66,14 +71,14 @@ export default function Home({ posts }: { posts: Post[] }) {
                     />
                   </div>
 
-                  <div className="cursor-pointer text-slate-800">
-                    <span className="flex gap-3 my-2 font-mono font-bold">
+                  <div className="cursor-pointer text-slate-900">
+                    <span className="flex gap-3 text-slate-600 font-mono font-bold text-sm">
                       <p className="font-mono">{`${frontmatter.date} | `}</p>
                       {frontmatter.tags?.map((tag: string) => {
-                        return <span>{`#${tag}`}</span>
+                        return <span>{`#${tag}`}</span>;
                       })}
                     </span>
-                    <h3>{frontmatter.metaTitle}</h3>
+                    <h3 className="py-2">{frontmatter.metaTitle}</h3>
                     <p>{frontmatter.metaDesc}</p>
                   </div>
                 </a>
@@ -81,7 +86,6 @@ export default function Home({ posts }: { posts: Post[] }) {
             </div>
           );
         })}
-
       </section>
     </Layout>
   );
