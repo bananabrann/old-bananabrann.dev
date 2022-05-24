@@ -45,8 +45,8 @@ export default function Layout({
               <ul>
                 <li><Link href="/">{`${router.pathname === "/" ? "> $" : "/"} home`}</Link></li>
                 <li><Link href="/blog">{`${router.pathname === "/blog" ? "> $" : "/"} blog`}</Link></li>
-                <li><Link href="/about">{`/ about & faq`}</Link></li>
-                <li><Link href="/skills">{`${router.pathname === "/skills" ? "> $" : "/"} skills`}</Link></li>
+                <li><Link href="/about">{`${router.pathname === "/about" ? "> $" : "/"} about me`}</Link></li>
+                <li><Link href="/skills">{`${router.pathname === "/skills" ? "> $" : "/"} my skills`}</Link></li>
               </ul>
             </nav>
 
@@ -91,7 +91,7 @@ export default function Layout({
           </footer>
         </div>
 
-        <main className={`ml-[275px] p-7 mr-8`}>{children}</main>
+        <main className={`ml-[275px] max-w-4xl p-7 mr-8`}>{children}</main>
       </div>
     </React.Fragment>
   );
