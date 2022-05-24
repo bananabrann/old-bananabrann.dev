@@ -3,6 +3,7 @@ import matter from "gray-matter";
 import md from "markdown-it";
 import Layout from "../../components/Layout/Layout";
 import { PostFrontMatter } from "../../lib/interfaces/Post.interface";
+import { getRandomSixDigitNumber } from "../../lib/utils";
 
 export async function getStaticPaths() {
   const files = fs.readdirSync("posts");
@@ -42,14 +43,13 @@ export default function PostPage({
   content: string;
 }) {
   return (
-    <Layout>
+    <Layout title={frontmatter.metaTitle}>
       <span className="flex gap-3 text-slate-600 font-mono font-bold text-sm">
         <p className="font-mono">{`${frontmatter.date} | `}</p>
         {frontmatter.tags?.map((tag: string) => {
-          return <span>{`#${tag}`}</span>;
+          return <span key={`${tag}-${getRandomSixDigitNumber()}`}>{`#${tag}`}</span>;
         })}
       </span>
-      <p>{frontmatter.metaDesc}</p>
 
       <div className="prose mx-auto">
         <div dangerouslySetInnerHTML={{ __html: md().render(content) }} />

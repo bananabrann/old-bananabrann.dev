@@ -44,7 +44,6 @@ export default function Layout({
               {/* prettier-ignore */}
               <ul>
                 <li><Link href="/">{`${router.pathname === "/" ? "> $" : "/"} home`}</Link></li>
-                <li><Link href="/blog">{`${router.pathname === "/blog" ? "> $" : "/"} blog`}</Link></li>
                 <li><Link href="/about">{`${router.pathname === "/about" ? "> $" : "/"} about me`}</Link></li>
                 <li><Link href="/skills">{`${router.pathname === "/skills" ? "> $" : "/"} my skills`}</Link></li>
               </ul>
@@ -52,10 +51,10 @@ export default function Layout({
 
             <div>
               <div className="flex px-20 gap-4 mt-4 hover:cursor-pointer">
-                <Link href="https://github.com/bananabrann">
+                <Link href="https://github.com/bananabrann" passHref>
                   <LogoGitHubAltSvg />
                 </Link>
-                <Link href="https://twitter.com/bananabrannn">
+                <Link href="https://twitter.com/bananabrannn" passHref>
                   <LogoTwitterSvf />
                 </Link>
               </div>

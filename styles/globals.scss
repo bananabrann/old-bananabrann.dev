@@ -43,31 +43,30 @@ h4,
 h5,
 h6 {
   // font-family: hoss-round, sans-serif;
-  font-family: sans-serif;
+  font-family: "quasimoda", sans-serif;
   font-style: normal;
   line-height: 1;
 }
 
 h1 {
-  font-size: 4.5rem;
+  font-size: 3.5rem;
   font-weight: 700;
   @media (max-width: 640px) {
-    font-size: 3.25rem;
+    font-size: 3.15rem;
   }
 }
 
 h2 {
-  font-size: 3.5rem;
+  font-size: 2.85rem;
   font-weight: 700;
   @media (max-width: 640px) {
-    font-size: 2.25rem;
+    font-size: 2.15rem;
   }
 }
 
 h3 {
-  font-family: quasimoda, sans-serif;
   font-size: 1.85rem;
-  font-weight: 560;
+  font-weight: 400;
   @media (max-width: 640px) {
     font-size: 1.45rem;
   }

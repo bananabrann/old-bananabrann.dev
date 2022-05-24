@@ -6,6 +6,7 @@ import fs from "fs";
 import matter from "gray-matter";
 import { Post } from "../lib/interfaces/Post.interface";
 import Link from "next/link";
+import { getRandomSixDigitNumber } from "../lib/utils";
 
 export async function getStaticProps() {
   const files = fs.readdirSync("posts");
@@ -72,10 +73,10 @@ export default function Home({ posts }: { posts: Post[] }) {
                   </div>
 
                   <div className="cursor-pointer text-slate-900">
-                    <span className="flex gap-3 text-slate-600 font-mono font-bold text-sm">
+                    <span className="flex flex-wrap gap-x-3 -gap-y-3 text-slate-900 font-mono text-sm">
                       <p className="font-mono">{`${frontmatter.date} | `}</p>
                       {frontmatter.tags?.map((tag: string) => {
-                        return <span>{`#${tag}`}</span>;
+                        return <span key={`${tag}-${getRandomSixDigitNumber()}`} className="font-bold">{`#${tag}`}</span>;
                       })}
                     </span>
                     <h3 className="py-2">{frontmatter.metaTitle}</h3>
