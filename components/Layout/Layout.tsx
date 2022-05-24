@@ -51,9 +51,13 @@ export default function Layout({
             </nav>
 
             <div>
-              <div className="flex px-20 gap-4 mt-4">
-                <LogoGitHubAltSvg />
-                <LogoTwitterSvf />
+              <div className="flex px-20 gap-4 mt-4 hover:cursor-pointer">
+                <Link href="https://github.com/bananabrann">
+                  <LogoGitHubAltSvg />
+                </Link>
+                <Link href="https://twitter.com/bananabrannn">
+                  <LogoTwitterSvf />
+                </Link>
               </div>
             </div>
           </div>
@@ -87,7 +91,7 @@ export default function Layout({
           </footer>
         </div>
 
-        <main className={`ml-[290px]`}>{children}</main>
+        <main className={`ml-[290px] mr-8`}>{children}</main>
       </div>
     </React.Fragment>
   );
