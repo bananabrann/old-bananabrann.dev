@@ -38,7 +38,7 @@ export default function About() {
 
         <p>
           &emsp;
-          {`I am very thankful for the opportunities the Marines gave me --I would have never been where I am today without the lessons and experiences the Marines gave me. However, staying for life wasn't for me. I decided to leave the Marines and make a career change. Having enjoyed teaching myself HTML in the later-half of my enlistment, I decided to take the leap into full-time software development and attended a full-time design and coding bootcamp in Washington, D.C. I graduated General Assembly's Web Development (now called "Software Engineering") class #13.`}
+          {`I am very thankful for the opportunities the Marines gave me --I would have never been where I am today without the lessons and experiences the Marines gave me. However, staying for life wasn't for me. I decided to leave the Marines and make a career change. Having enjoyed teaching myself HTML in the later-half of my enlistment, I decided to take the leap into full-time software development and attended a full-time design and coding bootcamp in Washington, D.C. I graduated General Assembly's Web Development immersive course, now called "Software Engineering immersive."`}
         </p>
 
         <div className="flex gap-4 items-end flex-1">

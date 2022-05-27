@@ -38,7 +38,7 @@ export default function Home({ posts }: { posts: Post[] }) {
         </div>
 
         <div>
-          <p className="text-xl">{`I'm Lee. I'm a software engineer helping teams build and maintain tools that help people get stuff done.`}</p>
+          <p className="text-xl">{`I'm a software engineer helping teams build and maintain tools that help people get stuff done.`}</p>
           <br />
           <p className="text-xl">{`Email me at `}</p>
           <h3 className="text-xl font-bold">hi@bananabrann.dev</h3>
@@ -76,7 +76,12 @@ export default function Home({ posts }: { posts: Post[] }) {
                     <span className="flex flex-wrap gap-x-3 -gap-y-3 text-slate-900 font-mono text-sm">
                       <p className="font-mono">{`${frontmatter.date} | `}</p>
                       {frontmatter.tags?.map((tag: string) => {
-                        return <span key={`${tag}-${getRandomSixDigitNumber()}`} className="font-bold">{`#${tag}`}</span>;
+                        return (
+                          <span
+                            key={`${tag}-${getRandomSixDigitNumber()}`}
+                            className="font-bold"
+                          >{`#${tag}`}</span>
+                        );
                       })}
                     </span>
                     <h3 className="py-2">{frontmatter.metaTitle}</h3>
