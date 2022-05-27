@@ -4,6 +4,8 @@ import MarinesJpg from "../../res/jpg/me-training-exercise.jpg";
 import AvenchesJpg from "../../res/jpg/avenches-austrians.jpg";
 import GaBuildingJpg from "../../res/jpg/ga.jpg";
 import DebbieJpg from "../../res/jpg/debbie.jpg";
+import BananamanMarine from "../../components/BananamanMarine/BananamanMarine";
+import BananamanArtist from "../../components/BananamanArtist/BananamanArtist";
 
 import styles from "./about.module.scss";
 
@@ -11,7 +13,7 @@ export default function About() {
   return (
     <Layout title="bananabrann - about me">
       <div className={styles.container}>
-        <h1>About me</h1>
+        <h1>{`Before code, a little about me`}</h1>
         <p>
           &emsp;
           {`Born and raised outside Abilene, Texas, my career began when I enlisted into the United States Marine Corps after high school. After training in California, I had one of the coolest jobs in the Marines: performing music for foreign dignitaries and presidential audiences at home and abroad.`}
@@ -21,9 +23,9 @@ export default function About() {
             src={MarinesJpg}
             quality={75}
             layout={"responsive"}
-            alt={`Me, center, a Private First Class of 1st Battalion, Bravo Company after a night-time combat manuever exercise at Camp Pendleton, California.`}
+            alt={`Me, center, during a combat manuever exercise at training in Camp Pendleton, California.`}
           />
-          <small>{`Me, center, a Private First Class of 1st Battalion, Bravo Company after a night-time combat manuever exercise at Camp Pendleton, California.`}</small>
+          <small>{`Me, center, during a combat manuever exercise at training in Camp Pendleton, California.`}</small>
         </div>
 
         <div className={styles.images}>
@@ -31,9 +33,9 @@ export default function About() {
             src={AvenchesJpg}
             quality={75}
             layout="responsive"
-            alt={`Me, center, a corporal of "The Commandant's Own," U.S. Marine Drum & Bugle Corps posing with the representatives from Austria before an international joint military music performance near Geneva, Switzerland.`}
+            alt={`Me, center, posing with representatives from Austria before an international joint military music performance near Geneva, Switzerland.`}
           />
-          <small>{`Me, center, a corporal of "The Commandant's Own," U.S. Marine Drum & Bugle Corps posing with the representatives from Austria before an international joint military music performance near Geneva, Switzerland.`}</small>
+          <small>{`Me, center, posing with representatives from Austria before an international joint military music performance near Geneva, Switzerland.`}</small>
         </div>
 
         <p>
@@ -65,8 +67,13 @@ export default function About() {
 
         <p>
           &emsp;
-          {`During the last two weeks of General Assembly, I got a job offer and begun my career as a software engineer. Ever since then, it's been been full throttle ahead!`}
+          {`During the last two weeks of General Assembly, I got a job offer and begun my career as a software engineer. Ever since then, it's been been full throttle ahead! I've mostly been employed in the U.S. public sector, building and maintaining websites and systems that help American citizens around the world get things done.`}
         </p>
+
+        <div className="flex">
+          <BananamanMarine />
+          <BananamanArtist />
+        </div>
       </div>
     </Layout>
   );
