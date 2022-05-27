@@ -35,8 +35,6 @@ export default function Custom404() {
           priority={true}
         />
       </div>
-
-      <Footer />
     </Layout>
   );
 }

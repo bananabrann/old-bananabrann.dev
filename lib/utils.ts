@@ -1,3 +1,5 @@
+import fs from "fs";
+
 /**
  * Returns a random item from the given array.
  */

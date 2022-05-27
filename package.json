@@ -1,7 +1,7 @@
 {
   "name": "bananabrann.dev",
-  "description": "Personal website of me, bananabrann!",
-  "version": "0.2.8",
+  "description": "Personal website of me, bananabrann.",
+  "version": "1.2.0",
   "author": "bananabrann",
   "private": false,
   "scripts": {
@@ -17,8 +17,10 @@
     "@heroicons/react": "^1.0.5",
     "@tailwindcss/aspect-ratio": "^0.4.0",
     "@tailwindcss/forms": "^0.4.0",
+    "gray-matter": "^4.0.3",
     "heroicons": "^1.0.5",
     "js-yaml": "^4.1.0",
+    "markdown-it": "^13.0.1",
     "next": "^12.0.8",
     "react": "17.0.2",
     "react-dom": "17.0.2",
@@ -26,7 +28,9 @@
   },
   "devDependencies": {
     "@svgr/webpack": "^6.2.1",
+    "@tailwindcss/typography": "^0.5.2",
     "@types/js-yaml": "^4.0.5",
+    "@types/markdown-it": "^12.2.3",
     "@types/node": "^17.0.21",
     "@types/react": "^17.0.39",
     "autoprefixer": "^10.4.2",
