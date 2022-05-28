@@ -40,17 +40,17 @@ export default function Layout({
         >
           <XIcon />
         </div>
-        <nav className="font-bold text-xl ml-2">
+        <nav className="font-bold ml-2 text-4xl sm:text-2xl">
           {/* prettier-ignore */}
           <ul>
-            <li><Link href="/">{`${router.pathname === "/" ? "> $" : "/"} home`}</Link></li>
-            <li><Link href="/about">{`${router.pathname === "/about" ? "> $" : "/"} about me`}</Link></li>
-            <li><Link href="/skills">{`${router.pathname === "/skills" ? "> $" : "/"} my skills`}</Link></li>
+            <li className="transition hover:text-pink-400"><Link href="/">{`${router.pathname === "/" ? "> $" : "/"} home`}</Link></li>
+            <li className="transition hover:text-pink-400"><Link href="/about">{`${router.pathname === "/about" ? "> $" : "/"} about me`}</Link></li>
+            <li className="transition hover:text-pink-400"><Link href="/skills">{`${router.pathname === "/skills" ? "> $" : "/"} my skills`}</Link></li>
           </ul>
         </nav>
 
         <div>
-          <div className="flex px-20 gap-4 mt-4 hover:cursor-pointer max-h-10">
+          <div className="flex justify-around mt-4 hover:cursor-pointer h-24 sm:h-12">
             <Link href="https://github.com/bananabrann" passHref>
               <LogoGitHubAltSvg />
             </Link>
@@ -70,11 +70,11 @@ export default function Layout({
         <div className="text-xs mx-auto mt-5 text-center">
           <p>
             {`Website by `}
-            <span className="hover:text-cyan-500 transition">
+            <span className="hover:text-pink-400 transition">
               <Link href="https://github.com/bananabrann/">{`@bananabrann (me)`}</Link>
             </span>
             {`. `}
-            <span className="hover:text-cyan-500 transition">
+            <span className="hover:text-pink-400 transition">
               <Link href="https://github.com/bananabrann/bananabrann.dev/blob/main/LICENSE">{`MIT license`}</Link>
             </span>
             {`, 2022.`}
@@ -82,7 +82,7 @@ export default function Layout({
 
           <p>
             {`"Banana Man" art by `}
-            <span className="hover:text-cyan-500 transition">
+            <span className="hover:text-pink-400 transition">
               <Link href="https://www.artstation.com/gabemichaelis">
                 Gabe Michaelis
               </Link>
