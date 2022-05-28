@@ -50,7 +50,7 @@ export default function Layout({
         </nav>
 
         <div>
-          <div className="flex justify-around mt-4 hover:cursor-pointer h-24 sm:h-12">
+          <div className="flex justify-around mt-4 hover:cursor-pointer h-16 sm:h-12">
             <Link href="https://github.com/bananabrann" passHref>
               <LogoGitHubAltSvg />
             </Link>
