@@ -7,6 +7,7 @@ import LogoGitHubSquareSvg from "../../res/svg/logo-github-square.svg";
 import LogoTwitterSvf from "../../res/svg/logo-twitter.svg";
 import FlagUnitedStatesSvg from "../../res/svg/flag-us.svg";
 import { MenuAlt3Icon, XIcon } from "@heroicons/react/outline";
+import { HomeIcon } from "@heroicons/react/solid";
 
 export const defaultSiteTitle =
   "bananabrann - web development and software engineering";
@@ -70,15 +71,11 @@ export default function Layout({
           <p>
             {`Website by `}
             <span className="hover:text-cyan-500 transition">
-              <Link href="https://github.com/bananabrann/">
-                @bananabrann (me)
-              </Link>
+              <Link href="https://github.com/bananabrann/">{`@bananabrann (me)`}</Link>
             </span>
             {`. `}
             <span className="hover:text-cyan-500 transition">
-              <Link href="https://github.com/bananabrann/bananabrann.dev/blob/main/LICENSE">
-                MIT license
-              </Link>
+              <Link href="https://github.com/bananabrann/bananabrann.dev/blob/main/LICENSE">{`MIT license`}</Link>
             </span>
             {`, 2022.`}
           </p>
@@ -109,9 +106,7 @@ export default function Layout({
       </Head>
 
       <div className="flex">
-        {/* Navbar */}
-
-        {/* {isMobileNavOpen && ( */}
+        {/* Left-side nav for desktop */}
         <div
           className={`z-10 ${
             isMobileNavOpen ? "flex" : "hidden"
@@ -120,16 +115,24 @@ export default function Layout({
           {navigationElement}
         </div>
 
-        {/* )} */}
-
-        <div
-          className="sm:hidden absolute w-12 top-3 right-3"
-          onClick={() => toggleIsMobileNavOpen()}
-        >
-          <MenuAlt3Icon />
+        {/* Top bar nav for mobile */}
+        <div className="sm:hidden absolute bg-yellow-300 w-full flex justify-between p-3">
+          <Link href="/">
+            <span className="w-12">
+              <HomeIcon />
+            </span>
+          </Link>
+          <span className="w-12" onClick={() => toggleIsMobileNavOpen()}>
+            <MenuAlt3Icon />
+          </span>
         </div>
 
-        <main className={`sm:ml-[275px] max-w-4xl p-3 sm:p-7 sm:mr-8`}>{children}</main>
+        {/* Content */}
+        <main
+          className={`sm:ml-[275px] mt-24 sm:mt-2 max-w-4xl p-3 sm:p-7 sm:mr-8`}
+        >
+          {children}
+        </main>
       </div>
     </React.Fragment>
   );
