@@ -54,7 +54,7 @@ export default function Layout({
             <Link href="https://github.com/bananabrann" passHref>
               <LogoGitHubAltSvg />
             </Link>
-            <Link href="https://twitter.com/bananabrannn" passHref>
+            <Link href="https://twitter.com/bananabrann" passHref>
               <LogoTwitterSvf />
             </Link>
           </div>

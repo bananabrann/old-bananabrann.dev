@@ -13,6 +13,7 @@ import {
   TwitterApiUserTweetResponse,
 } from "../lib/interfaces/Tweet.interface";
 import { RefreshIcon } from "@heroicons/react/outline";
+import { Fragment } from "react";
 
 // The public items for my Twitter.
 const twitterId = "360232134";
@@ -93,29 +94,11 @@ export default function Home({
   posts: Post[];
   tweets: TwitterApiUserTweetResponse;
 }) {
-  return (
-    <Layout>
-      <section className="flex flex-col items-center max-w-2xl mx-auto lg:flex-row">
-        <div className="max-w-[250px]">
-          <BananamanStanding priority={true} />
-        </div>
+  let tweetsSection;
 
-        <div>
-          <p className="text-xl">{`I'm a software engineer helping teams build and maintain tools that help people get stuff done.`}</p>
-          <br />
-          <p className="text-xl">{`Email me at `}</p>
-          <h3 className="text-xl font-bold">hi@bananabrann.dev</h3>
-          <div className="flex gap-1 items-center">
-            <span>{`or message `}</span>
-            <DiscordBlackSvg />
-            <span>{`bananabrann#0001`}</span>
-          </div>
-        </div>
-      </section>
-
-      <div className="w-full h-px bg-gray-200 rounded my-10"></div>
-
-      <section>
+  if (tweets.data.length > 0) {
+    tweetsSection = (
+      <Fragment>
         <div className="text-center text-slate-900 mb-3">
           <p className="text-lg">
             Latest {tweets.meta.result_count} tweets from
@@ -153,9 +136,50 @@ export default function Home({
             );
           })}
         </div>
+
         <br />
         <p className="text-center mx-auto text-sm text-gray-400 max-w-md">{`I'm neither a political activist nor an expert in culture. Tweets I share and/or quote is not an endorsement of others' Tweets, and never represents my own opinion.`}</p>
+      </Fragment>
+    );
+  } else {
+    tweetsSection = (
+      <div>
+        <p className="text-center">
+          {`This is awkward. I wasn't able to fetch my latest Tweets.`}{" "}
+          <a
+            href="https://twitter.com/bananabrann"
+            className="hover:text-cyan-500"
+          >
+            {`Head over to my Twitter to see the latest activity.`}
+          </a>
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <Layout>
+      <section className="flex flex-col items-center max-w-2xl mx-auto lg:flex-row">
+        <div className="max-w-[250px]">
+          <BananamanStanding priority={true} />
+        </div>
+
+        <div>
+          <p className="text-xl">{`I'm a software engineer helping teams build and maintain tools that help people get stuff done.`}</p>
+          <br />
+          <p className="text-xl">{`Email me at `}</p>
+          <h3 className="text-xl font-bold">hi@bananabrann.dev</h3>
+          <div className="flex gap-1 items-center">
+            <span>{`or message `}</span>
+            <DiscordBlackSvg />
+            <span>{`bananabrann#0001`}</span>
+          </div>
+        </div>
       </section>
+
+      <div className="w-full h-px bg-gray-200 rounded my-10"></div>
+
+      <section>{tweetsSection}</section>
 
       <div className="w-full h-px bg-gray-200 rounded my-10"></div>
 
