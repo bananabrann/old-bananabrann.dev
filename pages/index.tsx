@@ -121,6 +121,8 @@ export default function Home({
               <a
                 href={`https://twitter.com/${twitterUsername}/status/${tweet.id}`}
                 target="_blank"
+                rel="noreferrer"
+                key={tweet.id}
                 className={`border-2 m-1.5 p-2 rounded-md grow basis-5 text-sm transition hover:bg-gray-200  ${
                   isRetweet ? "opacity-40 hover:opacity-100" : ""
                 }`}
