@@ -7,8 +7,34 @@ import matter from "gray-matter";
 import { Post } from "../lib/interfaces/Post.interface";
 import Link from "next/link";
 import { getRandomSixDigitNumber } from "../lib/utils";
+import axios, { AxiosResponse } from "axios";
+import { Tweet } from "../lib/interfaces/Tweet.interface";
+
+// The public id of @bananabrann Twitter.
+const bananabrannId = "360232134";
+
+// Get the latest tweets from @bananabrann.
+async function getTweets(): Promise<Tweet[]> {
+  try {
+    const response: AxiosResponse = await axios({
+      url: `https://api.twitter.com/2/users/${bananabrannId}/tweets`,
+      headers: {
+        Authorization: `Bearer ${process.env.TWITTER_BEARER_TOKEN}`,
+      },
+    });
+
+    // NOTE - Notice that `data` is double nested. See
+    // lib/interfaces/TwitterApiUserTweetResponse for what response.data looks like.
+    return response.data.data;
+  } catch (error) {
+    console.error(error);
+    console.error("An error occurred. There is likely additional output above."); // prettier-ignore
+    return [] as Tweet[];
+  }
+}
 
 export async function getStaticProps() {
+  // Find and parse blog posts stored on the system.
   const files = fs.readdirSync("posts");
 
   const posts: Post[] = files.map((fileName) => {
@@ -22,14 +48,32 @@ export async function getStaticProps() {
     } as Post;
   });
 
+  // Get and parse Tweets.
+  let tweets: Tweet[] = await getTweets();
+
   return {
     props: {
       posts,
+      tweets,
     },
+    /**
+     * Next.js will attempt to re-generate the page when a request comes in, at
+     * most every 180 seconds.
+     *
+     * NOTE - Read more about incremental static regeneration at
+     * https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration
+     */
+    revalidate: 180,
   };
 }
 
-export default function Home({ posts }: { posts: Post[] }) {
+export default function Home({
+  posts,
+  tweets,
+}: {
+  posts: Post[];
+  tweets: Tweet[];
+}) {
   return (
     <Layout>
       <section className="flex flex-col items-center max-w-2xl mx-auto lg:flex-row">
