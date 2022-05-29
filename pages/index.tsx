@@ -71,18 +71,18 @@ export async function getStaticProps() {
   // Get and parse Tweets.
   let tweets: TwitterApiUserTweetResponse = await getTweets();
 
+  /**
+   * Next.js will attempt to re-generate the page when a request comes in, at
+   * most every 10 seconds.
+   *
+   * NOTE - Read more about incremental static regeneration at
+   * https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration
+   */
   return {
     props: {
       posts,
       tweets,
     },
-    /**
-     * Next.js will attempt to re-generate the page when a request comes in, at
-     * most every 10 seconds.
-     *
-     * NOTE - Read more about incremental static regeneration at
-     * https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration
-     */
     revalidate: 10,
   };
 }
@@ -123,7 +123,7 @@ export default function Home({
                 target="_blank"
                 rel="noreferrer"
                 key={tweet.id}
-                className={`border-2 m-1.5 p-2 rounded-md grow basis-5 text-sm transition hover:bg-gray-200  ${
+                className={`border-2 m-1.5 p-2 rounded-md grow basis-28 text-sm transition hover:bg-gray-200  ${
                   isRetweet ? "opacity-40 hover:opacity-100" : ""
                 }`}
               >
