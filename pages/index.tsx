@@ -154,7 +154,7 @@ export default function Home({
           })}
         </div>
         <br />
-        <p className="text-center mx-auto text-sm text-gray-400 max-w-md">{`I'm neither a political activist nor an expert in culture. Tweets I share and/or quote is not an endorsement of others' Tweets, and do not represent my own opinion.`}</p>
+        <p className="text-center mx-auto text-sm text-gray-400 max-w-md">{`I'm neither a political activist nor an expert in culture. Tweets I share and/or quote is not an endorsement of others' Tweets, and never represents my own opinion.`}</p>
       </section>
 
       <div className="w-full h-px bg-gray-200 rounded my-10"></div>
