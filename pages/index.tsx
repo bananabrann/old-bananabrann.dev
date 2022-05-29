@@ -8,28 +8,47 @@ import { Post } from "../lib/interfaces/Post.interface";
 import Link from "next/link";
 import { getRandomSixDigitNumber } from "../lib/utils";
 import axios, { AxiosResponse } from "axios";
-import { Tweet } from "../lib/interfaces/Tweet.interface";
+import {
+  Tweet,
+  TwitterApiUserTweetResponse,
+} from "../lib/interfaces/Tweet.interface";
+import { RefreshIcon } from "@heroicons/react/outline";
 
-// The public id of @bananabrann Twitter.
-const bananabrannId = "360232134";
+// The public items for my Twitter.
+const twitterId = "360232134";
+const twitterUsername = "bananabrann";
 
 // Get the latest tweets from @bananabrann.
-async function getTweets(): Promise<Tweet[]> {
+async function getTweets(): Promise<TwitterApiUserTweetResponse> {
   try {
     const response: AxiosResponse = await axios({
-      url: `https://api.twitter.com/2/users/${bananabrannId}/tweets`,
+      url: `https://api.twitter.com/2/users/${twitterId}/tweets`,
+      params: {
+        max_results: 10,
+        exclude: "replies",
+      },
       headers: {
         Authorization: `Bearer ${process.env.TWITTER_BEARER_TOKEN}`,
       },
     });
 
     // NOTE - Notice that `data` is double nested. See
-    // lib/interfaces/TwitterApiUserTweetResponse for what response.data looks like.
-    return response.data.data;
+    // lib/interfaces/TwitterApiUserTweetResponse for what response.data looks
+    // like.
+    return response.data;
   } catch (error) {
     console.error(error);
     console.error("An error occurred. There is likely additional output above."); // prettier-ignore
-    return [] as Tweet[];
+
+    return {
+      data: [] as Tweet[],
+      meta: {
+        result_count: NaN,
+        newest_id: "",
+        oldest_id: "",
+        next_token: "",
+      },
+    };
   }
 }
 
@@ -49,7 +68,7 @@ export async function getStaticProps() {
   });
 
   // Get and parse Tweets.
-  let tweets: Tweet[] = await getTweets();
+  let tweets: TwitterApiUserTweetResponse = await getTweets();
 
   return {
     props: {
@@ -72,7 +91,7 @@ export default function Home({
   tweets,
 }: {
   posts: Post[];
-  tweets: Tweet[];
+  tweets: TwitterApiUserTweetResponse;
 }) {
   return (
     <Layout>
@@ -94,7 +113,51 @@ export default function Home({
         </div>
       </section>
 
-      <div className="w-full h-px bg-gray-200 rounded my-4"></div>
+      <div className="w-full h-px bg-gray-200 rounded my-10"></div>
+
+      <section>
+        <div className="text-center text-slate-900 mb-3">
+          <p className="text-lg">
+            Latest {tweets.meta.result_count} tweets from
+            <a
+              href="https://twitter.com/bananabrann"
+              className="hover:text-cyan-400 transition"
+            >
+              {" "}
+              me, @{twitterUsername}
+            </a>
+          </p>
+        </div>
+
+        <div className="flex flex-wrap">
+          {tweets.data.map((tweet: Tweet) => {
+            // Twitter prefaces the `text` with "RT" if the tweet is a retweet.
+            const isRetweet = tweet.text.slice(0, 2) === "RT";
+
+            return (
+              <a
+                href={`https://twitter.com/${twitterUsername}/status/${tweet.id}`}
+                target="_blank"
+                className={`border-2 m-1.5 p-2 rounded-md grow basis-5 text-sm transition hover:bg-gray-200  ${
+                  isRetweet ? "opacity-40 hover:opacity-100" : ""
+                }`}
+              >
+                {isRetweet && (
+                  <div className="w-3 inline-block mr-1">
+                    <RefreshIcon />
+                  </div>
+                )}
+
+                {tweet.text}
+              </a>
+            );
+          })}
+        </div>
+        <br />
+        <p className="text-center mx-auto text-sm text-gray-400 max-w-md">{`I'm neither a political activist nor an expert in culture. Tweets I share and/or quote is not an endorsement of others' Tweets, and do not represent my own opinion.`}</p>
+      </section>
+
+      <div className="w-full h-px bg-gray-200 rounded my-10"></div>
 
       <section className="flex flex-col">
         {posts.map(({ slug, frontmatter }) => {

@@ -9,7 +9,7 @@ export interface Tweet {
 export interface TwitterApiUserTweetResponse {
   data: Tweet[];
   meta: {
-    result_count: 10;
+    result_count: number;
     newest_id: string;
     oldest_id: string;
     next_token: string;
