@@ -6,7 +6,6 @@ export default function Works() {
   return (
     <Layout title={`bananabrann - works & projects`}>
       <UnderConstruction />
-      <Footer />
     </Layout>
   );
 }

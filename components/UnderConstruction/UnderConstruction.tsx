@@ -1,6 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
-import ArrowRight from "../../components/ArrowRight/ArrowRight";
 import BananamanEngineerPng from "../../res/png/bananaman-engineer.png";
 import { Fragment } from "react";
 
@@ -14,11 +12,6 @@ export default function UnderConstruction() {
         </h3>
         <p>
           {`You're in the right spot, but this page isn't ready yet. Check back in later, or bug me about it. `}
-
-          <span className="inline hover:text-pink-500 transition">
-            <Link href="/">Go home</Link>
-            <ArrowRight />
-          </span>
         </p>
       </div>
 
