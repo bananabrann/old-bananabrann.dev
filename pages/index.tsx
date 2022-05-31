@@ -72,18 +72,18 @@ export async function getStaticProps() {
   let tweets: TwitterApiUserTweetResponse = await getTweets();
 
   /**
-   * Next.js will attempt to re-generate the page when a request comes in, at
-   * most every 10 seconds.
+   * Next.js will attempt to re-generate the page automatically. However, note
+   * that it is not entirely reliable even though docs say it is.
    *
    * NOTE - Read more about incremental static regeneration at
-   * https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration
+   * https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration 
    */
   return {
     props: {
       posts,
       tweets,
     },
-    revalidate: 10,
+    revalidate: 60,
   };
 }
 
