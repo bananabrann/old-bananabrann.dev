@@ -1,4 +1,4 @@
-name: "Rebuild website daily"
+name: "Rebuild website"
 
 on:
   schedule:
@@ -9,7 +9,7 @@ jobs:
   deploy:
     runs-on: "ubuntu-latest"
     steps:
-    - name: "Call build web hook"
+    - name: "Call Vercel build webhook"
       uses: wei/curl@master
       with:
         args: ${{ secrets.VERCEL_DEPLOY_URL }}
