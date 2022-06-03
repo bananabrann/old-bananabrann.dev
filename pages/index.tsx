@@ -140,7 +140,7 @@ export default function Home({
         </div>
 
         <br />
-        <p className="text-center mx-auto text-sm text-gray-400 max-w-md">{`I'm neither a political activist nor an expert in culture. Tweets I share and/or quote is not an endorsement of others' Tweets, and never represents my own opinion.`}</p>
+        <p className="text-center mx-auto text-xs text-gray-400 max-w-lg">{`I am neither a political activist nor an expert in culture. Tweets I interact with is not an endorsement of the author, and I do not share any opinion(s) the author may make in other tweets or interactions.`}</p>
       </Fragment>
     );
   } else {

@@ -64,10 +64,9 @@ export default function Layout({
       <footer className="flex flex-col items-center text-center">
         <h4 className="font-bold">hi@bananabrann.dev</h4>
         <p className="text-sm">{`Microsoft-Certified Software Engineer`}</p>
-        <p className="text-sm">{`Fairfax, Virginia`}</p>
         <br />
         <FlagUnitedStatesSvg />
-        <div className="text-xs mx-auto mt-5 text-center">
+        <div className="text-xs mx-auto mt-6 text-center">
           <p>
             {`Website by `}
             <span className="hover:text-pink-400 transition">
