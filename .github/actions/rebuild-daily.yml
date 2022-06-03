@@ -1,0 +1,15 @@
+name: "Rebuild website daily"
+
+on:
+  schedule:
+  - cron: "0 4 * * *"
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: "ubuntu-latest"
+    steps:
+    - name: "Call build web hook"
+      uses: wei/curl@master
+      with:
+        args: ${{ secrets.VERCEL_DEPLOY_URL }}
