@@ -2,17 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "./globals.colors.scss";
-
-body {
-  background-color: $gainsborowhite;
-}
-
-/*
-  NOTE -- Breakpoints match Tailwind. For more information, see
-  https://tailwindcss.com/docs/responsive-design
-*/
-
 @layer base {
   @font-face {
     font-family: "Comic Code";
@@ -29,6 +18,13 @@ body {
     font-weight: 700;
     src: local("Comic Code"), url("/fonts/ComicCode-Bold.otf") format("ttf");
   }
+}
+
+@import "./globals.colors.scss";
+
+
+body {
+  background-color: $gainsborowhite;
 }
 
 input,
