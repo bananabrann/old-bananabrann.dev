@@ -207,7 +207,8 @@ export default function Home({
 
                   <div className="cursor-pointer text-slate-900">
                     <span className="flex flex-wrap gap-x-3 -gap-y-3 text-slate-900 text-sm">
-                      <p className="">{`${frontmatter.date} | `}</p>
+                      <p className="font-mono">{`${frontmatter.date} | `}</p>
+
                       {frontmatter.tags?.map((tag: string) => {
                         return (
                           <span
