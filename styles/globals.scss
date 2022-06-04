@@ -1,4 +1,8 @@
-@layer base {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// @layer base {
   @font-face {
     font-family: "Comic Code";
     font-weight: 400;
@@ -14,12 +18,10 @@
     font-weight: 700;
     src: local("Comic Code"), url("/fonts/ComicCode-Bold.otf") format("ttf");
   }
-}
+// }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 @import "./globals.colors.scss";
+
 
 body {
   background-color: $gainsborowhite;
