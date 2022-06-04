@@ -9,7 +9,7 @@ module.exports = {
         "[auto,auto,1fr]": "auto auto 1fr",
       },
       fontFamily: {
-        "mono": ["Comic Code", "consolas"]
+        "mono": ["Comic Code", "monospace"]
       }
     },
   },

@@ -76,7 +76,7 @@ export async function getStaticProps() {
    * that it is not entirely reliable even though docs say it is.
    *
    * NOTE - Read more about incremental static regeneration at
-   * https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration 
+   * https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration
    */
   return {
     props: {
@@ -206,13 +206,13 @@ export default function Home({
                   </div>
 
                   <div className="cursor-pointer text-slate-900">
-                    <span className="flex flex-wrap gap-x-3 -gap-y-3 text-slate-900 font-mono text-sm">
-                      <p className="font-mono">{`${frontmatter.date} | `}</p>
+                    <span className="flex flex-wrap gap-x-3 -gap-y-3 text-slate-900 text-sm">
+                      <p className="">{`${frontmatter.date} | `}</p>
                       {frontmatter.tags?.map((tag: string) => {
                         return (
                           <span
                             key={`${tag}-${getRandomSixDigitNumber()}`}
-                            className="font-bold"
+                            className="font-bold font-mono"
                           >{`#${tag}`}</span>
                         );
                       })}
