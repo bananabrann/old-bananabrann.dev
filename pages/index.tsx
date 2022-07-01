@@ -123,7 +123,7 @@ export default function Home({
                 target="_blank"
                 rel="noreferrer"
                 key={tweet.id}
-                className={`border-2 m-1.5 p-2 rounded-md grow basis-28 text-sm transition hover:bg-gray-200  ${
+                className={`border-2 m-1.5 p-2 rounded-md grow basis-40 text-sm transition hover:bg-gray-200  ${
                   isRetweet ? "opacity-40 hover:opacity-100" : ""
                 }`}
               >
