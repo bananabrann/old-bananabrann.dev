@@ -167,7 +167,7 @@ export default function Home({
         </div>
 
         <div>
-          <p className="text-xl">{`I'm a software engineer helping teams build and maintain tools that help people get stuff done.`}</p>
+          <p className="text-xl">{`hi, I'm a software engineer`}</p>
           <br />
           <p className="text-xl">{`Email me at `}</p>
           <h3 className="text-xl font-bold">hi@bananabrann.dev</h3>
