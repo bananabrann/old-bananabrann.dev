@@ -161,12 +161,12 @@ export default function Home({
 
   return (
     <Layout>
-      <section className="flex flex-col items-center max-w-2xl mx-auto lg:flex-row">
-        <div className="max-w-[250px]">
+      <section className="flex flex-col items-center lg:flex-row">
+        <div className="max-w-[250px] mx-auto">
           <BananamanStanding priority={true} />
         </div>
 
-        <div>
+        <div className="w-full">
           <p className="text-xl">{`hi, I'm a software engineer`}</p>
           <br />
           <p className="text-xl">{`Email me at `}</p>
