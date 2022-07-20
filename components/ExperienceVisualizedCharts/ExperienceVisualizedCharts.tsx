@@ -1,7 +1,3 @@
-import TechBarTimePng from "../../res/png/tech-bar-time.png";
-import TechBarLangsPng from "../../res/png/tech-bar-langs.png";
-import TechBarToolsPng from "../../res/png/tech-bar-tools.png";
-import Image from "next/image";
 import { Fragment, useState } from "react";
 import { PieChart } from "react-minimal-pie-chart";
 import { DataEntry } from "react-minimal-pie-chart/types/commonTypes";
