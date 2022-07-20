@@ -1,7 +1,7 @@
 {
   "name": "bananabrann.dev",
   "description": "Personal website of me, bananabrann.",
-  "version": "1.1.14",
+  "version": "1.1.15",
   "author": "bananabrann",
   "private": false,
   "scripts": {
@@ -25,6 +25,7 @@
     "next": "^12.0.8",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-minimal-pie-chart": "^8.3.0",
     "sharp": "^0.30.3"
   },
   "devDependencies": {
