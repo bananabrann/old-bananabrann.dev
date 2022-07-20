@@ -14,8 +14,6 @@ import BananaManRocket from "../res/png/bananaman-rocket.png";
 import SnippetXdPng from "../res/png/snippet-xd.png";
 import SnippetCodePng from "../res/png/snippet-code.png";
 import ExperienceVisualizedCharts from "../components/ExperienceVisualizedCharts/ExperienceVisualizedCharts";
-import ChartsHostingProviders from "../components/ChartsHostingProviders/ChartsHostingProviders";
-import ChartsCiCdProviders from "../components/ChartsCiCdProviders/ChartsCiCdProviders";
 
 // prettier-ignore
 const chartExperienceDisclaimerTextContent = "Note: Charts and graphs only provide a way to gauge my experience. These are rough estimates, and are not backed by data.";
