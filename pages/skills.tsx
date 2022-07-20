@@ -179,22 +179,22 @@ export default function Skills({ techList }: { techList: TechList }) {
                 <Link href="#">{`I. Quick Look`}</Link>
               </li>
               <li className="hover:text-pink-500 transition">
-                <Link href="#design">{`II. Design`}</Link>
+                <Link href="#experience-visualized">{`II. Experience visualized`}</Link>
+              </li>
+              <li className="hover:text-pink-500 transition">
+                <Link href="#design">{`III. Design`}</Link>
               </li>
               <li className="hover:text-pink-500 transition pl-8">
                 <Link href="#design-philosophy">{`a. My design philosophy`}</Link>
               </li>
               <li className="hover:text-pink-500 transition">
-                <Link href="#develop">{`III. Develop`}</Link>
-              </li>
-              <li className="hover:text-pink-500 transition pl-8">
-                <Link href="#experienced-visualized">{`a. Experience visualized`}</Link>
+                <Link href="#develop">{`IV. Develop`}</Link>
               </li>
               <li className="hover:text-pink-500 transition">
-                <Link href="#deploy">{`IV. Deploy`}</Link>
+                <Link href="#deploy">{`V. Deploy`}</Link>
               </li>
               <li className="hover:text-pink-500 transition">
-                <Link href="#list">{`V. Exhaustive list of skills`}</Link>
+                <Link href="#list">{`VI. Exhaustive list of skills`}</Link>
               </li>
             </ul>
           </div>
@@ -220,6 +220,19 @@ export default function Skills({ techList }: { techList: TechList }) {
         </section>
 
         <br />
+
+        <section id="experience-visualized" className="p-8">
+          <h2 className="mb-2">Experience Visualized</h2>
+
+          <div className="max-w-3xl mx-auto">
+            <p>
+              {`The ratio of my time across my career in various categories. `}
+              <i>{chartExperienceDisclaimerTextContent}</i>
+            </p>
+
+            <ExperienceVisualizedCharts />
+          </div>
+        </section>
 
         {/* SECTION -- Design */}
         <section id="design" className="mb-10">
@@ -353,19 +366,6 @@ export default function Skills({ techList }: { techList: TechList }) {
                   <Link href="/works">visit my works page.</Link>
                 </span>
               </p>
-            </div>
-          </div>
-
-          <div id="experienced-visualized" className="p-8">
-            <h3 className="text-center mb-2">Experience, visualized</h3>
-
-            <div className="max-w-3xl mx-auto">
-              <p>
-                {`The ratio of my time across my career in various categories. `}
-                <i>{chartExperienceDisclaimerTextContent}</i>
-              </p>
-
-              <ExperienceVisualizedCharts />
             </div>
           </div>
         </section>
