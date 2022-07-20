@@ -385,21 +385,6 @@ export default function Skills({ techList }: { techList: TechList }) {
             </div>
             <Image src={BananaManRocket} alt="" />
           </div>
-
-          <div className="flex flex-col md:flex-row justify-around items-center gap-8">
-            <ChartsHostingProviders />
-            <ChartsCiCdProviders />
-          </div>
-
-          <p className="text-center text-xs">
-            {`Pie charts by `}
-            <a
-              className="hover:text-pink-500 transition"
-              href="https://www.meta-chart.com/"
-            >
-              meta-chart.com
-            </a>
-          </p>
         </section>
 
         {/* SECTION -- Exhaustive skills list */}
