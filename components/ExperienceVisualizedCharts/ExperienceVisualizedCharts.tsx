@@ -119,7 +119,7 @@ export default function ExperienceVisualizedCharts() {
             )}
           />
         </Switch>
-        <Switch.Label as="span" className="ml-3">
+        <Switch.Label as="span" className="ml-3 hover:cursor-pointer">
           <span className="text-sm font-medium text-gray-900">
             {`Show only recent `}
           </span>
