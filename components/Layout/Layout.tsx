@@ -72,6 +72,7 @@ export default function Layout({
               <a
                 href="https://github.com/bananabrann/bananabrann.dev"
                 target="_blank"
+                rel="noreferrer"
               >{`Website by @bananabrann (me)`}</a>
             </span>
             {`. `}
@@ -79,6 +80,7 @@ export default function Layout({
               <a
                 href="https://github.com/bananabrann/bananabrann.dev/blob/main/LICENSE"
                 target="_blank"
+                rel="noreferrer"
               >{`MIT license`}</a>
             </span>
             {`, 2022.`}
@@ -121,7 +123,7 @@ export default function Layout({
 
         {/* Top bar nav for mobile */}
         <div className="sm:hidden absolute bg-yellow-300 w-full flex justify-between p-3">
-          <Link href="/">
+          <Link href="/" passHref>
             <span className="w-12">
               <HomeIcon />
             </span>
