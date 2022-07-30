@@ -68,13 +68,18 @@ export default function Layout({
         <FlagUnitedStatesSvg />
         <div className="text-xs mx-auto mt-6 text-center">
           <p>
-            {`Website by `}
             <span className="hover:text-pink-400 transition">
-              <Link href="https://github.com/bananabrann/">{`@bananabrann (me)`}</Link>
+              <a
+                href="https://github.com/bananabrann/bananabrann.dev"
+                target="_blank"
+              >{`Website by @bananabrann (me)`}</a>
             </span>
             {`. `}
             <span className="hover:text-pink-400 transition">
-              <Link href="https://github.com/bananabrann/bananabrann.dev/blob/main/LICENSE">{`MIT license`}</Link>
+              <a
+                href="https://github.com/bananabrann/bananabrann.dev/blob/main/LICENSE"
+                target="_blank"
+              >{`MIT license`}</a>
             </span>
             {`, 2022.`}
           </p>
