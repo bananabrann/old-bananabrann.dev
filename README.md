@@ -29,8 +29,8 @@ For more information, or detailed instructions, [follow the Next.js 'Getting Sta
 ### Deploy this website
 This project uses [Vercel](https://vercel.com/dashboard), a free (for personal use) hosting service for Next.js apps. CI handles automated deployments, with the 'main' branch for production and 'dev' for preview. To deploy, simply push code into those branches.
 
-## Periodically building
-This site triggers a production build daily in order to rebuild static content. Items are served this way instead of rendering per request to increase site performance and decrease compute time for both Vercel and Twitter's API (it's cheaper!).
+## Periodic building
+This repo uses GitHub Actions to call a webhook on Vercel to rebuild static content daily. Items are served this way instead of rendering per request to increase site performance and decrease compute time for both Vercel and Twitter's API, i.e., it's cheaper. 
 
 For this to work, the following needs to be true:
 - The Vercel webhook is configured correctly.
