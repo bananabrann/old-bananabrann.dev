@@ -110,6 +110,8 @@ export default function Home({
               me, @{twitterUsername}
             </a>
           </p>
+
+          <p className="text-sm">{`(refreshes daily at 12am, U.S. Eastern)`}</p>
         </div>
 
         <div className="flex flex-wrap">
