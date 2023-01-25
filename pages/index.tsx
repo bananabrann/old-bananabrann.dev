@@ -147,12 +147,12 @@ export default function Home({
     tweetsSection = (
       <div>
         <p className="text-center">
-          {`This is awkward. I wasn't able to fetch my latest Tweets.`}{" "}
+          {`Well, this is awkward... I wasn't able to fetch my latest Tweets.`}{" "}
           <a
             href="https://twitter.com/bananabrann"
             className="hover:text-cyan-500"
           >
-            {`Head over to my Twitter to see the latest activity.`}
+            {`Go to Twitter to see my latest activity.`}
           </a>
         </p>
       </div>

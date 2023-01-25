@@ -68,13 +68,20 @@ export default function Layout({
         <FlagUnitedStatesSvg />
         <div className="text-xs mx-auto mt-6 text-center">
           <p>
-            {`Website by `}
             <span className="hover:text-pink-400 transition">
-              <Link href="https://github.com/bananabrann/">{`@bananabrann (me)`}</Link>
+              <a
+                href="https://github.com/bananabrann/bananabrann.dev"
+                target="_blank"
+                rel="noreferrer"
+              >{`Website by @bananabrann (me)`}</a>
             </span>
             {`. `}
             <span className="hover:text-pink-400 transition">
-              <Link href="https://github.com/bananabrann/bananabrann.dev/blob/main/LICENSE">{`MIT license`}</Link>
+              <a
+                href="https://github.com/bananabrann/bananabrann.dev/blob/main/LICENSE"
+                target="_blank"
+                rel="noreferrer"
+              >{`MIT license`}</a>
             </span>
             {`, 2022.`}
           </p>
@@ -116,7 +123,7 @@ export default function Layout({
 
         {/* Top bar nav for mobile */}
         <div className="sm:hidden absolute bg-yellow-300 w-full flex justify-between p-3">
-          <Link href="/">
+          <Link href="/" passHref>
             <span className="w-12">
               <HomeIcon />
             </span>
