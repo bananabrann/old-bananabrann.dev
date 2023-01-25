@@ -77,6 +77,13 @@ h4 {
 
 p,
 a {
-  font-family: quasimoda, sans-serif;
-  font-style: normal;
+  font-family: monospace;
+  font-size: 1.025rem;
+    font-style: normal;
+}
+
+canvas#cube-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
