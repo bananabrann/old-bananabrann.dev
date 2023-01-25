@@ -97,7 +97,7 @@ export default function ThreeJSTest({
     tweetsSection = (
       <Fragment>
         <div className="text-center text-slate-900 mb-3">
-          <p className="text-lg">
+          <p>
             Latest {tweets.meta.result_count} things from
             <a
               href="https://twitter.com/bananabrann"
@@ -108,7 +108,7 @@ export default function ThreeJSTest({
             </a>
           </p>
 
-          <p className="text-sm">{`(refreshes daily at 12am, U.S. Eastern)`}</p>
+          {/* <p className="text-sm">{`(refreshes daily at 12am, U.S. Eastern)`}</p> */}
         </div>
 
         <div className="flex flex-wrap">
@@ -148,7 +148,7 @@ export default function ThreeJSTest({
         </div>
 
         <br />
-        <p className="text-center mx-auto text-xs text-gray-400 max-w-lg">{`I am neither a political activist nor an expert in culture. Tweets I interact with is not an endorsement of the author, and I do not share any opinion(s) the author may make in other tweets or interactions.`}</p>
+        <p className="text-center mx-auto text-sm text-gray-400 max-w-2xl font-sans">{`I am neither a political activist nor an expert in culture. Tweets I interact with is not an endorsement of the author, and I do not share any opinion(s) the author may make in other tweets or interactions.`}</p>
       </Fragment>
     );
   } else {
@@ -172,17 +172,24 @@ export default function ThreeJSTest({
       <div className="absolute pointer-events-none">
         <div className="md:mt-[10vh] pointer-events-none" />
 
-        <section className="max-w-2xl bg-black bg-opacity-70 m-4 p-5 ">
-          {/* <h1>hi@bananabrann.dev</h1> */}
+        <section className="max-w-xl bg-black bg-opacity-70 m-4 p-5 ">
           <p>I make web apps (mostly)</p>
           <br />
 
+          <p>I'm a software developer and prior U.S. Marine making enterprise websites and applications</p>
+          <br />
+
+
           <p>
-            email me at <b>hi@bananabrann.dev</b>
+            A lot of places on the internet come to this website --you may or may not know me. To reach me, email me at <b className="text-yellow-400">hi@bananabrann.dev</b>
           </p>
         </section>
 
-        <div className="mt-[55vh] pointer-events-none" />
+        <p className="p-2 ml-6 text-sm font-sans text-gray-500">I'm interactive! Click and hold, then drag</p>
+
+
+
+        <div className="mt-[35vh] pointer-events-none" />
 
         <div className="">
           <section className="bg-black bg-opacity-70 m-4 p-5 pointer-events-auto">

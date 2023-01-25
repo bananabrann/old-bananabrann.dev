@@ -21,8 +21,8 @@ export default function ThreeD() {
       1,
       1000
     );
-    camera.position.y = 150;
-    camera.position.z = 500;
+    camera.position.y = 100;
+    camera.position.z = 400;
 
     scene = new THREE.Scene();
     scene.background = new THREE.Color(0, 0, 0);
