@@ -177,8 +177,8 @@ export default function ThreeJSTest({
           <br />
 
           <p>
-            I'm a software developer and prior U.S. Marine making enterprise
-            websites and applications
+            {`I'm a software developer and prior U.S. Marine making enterprise
+            websites and applications`}
           </p>
           <br />
 
@@ -190,7 +190,7 @@ export default function ThreeJSTest({
         </section>
 
         <p className="p-2 ml-6 text-sm font-sans text-gray-500">
-          I'm interactive! Click and hold, then drag
+          {`I'm interactive! Click and hold, then drag`}
         </p>
 
         <div className="mt-[35vh] pointer-events-none" />
