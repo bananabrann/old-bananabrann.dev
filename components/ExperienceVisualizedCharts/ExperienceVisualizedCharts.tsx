@@ -16,21 +16,20 @@ const languagesDataCareer: DataEntry[] = [
   { title: "JavaScript", value: 40, color: "#E8D44C" },
   { title: "TypeScript", value: 25, color: "#0076C6" },
   { title: "CSS", value: 15, color: "#C76394" },
-  { title: "GDScript", value: 10, color: "#324e5e" },
+  { title: "SQL", value: 12, color: "#ed8709" },
   { title: "Python", value: 10, color: "#0c6091" },
-  { title: "SQL", value: 5, color: "#ed8709" },
   { title: "Bash", value: 5, color: "#71db6e" },
+  { title: "GDScript", value: 5, color: "#324e5e" },
   { title: "Java", value: 2, color: "#6e533c" },
   { title: "Others", value: 5, color: "#555555" },
 ];
 
 const languagesDataCurrently: DataEntry[] = [
-  { title: "JavaScript", value: 3, color: "#E8D44C" },
-  { title: "TypeScript", value: 3, color: "#0076C6" },
-  { title: "GDScript", value: 3, color: "#324e5e" },
+  { title: "JavaScript", value: 4, color: "#E8D44C" },
+  { title: "C#", value: 2, color: "#019404" },
+  { title: "TypeScript", value: 1, color: "#0076C6" },
   { title: "CSS", value: 1, color: "#C76394" },
-  { title: "Bash", value: 1, color: "#71db6e" },
-  { title: "Others", value: 1, color: "#555555" },
+  // { title: "Others", value: 1, color: "#555555" },
 ];
 
 const toolsDataCareer: DataEntry[] = [
@@ -44,8 +43,8 @@ const toolsDataCareer: DataEntry[] = [
 ];
 
 const toolsDataCurrently: DataEntry[] = [
-  { title: "Web development", value: 5, color: "#E8D44C" },
-  { title: "Power Apps", value: 3, color: "#8A2D84" },
+  { title: "Power Apps", value: 5, color: "#8A2D84" },
+  { title: "Web development", value: 3, color: "#E8D44C" },
   { title: "Game dev", value: 2, color: "#4488B9" },
 ];
 
@@ -59,20 +58,20 @@ const hostingCareer: DataEntry[] = [
 
 const hostingCurrently: DataEntry[] = [
   { title: "Azure Gov", value: 10, color: "#3688BF" },
-  { title: "Azure", value: 5, color: "#449ED0" },
-  { title: "Vercel", value: 5, color: "#000000" },
+  // { title: "Azure", value: 1, color: "#449ED0" },
+  { title: "Vercel", value: 2, color: "#000000" },
 ];
 
 const cicdCareer: DataEntry[] = [
   { title: "Azure DevOps", value: 7, color: "#449ED0" },
-  { title: "GitLab", value: 2, color: "#E24329" },
-  { title: "GitHub", value: 1, color: "#333333" },
+  { title: "GitHub", value: 2, color: "#333333" },
+  { title: "GitLab", value: 1, color: "#E24329" },
 ];
 
 const cicdCurrently: DataEntry[] = [
-  { title: "Azure DevOps", value: 5, color: "#449ED0" },
-  { title: "GitLab", value: 5, color: "#E24329" },
+  { title: "Azure DevOps", value: 14, color: "#449ED0" },
   { title: "GitHub", value: 1, color: "#333333" },
+  // { title: "GitLab", value: 1, color: "#E24329" },
 ];
 
 export default function ExperienceVisualizedCharts() {
