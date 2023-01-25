@@ -1,18 +1,12 @@
-import Layout from "../../components/Layout/Layout";
-
 import * as THREE from "three";
-
 import { AsciiEffect } from "three/addons/effects/AsciiEffect.js";
 import { TrackballControls } from "three/addons/controls/TrackballControls.js";
 import { useEffect } from "react";
 
 let camera, controls, scene, renderer, effect;
-
-let sphere, plane;
+let plane, cube;
 
 const start = Date.now();
-
-
 
 function init() {
   camera = new THREE.PerspectiveCamera(
@@ -35,16 +29,14 @@ function init() {
   pointLight2.position.set(-500, -500, -500);
   scene.add(pointLight2);
 
-  sphere = new THREE.Mesh(
-    new THREE.SphereGeometry(200, 20, 10),
+  cube = new THREE.Mesh(
+    new THREE.BoxGeometry(200, 200, 200),
     new THREE.MeshPhongMaterial({ flatShading: true })
   );
-  scene.add(sphere);
-
-  // Plane
+  scene.add(cube);
 
   plane = new THREE.Mesh(
-    new THREE.PlaneGeometry(400, 400),
+    new THREE.PlaneGeometry(300, 300),
     new THREE.MeshBasicMaterial({ color: 0xe0e0e0 })
   );
   plane.position.y = -200;
@@ -59,14 +51,9 @@ function init() {
   effect.domElement.style.color = "white";
   effect.domElement.style.backgroundColor = "black";
 
-  // Special case: append effect.domElement, instead of renderer.domElement.
-  // AsciiEffect creates a custom domElement (a div container) where the ASCII elements are placed.
-
   document.body.appendChild(effect.domElement);
 
   controls = new TrackballControls(camera, effect.domElement);
-
-  //
 
   window.addEventListener("resize", onWindowResize);
 }
@@ -79,8 +66,6 @@ function onWindowResize() {
   effect.setSize(window.innerWidth, window.innerHeight);
 }
 
-//
-
 function animate() {
   requestAnimationFrame(animate);
 
@@ -90,9 +75,9 @@ function animate() {
 function render() {
   const timer = Date.now() - start;
 
-  sphere.position.y = Math.abs(Math.sin(timer * 0.002)) * 150;
-  sphere.rotation.x = timer * 0.0003;
-  sphere.rotation.z = timer * 0.0002;
+  cube.position.y = Math.abs(Math.sin(timer * 0.0002)) * 250;
+  cube.rotation.x = timer * 0.0002;
+  cube.rotation.z = timer * 0.0003;
 
   controls.update();
 
@@ -100,15 +85,14 @@ function render() {
 }
 
 export default function ThreeJSTest() {
-  
   useEffect(() => {
     init();
     animate();
-    
-  }, [])
+  }, []);
 
-  return (<div>
-    <canvas id="bg"></canvas>
-
-  </div>);
+  return (
+    <div>
+      <canvas id="bg"></canvas>
+    </div>
+  );
 }
