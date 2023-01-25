@@ -10,11 +10,14 @@ import {
 } from "../lib/interfaces/Tweet.interface";
 import { RefreshIcon } from "@heroicons/react/solid";
 import { ArrowLeftIcon } from "@heroicons/react/solid";
+import { ChevronDoubleDownIcon } from "@heroicons/react/outline";
 import { Fragment } from "react";
+
 
 // The public items for my Twitter.
 const twitterId = "360232134";
 const twitterUsername = "bananabrann";
+
 
 // Get the latest tweets from @bananabrann.
 async function getTweets(): Promise<TwitterApiUserTweetResponse> {
@@ -48,6 +51,11 @@ async function getTweets(): Promise<TwitterApiUserTweetResponse> {
       },
     };
   }
+}
+
+// Scrolls viewport to the Tweets content
+function handleScrollToContent() {
+  document.getElementById("tweets")?.scrollIntoView();
 }
 
 export async function getStaticProps() {
@@ -84,7 +92,7 @@ export async function getStaticProps() {
   };
 }
 
-export default function ThreeJSTest({
+export default function Home({
   posts,
   tweets,
 }: {
@@ -123,9 +131,8 @@ export default function ThreeJSTest({
                 target="_blank"
                 rel="noreferrer"
                 key={tweet.id}
-                className={`border-2 border-gray-500 m-1.5 p-2 rounded-md grow basis-44 text-sm transition hover:bg-gray-900 ${
-                  isRetweet ? "border-l-green-600" : ""
-                }
+                className={`border-2 border-gray-500 m-1.5 p-2 rounded-md grow basis-44 text-sm transition hover:bg-gray-900 ${isRetweet ? "border-l-green-600" : ""
+                  }
                 ${isReply ? "border-l-blue-600" : ""}
                 `}
               >
@@ -158,7 +165,7 @@ export default function ThreeJSTest({
           {`Well, this is awkward... I wasn't able to fetch my latest Tweets.`}{" "}
           <a
             href="https://twitter.com/bananabrann"
-            className="hover:text-cyan-500"
+            className="text-yellow-400"
           >
             {`Go to Twitter to see my latest activity.`}
           </a>
@@ -193,10 +200,20 @@ export default function ThreeJSTest({
           {`I'm interactive! Click and hold, then drag`}
         </p>
 
-        <div className="mt-[35vh] pointer-events-none" />
+        <div className="mt-[25vh] pointer-events-none" />
 
-        <div className="">
-          <section className="bg-black bg-opacity-70 m-4 p-5 pointer-events-auto">
+        <div className="pointer-events-auto" >
+          <div
+            className="text-white w-20 bg-black bg-opacity-70 p-2 rounded-full ml-10 cursor-pointer hover:text-yellow-500"
+            onClick={() => handleScrollToContent()}
+          >
+            <ChevronDoubleDownIcon />
+          </div>
+
+          <section
+            className="bg-black bg-opacity-70 m-4 p-5 pointer-events-auto"
+            id="tweets"
+          >
             {tweetsSection}
           </section>
 
