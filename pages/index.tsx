@@ -9,7 +9,10 @@ import {
   TwitterApiUserTweetResponse,
 } from "../lib/interfaces/Tweet.interface";
 import { RefreshIcon } from "@heroicons/react/solid";
+<<<<<<< HEAD
 import { ArrowLeftIcon } from "@heroicons/react/solid";
+=======
+>>>>>>> dev
 import { Fragment } from "react";
 
 // The public items for my Twitter.
