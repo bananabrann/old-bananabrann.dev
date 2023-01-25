@@ -1,18 +1,15 @@
-import BananamanStanding from "../components/BananamanStanding/BananamanStanding";
-import Layout from "../components/Layout/Layout";
-import DiscordBlackSvg from "../res/svg/discord-tiny-black.svg";
-import Image from "next/image";
+import Footer from "../components/Footer/Footer";
+import ThreeD from "../components/ThreeD/ThreeD";
 import fs from "fs";
 import matter from "gray-matter";
 import { Post } from "../lib/interfaces/Post.interface";
-import Link from "next/link";
-import { getRandomSixDigitNumber } from "../lib/utils";
 import axios, { AxiosResponse } from "axios";
 import {
   Tweet,
   TwitterApiUserTweetResponse,
 } from "../lib/interfaces/Tweet.interface";
 import { RefreshIcon } from "@heroicons/react/solid";
+import { ArrowLeftIcon } from "@heroicons/react/solid";
 import { Fragment } from "react";
 
 // The public items for my Twitter.
@@ -26,7 +23,7 @@ async function getTweets(): Promise<TwitterApiUserTweetResponse> {
       url: `https://api.twitter.com/2/users/${twitterId}/tweets`,
       params: {
         max_results: 10,
-        exclude: "replies",
+        // exclude: "replies",
       },
       headers: {
         Authorization: `Bearer ${process.env.TWITTER_BEARER_TOKEN}`,
@@ -87,7 +84,7 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({
+export default function ThreeJSTest({
   posts,
   tweets,
 }: {
@@ -100,8 +97,8 @@ export default function Home({
     tweetsSection = (
       <Fragment>
         <div className="text-center text-slate-900 mb-3">
-          <p className="text-lg">
-            Latest {tweets.meta.result_count} tweets from
+          <p>
+            Latest {tweets.meta.result_count} things from
             <a
               href="https://twitter.com/bananabrann"
               className="hover:text-cyan-400 transition"
@@ -111,13 +108,14 @@ export default function Home({
             </a>
           </p>
 
-          <p className="text-sm">{`(refreshes daily at 12am, U.S. Eastern)`}</p>
+          {/* <p className="text-sm">{`(refreshes daily at 12am, U.S. Eastern)`}</p> */}
         </div>
 
         <div className="flex flex-wrap">
           {tweets.data.map((tweet: Tweet) => {
             // Twitter prefaces the `text` with "RT" if the tweet is a retweet.
             const isRetweet = tweet.text.slice(0, 2) === "RT";
+            const isReply = tweet.text.slice(0, 1) === "@";
 
             return (
               <a
@@ -125,13 +123,21 @@ export default function Home({
                 target="_blank"
                 rel="noreferrer"
                 key={tweet.id}
-                className={`border-2 m-1.5 p-2 rounded-md grow basis-44 text-sm transition hover:bg-gray-200 ${
+                className={`border-2 border-gray-500 m-1.5 p-2 rounded-md grow basis-44 text-sm transition hover:bg-gray-900 ${
                   isRetweet ? "border-l-green-600" : ""
-                }`}
+                }
+                ${isReply ? "border-l-blue-600" : ""}
+                `}
               >
                 {isRetweet && (
                   <div className="w-3 inline-block mr-1 text-green-600">
                     <RefreshIcon />
+                  </div>
+                )}
+
+                {isReply && (
+                  <div className="w-3 inline-block mr-1 text-blue-600">
+                    <ArrowLeftIcon />
                   </div>
                 )}
 
@@ -142,7 +148,7 @@ export default function Home({
         </div>
 
         <br />
-        <p className="text-center mx-auto text-xs text-gray-400 max-w-lg">{`I am neither a political activist nor an expert in culture. Tweets I interact with is not an endorsement of the author, and I do not share any opinion(s) the author may make in other tweets or interactions.`}</p>
+        <p className="text-center mx-auto text-sm text-gray-400 max-w-2xl font-sans">{`I am neither a political activist nor an expert in culture. Tweets I interact with is not an endorsement of the author, and I do not share any opinion(s) the author may make in other tweets or interactions.`}</p>
       </Fragment>
     );
   } else {
@@ -162,73 +168,45 @@ export default function Home({
   }
 
   return (
-    <Layout>
-      <section className="flex flex-col items-center lg:flex-row">
-        <div className="max-w-[250px] mx-auto">
-          <BananamanStanding priority={true} />
-        </div>
+    <div>
+      <div className="absolute pointer-events-none">
+        <div className="md:mt-[10vh] pointer-events-none" />
 
-        <div className="w-full">
-          <p className="text-xl">{`Hi, I make web apps (mostly)`}</p>
+        <section className="max-w-xl bg-black bg-opacity-70 m-4 p-5 ">
+          <p>I make web apps (mostly)</p>
           <br />
-          <p className="text-xl">{`Email me at `}</p>
-          <h3 className="text-xl font-bold">hi@bananabrann.dev</h3>
-          <div className="flex gap-1 items-center">
-            <span>{`or message `}</span>
-            <DiscordBlackSvg />
-            <span>{`bananabrann#0001`}</span>
-          </div>
+
+          <p>
+            {`I'm a software developer and prior U.S. Marine making enterprise
+            websites and applications`}
+          </p>
+          <br />
+
+          <p>
+            A lot of places on the internet come to this website --you may or
+            may not know me. To reach me, email me at{" "}
+            <b className="text-yellow-400">hi@bananabrann.dev</b>
+          </p>
+        </section>
+
+        <p className="p-2 ml-6 text-sm font-sans text-gray-500">
+          {`I'm interactive! Click and hold, then drag`}
+        </p>
+
+        <div className="mt-[35vh] pointer-events-none" />
+
+        <div className="">
+          <section className="bg-black bg-opacity-70 m-4 p-5 pointer-events-auto">
+            {tweetsSection}
+          </section>
+
+          <footer className="bottom-0 text-stone-200">
+            <Footer />
+          </footer>
         </div>
-      </section>
+      </div>
 
-      <div className="w-full h-px bg-gray-200 rounded my-10"></div>
-
-      <section>{tweetsSection}</section>
-
-      <div className="w-full h-px bg-gray-200 rounded my-10"></div>
-
-      <section className="flex flex-col">
-        {posts.map(({ slug, frontmatter }) => {
-          return (
-            <div
-              key={slug}
-              className="hover:bg-gray-200 transition hover:text-slate-700 rounded-lg p-4"
-            >
-              <Link href={`/posts/${slug}`}>
-                <a className="flex gap-4 items-center">
-                  <div className="w-[80px] hidden md:block">
-                    <Image
-                      alt={frontmatter.title}
-                      src={`/${frontmatter.socialImage}`}
-                      layout="fixed"
-                      height="80"
-                      width="80"
-                      quality={0}
-                    />
-                  </div>
-
-                  <div className="cursor-pointer text-slate-900">
-                    <span className="flex flex-wrap gap-x-3 -gap-y-3 text-slate-900 text-sm">
-                      <p className="font-mono">{`${frontmatter.date} | `}</p>
-
-                      {frontmatter.tags?.map((tag: string) => {
-                        return (
-                          <span
-                            key={`${tag}-${getRandomSixDigitNumber()}`}
-                            className="font-bold font-mono"
-                          >{`#${tag}`}</span>
-                        );
-                      })}
-                    </span>
-                    <h3 className="py-2">{frontmatter.metaTitle}</h3>
-                    <p>{frontmatter.metaDesc}</p>
-                  </div>
-                </a>
-              </Link>
-            </div>
-          );
-        })}
-      </section>
-    </Layout>
+      <ThreeD />
+    </div>
   );
 }
