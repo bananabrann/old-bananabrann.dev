@@ -2,6 +2,16 @@
 
 $trans-speed: 350ms;
 
+@mixin standard-text() {
+  * {
+    color: $gainsborowhite;
+  };
+  color: $gainsborowhite;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 1.015rem;
+  font-style: normal;
+}
+
 @mixin shadow() {
   -webkit-box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.4);
   box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.4);

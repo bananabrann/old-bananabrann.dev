@@ -8,11 +8,13 @@
     font-weight: 400;
     src: local("Comic Code"), url("/fonts/ComicCode-Regular.otf") format("ttf");
   }
+
   @font-face {
     font-family: "Comic Code";
     font-weight: 500;
     src: local("Comic Code"), url("/fonts/ComicCode-Medium.otf") format("ttf");
   }
+
   @font-face {
     font-family: "Comic Code";
     font-weight: 700;
@@ -21,10 +23,11 @@
 }
 
 @import "./globals.colors.scss";
-
+@import "./globals.mixins.scss";
 
 body {
-  background-color: $gainsborowhite;
+  background-color: black;
+  overflow-x: hidden;
 }
 
 input,
@@ -38,14 +41,18 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  // font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: sans-serif;
   font-style: normal;
   line-height: 1;
+  font-weight: 700;
+
+  color: $gainsborowhite;
 }
 
 h1 {
   font-size: 3.5rem;
-  font-weight: 700;
+
   @media (max-width: 640px) {
     font-size: 3.15rem;
   }
@@ -53,7 +60,7 @@ h1 {
 
 h2 {
   font-size: 2.85rem;
-  font-weight: 700;
+
   @media (max-width: 640px) {
     font-size: 2.15rem;
   }
@@ -61,7 +68,7 @@ h2 {
 
 h3 {
   font-size: 1.85rem;
-  font-weight: 400;
+
   @media (max-width: 640px) {
     font-size: 1.45rem;
   }
@@ -70,13 +77,22 @@ h3 {
 h4 {
   font-size: 1.333rem;
   padding-bottom: 0.666rem;
+
   @media (max-width: 640px) {
     font-size: 1.15rem;
   }
 }
 
 p,
-a {
-  font-family: quasimoda, sans-serif;
-  font-style: normal;
+a,
+ul {
+  @include standard-text();
+}
+
+canvas#cube-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: auto;
+  overflow: hidden;
 }
