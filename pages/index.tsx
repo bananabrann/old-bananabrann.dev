@@ -12,6 +12,7 @@ import { RefreshIcon } from "@heroicons/react/solid";
 import { ArrowLeftIcon } from "@heroicons/react/solid";
 import { ChevronDoubleDownIcon } from "@heroicons/react/outline";
 import { Fragment } from "react";
+import Link from "next/link";
 
 
 // The public items for my Twitter.
@@ -190,8 +191,7 @@ export default function Home({
           <br />
 
           <p>
-            A lot of places on the internet come to this website --you may or
-            may not know me. To reach me, email me at{" "}
+            To reach me, email me at{" "}
             <b className="text-yellow-400">hi@bananabrann.dev</b>
           </p>
         </section>
@@ -215,6 +215,21 @@ export default function Home({
             id="tweets"
           >
             {tweetsSection}
+            
+            {/* 
+            {posts.map(({ slug, frontmatter }) => {
+              return (
+                <div key={slug}>
+                  <Link href={`/posts/${slug}`}>
+
+                  <h3 className="cursor-pointer">{frontmatter.metaTitle}</h3>
+                  </Link>
+                  <p>{frontmatter.date}</p>
+                  <p>{frontmatter.metaDesc}</p>
+                </div>
+              )
+            })}
+            */}
           </section>
 
           <footer className="bottom-0 text-stone-200">
