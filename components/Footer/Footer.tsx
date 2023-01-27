@@ -8,7 +8,7 @@ export default function Footer() {
         <FlagUnitedStatesSvg />
       </span> */}
 
-      <p className="text-sm font-sans">Site 3.0.0 | Golem 1.0.1 | GTV 1.0.24</p>
+      <p className="text-sm font-sans">Site 2.0.0 | Golem 1.0.1 | GTV 1.0.24</p>
 
       {/*
       <p className="text-sm mx-auto mt-5 text-center">
