@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://bananabrann.dev/">
-    <img alt="bananabrann.dev logo" src="https://bananabrann.blob.core.windows.net/github/bananabrann-text.png" width="546">
+    <img alt="bananabrann.dev logo" src="https://bananabrann.blob.core.windows.net/public/bananabrann-text.png" width="546">
   </a>
 </p>
 
